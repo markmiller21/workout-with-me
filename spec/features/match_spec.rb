@@ -26,7 +26,7 @@ it 'page redirects to correct page when clicking See more link' do
   log_me_in
   @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
   click_link "See more"
-  expect(page).to have_content "Potential match is jenny"
+  expect(page).to have_content "This is the jenny profile page"
 end
 
 end
