@@ -10,7 +10,7 @@ describe 'possible match' do
 
 
   it 'page contains potential user on the page' do
-    visit new_match
+    visit new_match_path
     potential_match = create(:user)
     expect(page).to have_content potential_match.name
   end
