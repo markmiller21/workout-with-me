@@ -4,6 +4,7 @@ describe 'possible match' do
 
   let(:log_me_in){
     @logged_in_user = User.create(name:"raj",password_digest:"raj",age:22,gender:"Male",description:"yolo",email:"raj@raj.com")
+    puts @logged_in_user.inspect
   # user = create(:user)
   visit root_path
   click_link "Login Here"
@@ -19,7 +20,7 @@ end
 
 it 'page contains a see more button ' do
   log_me_in
-  visit match_path(@potential_user)
+  puts @logged_in_user
   expect(page).to have_content "See more"
 end
 
