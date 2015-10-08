@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20151008183208) do
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer  "initiator_id",                 null: false
-    t.integer  "responder_id",                 null: false
-    t.boolean  "accepted",     default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "initiator_id",             null: false
+    t.integer  "responder_id",             null: false
+    t.integer  "accepted",     default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "ratings", force: :cascade do |t|
