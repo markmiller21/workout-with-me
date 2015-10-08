@@ -1,15 +1,20 @@
 require 'rails_helper'
 
-# let(:log_me)
-
 describe 'possible match' do
 
+  let(:log_me_in){
+  user = create(:user)
+  visit login_path
+  click_link "Login Here"
+}
 
 
-# it 'page contains another user on the page' do
-# logged_in_user = create(:user)
+  it 'page contains potential user on the page' do
+    visit new_match
+    potential_match = create(:user)
+    expect(page).to have_content potential_match.name
+  end
 
-
-# end
 
 end
+
