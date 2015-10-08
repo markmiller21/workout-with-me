@@ -1,8 +1,13 @@
 <h3>Select Your Activities</h3>
 
-<% @activities.each do |activity| %>
-  <div class="activity_container">
-    <h3><%= activity.name %></h3>
-    <img src="<%= activity.image %>"/>
-  </div>
-<% end %>
+  <% @activities.each do |activity| %>
+
+    <div class="activity_container">
+      <img src="<%= activity.image %>"/>
+      <%= activity.name %>
+      <input type="checkbox" name="<%= activity.name %>">
+    </div>
+
+    <div class="spacer"></div>
+
+  <% end %>
