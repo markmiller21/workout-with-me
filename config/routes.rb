@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   resources :matches
 
-  get 'possible_matches/:id' => 'possible_matches#show'
+  resources :matches
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'

@@ -5,6 +5,6 @@ class SessionsController < ApplicationController
   def new
   	#this is temporary for testing purposes
   	session[:user_id] = 1
-  	redirect_to 
+  	redirect_to new_match_path
   end
 end

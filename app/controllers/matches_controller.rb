@@ -1,4 +1,4 @@
 class MatchesController < ApplicationController
-	def show
+	def new
 	end
 end
