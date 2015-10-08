@@ -3,7 +3,7 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
     	t.references :initiator, null: false
     	t.references :responder, null: false
-    	t.boolean :accepted, default: false
+    	t.integer :accepted, default: 0
 
     	t.timestamps null: false
     end
