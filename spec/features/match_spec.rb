@@ -26,7 +26,14 @@ it 'page redirects to correct page when clicking See more link' do
   log_me_in
   click_link "See more"
   expect(page).to have_content "Profile page"
-  #Can't test specific user yet, due to algorithm not being created
+  #Can't test going to a specific user yet, due to algorithm not being created
+end
+
+it 'page redirects to the next user if liked clicked' do
+  log_me_in
+  @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
+  click_link "Like"
+  expect(page).to_not have_content @potential_user.name
 end
 
 end
