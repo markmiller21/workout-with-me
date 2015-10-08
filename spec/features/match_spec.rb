@@ -32,7 +32,8 @@ end
 it 'page redirects to the next user if liked clicked' do
   log_me_in
   @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
-  click_link "Like"
+  visit match_path(@potential_user)
+  click_link "LIKE"
   expect(page).to_not have_content @potential_user.name
 end
 

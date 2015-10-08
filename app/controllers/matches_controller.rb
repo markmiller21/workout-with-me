@@ -4,4 +4,8 @@ class MatchesController < ApplicationController
     @potential_match = User.find_by(id: params[:id])
 	end
 
+  def create
+
+  end
+
 end
