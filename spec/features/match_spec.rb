@@ -17,6 +17,12 @@ it 'page contains potential user on the page' do
   expect(page).to have_content @potential_user.name
 end
 
+it 'page contains a see more button ' do
+  log_me_in
+  visit new_match_path
+  expect(page).to have_content "See more"
+end
+
 
 end
 

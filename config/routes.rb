@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :matches
   resources :activities
+  resources :users
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'

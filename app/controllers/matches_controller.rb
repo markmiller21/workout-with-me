@@ -1,4 +1,7 @@
 class MatchesController < ApplicationController
-	def new
-	end
+
+	# def new
+ #    @potential_match =
+	# end
+
 end
