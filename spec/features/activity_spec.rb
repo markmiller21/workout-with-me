@@ -22,7 +22,8 @@ RSpec.feature "Activities Page", :type => :feature do
   scenario "should show images associated with activities" do
     create_activity
     visit activities_path
-    expect(page). to have_selector("img[src$='#{activity_attr[:image]}']")
+    expect(page).to have_text(activity_attr[:name])
+    expect(page).to have_selector("img[src$='#{activity_attr[:image]}']")
   end
 
 end
