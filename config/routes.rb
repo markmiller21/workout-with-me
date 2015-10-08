@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   root 'sessions#index'
-  
-  resources :matches
 
   resources :matches
 
