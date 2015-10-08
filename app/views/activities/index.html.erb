@@ -1,5 +1,8 @@
 <h3>Select Your Activities</h3>
 
-<div class="activity_container">
-  <img src=""/>
-</div>
+<%= @activities.each do |activity| %>
+  <div class="activity_container">
+    <h3><%= activity.name %></h3>
+    <img src="<%= activity.image %> "/>
+  </div>
+<% end %>
