@@ -13,15 +13,20 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
     end
-    next_potenital_match = Match.all.where(accepted: 0, responder_id: ).sample.responder_id
+    num_of_activities_in_common = 0
+    Users.all.each  do |potential_match|
+      current_user.activities.each do |curr_user_activity|
+      potential_match.activities.each do |pot_user_activity|
+        if pot_user_activity.name == curr_user_activity.name
+          num_of_activities_in_common += 1
+        end
+
+
+    end
     redirect_to match_path(next_potenital_match)
   end
-
 end
 
-#1. A user needs to find people he hasn't matched with it.
-#2. So needs to find the 0.
-#3. If the user gets a potential_match that he had a match with already
-#4. Need to skip that user or reassign the potenital_match again
-#5. Repeat process
-#6.
+#1. Find next potential_match
+#2. Need to find users with same amount of sport similarties
+#3. Need to first
