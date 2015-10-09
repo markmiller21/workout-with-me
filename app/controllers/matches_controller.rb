@@ -25,13 +25,9 @@ class MatchesController < ApplicationController
     end
     hash = Hash.new(0)
     potential_users.each{|key| hash[key] += 1}
-    hash.sort_by {|key, value| value}
-
-
-    redirect_to match_path(potential_match)
+    hash.max_by {|key, value| value}
+    redirect_to match_path(hash.first)
+    hash.delete(hash.first)
   end
 end
 
-#1. Find next potential_match
-#2. Need to find users with same amount of sport similarties
-#3. Need to first
