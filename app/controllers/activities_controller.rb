@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    activity = current_user.activities.create
+    activity = User.find(1).activities.create(name: params[:activity][:name])
   end
 
 end

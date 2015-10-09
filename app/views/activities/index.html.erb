@@ -1,9 +1,11 @@
 <h3>Select Your Activities</h3>
 
 <%= form_for :activity do |f| %>
+  <%= f.hidden_field :user_id, :value => 1 %>
   <% @activities.each do |activity| %>
 
     <div class="activity_container">
+
       <img src="<%= activity.image %>"/>
       <%= activity.name %>
       <%= f.check_box activity.name %>
