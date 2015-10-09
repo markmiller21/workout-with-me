@@ -4,4 +4,12 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
+
 end
