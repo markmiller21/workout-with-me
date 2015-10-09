@@ -18,7 +18,7 @@ class MatchesController < ApplicationController
       current_user.activities.each do |curr_user_activity|
         potential_match.activities.each do |pot_user_activity|
           if pot_user_activity.name == curr_user_activity.name
-            potential_users.push(potential_match)
+            potential_users.push(potential_match).uniq!
             binding.pry
 
           end
