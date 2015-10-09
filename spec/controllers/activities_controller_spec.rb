@@ -1,9 +1,13 @@
 require "rails_helper"
+# change User.all.sample to filtered users
 
 RSpec.describe ActivitiesController do
   let(:log_me_in) {
-    user = User.create(name: "Jenny", email: "jenny@example.com", password_digest: "jenny", age: 25, gender: "Female", description: "I'm confused")
+    #change log_me_in when mark finishes user auth
+    @user = User.create(name: "Jenny", email: "jenny@example.com", password_digest: "jenny", age: 25, gender: "Female", description: "I'm confused")
   }
+  let(:activity_attr) { attributes_for(:activity) }
+  let(:create_activity) { @user.activities.create(name: activity_attr[:name], image: activity_attr[:image])}
 
   before :each do
     log_me_in
@@ -29,6 +33,13 @@ RSpec.describe ActivitiesController do
         expect(flash[:error]).to have_content("Must choose at least 1 activity")
       end
     end
+
+    # context "with valid attributes" do
+    #   it "should redirect to potential matches page" do
+    #     post :create, activity: {name: "tennis"}
+    #     expect(response).to redirect_to(match_path(User.all.sample.id))
+    #   end
+    # end
 
   end
 
