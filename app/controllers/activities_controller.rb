@@ -1,14 +1,18 @@
 class ActivitiesController < ApplicationController
 
   def index
-    @activities = Activity.all
-  end
-
-  def new
+    @activities = Activity.new
   end
 
   def create
-    activity = User.find(1).activities.create(name: params[:activity][:name])
+    user = User.find_by(id: 1) # should be current user
+    user.activities.create(name: params[:activities][:name])
+  end
+
+  private
+
+  def params_activity
+    params.require(:activity).permit(:name)
   end
 
 end

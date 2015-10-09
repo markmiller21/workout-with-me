@@ -1,18 +1,44 @@
 <h3>Select Your Activities</h3>
 
-<%= form_for :activity do |f| %>
-  <%= f.hidden_field :user_id, :value => 1 %>
-  <% @activities.each do |activity| %>
 
-    <div class="activity_container">
+<%= form_for @activities do |f| %>
 
-      <img src="<%= activity.image %>"/>
-      <%= activity.name %>
-      <%= f.check_box activity.name %>
-    </div>
+  <div class="activity_container">
+    <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
     <div class="spacer"></div>
-  <% end %>
+    <%= f.check_box :Lifting %>Lifting
+  </div>
 
-  <%= f.submit "Submit Activities" %>
+  <div class="activity_container">
+    <img src="http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg"/>
+    <div class="spacer"></div>
+    <%= f.check_box :Tennis %>Tennis
+  </div>
+
+  <div class="activity_container">
+    <img src="http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg"/>
+    <div class="spacer"></div>
+    <%= f.check_box :Basketball %>Basketball
+  </div>
+
+  <div class="activity_container">
+    <img src="http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg"/>
+    <div class="spacer"></div>
+    <%= f.check_box :Spin %>Spin
+  </div>
+
+  <div class="activity_container">
+    <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
+    <div class="spacer"></div>
+    <%= f.check_box :Soccer %>Soccer
+  </div>
+
+  <%= f.submit %>
 
 <% end %>
+
+
+
+
+
+
