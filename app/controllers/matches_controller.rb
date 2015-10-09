@@ -19,6 +19,8 @@ class MatchesController < ApplicationController
         potential_match.activities.each do |pot_user_activity|
           if pot_user_activity.name == curr_user_activity.name
             potential_users.push(potential_match)
+            binding.pry
+
           end
         end
       end
