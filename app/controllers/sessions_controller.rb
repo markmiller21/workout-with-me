@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: session_params[:username])
+    user = User.find_by(email: session_params[:email])
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
       flash[:message] = "You've succesfully logged in"
@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
   private
   
   def session_params
-    params.require(:session).permit(:username, :password)
+    params.require(:session).permit(:email, :password)
   end
 end
