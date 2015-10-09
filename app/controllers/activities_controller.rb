@@ -7,10 +7,15 @@ class ActivitiesController < ApplicationController
   def create
     user = User.find_by(id: 1) # should be current user
     chosen_activities = params[:name]
-    chosen_activities.each do |activity|
-      user.activities.find_or_create_by(name: activity)
+    if chosen_activities
+      chosen_activities.each do |activity|
+        user.activities.find_or_create_by(name: activity)
+      end
+      redirect_to match_path(User.all.sample.id)
+    else
+      flash[:error] = "Must choose at least 1 activity"
+      redirect_to activities_path
     end
-    redirect_to match_path(User.all.sample.id)
   end
 
   private
