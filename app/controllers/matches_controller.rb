@@ -9,14 +9,9 @@ class MatchesController < ApplicationController
     match = Match.build(responder_id: params[:match][:responder_id],initiator_id: current_user)
     if Match.where(responder_id: current_user, initiator_id:params[:match][:responder_id])
       flash[:match] = "You have been matched!"
-      redirect match_show(User.all.sample.id)
       match.update(accepted: 1)
-    end
-
-
+    else
       match = Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user)
-
-
     end
-
+          redirect match_show(User.all.sample.id)
   end
