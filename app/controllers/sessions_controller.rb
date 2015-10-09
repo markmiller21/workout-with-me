@@ -3,12 +3,24 @@ class SessionsController < ApplicationController
   end
 
   def new
-  	#this is temporary for testing purposes
-  	session[:user_id] = 1
-  	redirect_to match_path(User.all.sample.id)
-    #Redirection needs to change to different user based off algorthim
+    @user = User.new
   end
 
   def create
+    user = User.find_by(email: session_params[:email])
+    if user.try(:authenticate, session_params[:password])
+      session[:user_id] = user.id
+      flash[:message] = "You've succesfully logged in"
+      redirect_to activities_path
+    else
+      flash[:error] = "Invalid field, try logging in again"
+      redirect_to login_path
+    end
 	end
+
+  private
+  
+  def session_params
+    params.require(:session).permit(:email, :password)
+  end
 end
