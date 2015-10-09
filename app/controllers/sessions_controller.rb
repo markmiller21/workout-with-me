@@ -7,6 +7,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: session_)
+    user = User.find_by(username: session_params[:username])
 	end
+
+  private
+  
+  def session_params
+    params.require(:session).permit(:username, :password)
+  end
 end
