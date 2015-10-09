@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-	  auth_hash = request.env['omniauth.auth']
+	  auth_hash = request.env['omniauth.auth'].extra.raw_info
     @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
     binding.pry
     if @authorization
