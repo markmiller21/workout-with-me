@@ -3,12 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def new
-  	#this is temporary for testing purposes
-  	session[:user_id] = 1
-  	redirect_to match_path(User.all.sample.id)
-    #Redirection needs to change to different user based off algorthim
+    @user = User.new
   end
 
   def create
+    user = User.find_by(username: session_)
 	end
 end
