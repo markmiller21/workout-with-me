@@ -15,4 +15,10 @@ class MatchesController < ApplicationController
     end
           redirect_to match_path(User.all.sample.id)
   end
+
+
 end
+
+#1. Instaniate a new  match
+#2. Find a potential match
+#3. If
