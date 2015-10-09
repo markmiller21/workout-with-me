@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: 1) # should be current user
+    user = User.find_by(id: current_user.id) # should be current user
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
