@@ -6,14 +6,14 @@ class MatchesController < ApplicationController
   end
 
   def create
-    existing_match = Match.find_by(responder_id: 2, initiator_id:params[:match][:responder_id])
+    existing_match = Match.find_by(responder_id: current_user.id, initiator_id:params[:match][:responder_id])
     if existing_match
       flash[:match] = "You have been matched!"
       existing_match.update_attributes(accepted: 1)
     else
-      Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
+      Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user.id)
     end
-    potenital_users = []
+    potential_users = []
     User.all.each  do |potential_match|
       current_user.activities.each do |curr_user_activity|
         potential_match.activities.each do |pot_user_activity|
@@ -26,7 +26,7 @@ class MatchesController < ApplicationController
     hash = Hash.new(0)
     potential_users.each{|key| hash[key] += 1}
     hash.max_by {|key, value| value}
-    redirect_to match_path(hash.first)
+    redirect_to match_path(hash.values[0])
     hash.delete(hash.first)
   end
 end
