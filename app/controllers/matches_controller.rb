@@ -13,17 +13,22 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
     end
-    num_of_activities_in_common = 0
+    potenital_users = []
     Users.all.each  do |potential_match|
       current_user.activities.each do |curr_user_activity|
-      potential_match.activities.each do |pot_user_activity|
-        if pot_user_activity.name == curr_user_activity.name
-          num_of_activities_in_common += 1
+        potential_match.activities.each do |pot_user_activity|
+          if pot_user_activity.name == curr_user_activity.name
+            potential_users.push(potential_match)
+          end
         end
-
-
+      end
     end
-    redirect_to match_path(next_potenital_match)
+    hash = Hash.new(0)
+    potential_users.each{|key| hash[key] += 1}
+    hash.sort_by {|key, value| value}
+
+
+    redirect_to match_path(potential_match)
   end
 end
 
