@@ -13,9 +13,10 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
     end
-    next_potenital_match = Match.all.where(accepted: 0).sample.responder_id
+    next_potenital_match = Match.all.where(accepted: 0, responder_id: ).sample.responder_id
     redirect_to match_path(next_potenital_match)
   end
+
 end
 
 #1. A user needs to find people he hasn't matched with it.
