@@ -24,9 +24,9 @@ RSpec.feature "Activities Page", :type => :feature do
     expect(page).to have_selector("img[src$='#{}']")
   end
 
-  scenario "should show link to add an activity" do
-    visit activities_path
-    expect(page).to have_link("Submit new activity")
-  end
+  # scenario "should show link to add an activity" do
+  #   visit activities_path
+  #   expect(page).to have_link("Submit new activity")
+  # end
 
 end
