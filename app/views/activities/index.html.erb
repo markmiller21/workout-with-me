@@ -1,13 +1,16 @@
 <h3>Select Your Activities</h3>
 
+<%= form_for :user do |f| %>
   <% @activities.each do |activity| %>
 
     <div class="activity_container">
       <img src="<%= activity.image %>"/>
       <%= activity.name %>
-      <input type="checkbox" name="<%= activity.name %>">
+      <%= f.check_box activity.name %>
     </div>
-
     <div class="spacer"></div>
-
   <% end %>
+
+  <%= f.submit "Submit Activities" %>
+
+<% end %>
