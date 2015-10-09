@@ -22,6 +22,12 @@ RSpec.describe ActivitiesController do
         post :create
         expect(response).to_not redirect_to(match_path(User.all.sample.id))
       end
+
+      #why is this working?
+      it "sets flash error if activities not chosen" do
+        post :create
+        expect(flash[:error]).to have_content("Must choose at least 1 activity")
+      end
     end
 
   end
