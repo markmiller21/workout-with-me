@@ -6,7 +6,11 @@ class ActivitiesController < ApplicationController
 
   def create
     user = User.find_by(id: 1) # should be current user
-    user.activities.create(name: params[:activities][:name])
+    chosen_activities = params[:name]
+    chosen_activities.each do |activity|
+      user.activities.find_or_create_by(name: activity)
+    end
+    redirect_to match_path(User.all.sample.id)
   end
 
   private
