@@ -5,11 +5,10 @@ class ActivitiesController < ApplicationController
   end
 
   def new
-
   end
 
   def create
-
+    activity = current_user.activities.create
   end
 
 end
