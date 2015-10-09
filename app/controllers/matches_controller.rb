@@ -14,7 +14,7 @@ class MatchesController < ApplicationController
       Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
     end
     potenital_users = []
-    Users.all.each  do |potential_match|
+    User.all.each  do |potential_match|
       current_user.activities.each do |curr_user_activity|
         potential_match.activities.each do |pot_user_activity|
           if pot_user_activity.name == curr_user_activity.name
