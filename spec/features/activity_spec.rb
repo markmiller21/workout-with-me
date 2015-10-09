@@ -7,6 +7,9 @@ RSpec.feature "Activities Page", :type => :feature do
     click_link "Login Here"
   }
 
+  let(:create_activity) { create(:activity) }
+  let(:activity_attr) { attributes_for(:activity) }
+
   before :each do
     log_me_in
   end
@@ -14,6 +17,16 @@ RSpec.feature "Activities Page", :type => :feature do
   scenario "should show all activities" do
     visit activities_path
     expect(page).to have_content("Select Your Activities")
+  end
+
+  scenario "should show images associated with activities" do
+    visit activities_path
+    expect(page).to have_selector("img[src$='#{}']")
+  end
+
+  scenario "should show link to add an activity" do
+    visit activities_path
+    expect(page).to have_link("Submit new activity")
   end
 
 end

@@ -1,1 +1,44 @@
 <h3>Select Your Activities</h3>
+
+<%= link_to "Submit new activity", "" %>
+<%= form_for @activities do |f| %>
+
+  <div class="activity_container">
+    <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
+    <div class="spacer"></div>
+    <%= check_box_tag "name[]","lifting" %>Lifting
+  </div>
+
+  <div class="activity_container">
+    <img src="http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg"/>
+    <div class="spacer"></div>
+    <%= check_box_tag "name[]", "tennis" %>Tennis
+  </div>
+
+  <div class="activity_container">
+    <img src="http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg"/>
+    <div class="spacer"></div>
+    <%= check_box_tag "name[]", "basketball" %>Basketball
+  </div>
+
+  <div class="activity_container">
+    <img src="http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg"/>
+    <div class="spacer"></div>
+    <%= check_box_tag "name[]", "spin" %>Spin
+  </div>
+
+  <div class="activity_container">
+    <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
+    <div class="spacer"></div>
+    <%= check_box_tag "soccer[]", "soccer" %>Soccer
+  </div>
+
+  <%= f.submit %>
+
+<% end %>
+
+
+
+
+
+
