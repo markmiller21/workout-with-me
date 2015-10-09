@@ -3,6 +3,7 @@
 <%= link_to "See more", user_path(@potential_match) %>
 
 
-
-<form>
-</form>
+<%= form_for @match do |f| %>
+<%= f.hidden_field :responder_id, value: @potential_match.id %>
+<%= f.submit "LIKE" %>
+<% end %>
