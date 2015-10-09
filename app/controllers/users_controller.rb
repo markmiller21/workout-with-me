@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def new
+  	@user = User.new
+  end
+
   def create
   	user = User.new(user_params)
   	binding.pry
