@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  match '/auth/:provider/callback', :to => 'sessions#create'
+	match '/auth/failure', :to => 'sessions#failure'
 end
