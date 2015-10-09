@@ -6,12 +6,13 @@ class MatchesController < ApplicationController
   end
 
   def create
-    match = Match.build(responder_id: params[:match][:responder_id],initiator_id: current_user)
-    if Match.where(responder_id: current_user, initiator_id:params[:match][:responder_id])
+    match = Match.new(responder_id: params[:match][:responder_id],initiator_id: 2)
+    if Match.where(responder_id: 2, initiator_id:params[:match][:responder_id])
       flash[:match] = "You have been matched!"
       match.update(accepted: 1)
     else
-      match = Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user)
+      match = Match.create(responder_id: params[:match][:responder_id],initiator_id: 2)
     end
-          redirect match_show(User.all.sample.id)
+          redirect_to match_path(User.all.sample.id)
   end
+end
