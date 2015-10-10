@@ -9,85 +9,24 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
-        user.activities.find_or_create_by(name: activity)
+        binding.pry
+        if Activity.find_by(name: activity)
+        binding.pry
+          activity = Activity.find_by(name: activity)
+        binding.pry
+        else
+          activity = Activity.create(name: activity)
+        binding.pry
+        end
+        user.activities << activity
       end
-     current_user_act_names = []
-    current_user.activities.each do |activity|
-      current_user_act_names.push(activity.name)
-    end
-
-    activities_in_db = []
-    current_user_act_names.each do |activity_name|
-      activities_in_db.push(Activity.where(name: activity_name))
-    end
-
-    potential_user = []
-    activities_in_db.flatten.each do |pot_match|
-      potential_user.push(pot_match.users)
-    end
-
-
-    user_id =[]
-    potential_user.flatten.each do |user|
-      user_id.push(user.id)
-    end
-
-    user_id.uniq!
-    user_id.each do |id|
-
-      current_user.initiator_matches.create(responder_id:id,accepted: 2)
-    end
-    Match.find()
-
-    redirect_to match_path(current_user.initiator_matches.sample.responder_id)
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
-
-    # current_user_act_names = []
-    # current_user.activities.each do |activity|
-    #   current_user_act_names.push(activity.name)
-    # end
-
-    # activities_in_db = []
-    # current_user_act_names.each do |activity_name|
-    #   activities_in_db.push(Activity.where(name: activity_name))
-    # end
-
-    # potential_user = []
-    # activities_in_db.flatten.each do |pot_match|
-    #   potential_user.push(pot_match.users)
-    # end
-
-
-    # user_id =[]
-    # potential_user.flatten.each do |user|
-    #   user_id.push(user.id)
-    # end
-
-    # user_id.uniq!
-    # user_id.each do |id|
-    #   current_user.initiator_matches.create(responder_id:id,accepted: 2)
-    # end
-
-
-    # redirect_to match_path(current_user.initiator_matches.sample.responder_id)
+    next_user_seen = User.find(3) #temporary patch to make mark the first match! ALWAYS!
+    redirect_to match_path(next_user_seen)
   end
-
-
-
-
-
-
-
-
-#1.Need to find all of the users that have same exact activities
-#2.Then need to find the ones that have less in commmon and repeat pattern
-#3.With ones with same activitiy,find the user who contains all those similar activities and redirect to them
-#4.Create that possible match
-#5.So we the accept value to 2, and create a condition where you can't redirect to anyone with an accepted value of 2
-#6.
 
 private
 
