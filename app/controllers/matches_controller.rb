@@ -13,9 +13,9 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user.id)
     end
-
+    redirect_to matches_pa
+  end
 
 end
 
 
-#1.

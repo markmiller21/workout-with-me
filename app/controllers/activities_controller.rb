@@ -11,13 +11,7 @@ class ActivitiesController < ApplicationController
       chosen_activities.each do |activity|
         user.activities.find_or_create_by(name: activity)
       end
-      redirect_to match_path(User.all.sample.id)
-    else
-      flash[:error] = "Must choose at least 1 activity"
-      redirect_to activities_path
-    end
-
-    current_user_act_names = []
+     current_user_act_names = []
     current_user.activities.each do |activity|
       current_user_act_names.push(activity.name)
     end
@@ -43,7 +37,41 @@ class ActivitiesController < ApplicationController
       current_user.initiator_matches.create(responder_id:id,accepted: 2)
     end
 
-    redirect_to match_path(curr)
+
+    redirect_to match_path(current_user.initiator_matches.sample.responder_id)
+    else
+      flash[:error] = "Must choose at least 1 activity"
+      redirect_to activities_path
+    end
+
+    # current_user_act_names = []
+    # current_user.activities.each do |activity|
+    #   current_user_act_names.push(activity.name)
+    # end
+
+    # activities_in_db = []
+    # current_user_act_names.each do |activity_name|
+    #   activities_in_db.push(Activity.where(name: activity_name))
+    # end
+
+    # potential_user = []
+    # activities_in_db.flatten.each do |pot_match|
+    #   potential_user.push(pot_match.users)
+    # end
+
+
+    # user_id =[]
+    # potential_user.flatten.each do |user|
+    #   user_id.push(user.id)
+    # end
+
+    # user_id.uniq!
+    # user_id.each do |id|
+    #   current_user.initiator_matches.create(responder_id:id,accepted: 2)
+    # end
+
+
+    # redirect_to match_path(current_user.initiator_matches.sample.responder_id)
   end
 
 
