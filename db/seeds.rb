@@ -27,7 +27,7 @@ for x in 0..100
   new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: user_gender, description: Faker::Hacker.say_something_smart)
 
   new_user.activities << lifting if x % 3 == 0
-  new_user.activities << tennis if x % 14 == 0
+  new_user.activities << tennis if x % 7 == 0
   new_user.activities << spin if x % 5 == 0
   new_user.activities << soccer if x % 8 == 0
   new_user.activities << basketball if x % 11 == 0
