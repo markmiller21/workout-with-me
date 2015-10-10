@@ -1,1 +1,4 @@
-session_spec.rb
+require 'rails_helper'
+
+describe 'session interaction' do
+end
