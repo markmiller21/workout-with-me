@@ -7,17 +7,11 @@ class MatchesController < ApplicationController
 
   def create
     last_match = Match.find_by(initiator_id: params[:match][:responder_id], responder_id: current_user.id)
-    binding.pry
     if last_match
-      binding.pry
       if params[:commit] == "LIKE"
-        binding.pry
         last_match.update_attributes(accepted: 1)
-        binding.pry
       else
-        binding.pry
         last_match.update_attributes(accepted: -1)
-        binding.pry
       end
     else
       last_match = Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id])
