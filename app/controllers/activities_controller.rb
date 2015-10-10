@@ -16,7 +16,15 @@ class ActivitiesController < ApplicationController
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
+
+    potential_users = current_user.activities.map do |activity|
+    Activity.find_by(name: activity.name).users
+    end
+    binding.pry
+      redirect_to activities_path
   end
+
+
 
   private
 

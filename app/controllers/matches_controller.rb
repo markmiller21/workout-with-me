@@ -13,23 +13,11 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user.id)
     end
-    potential_users = []
-    User.all.each  do |potential_match|
-      current_user.activities.each do |curr_user_activity|
-        potential_match.activities.each do |pot_user_activity|
-          if pot_user_activity.name == curr_user_activity.name
-            potential_users.push(potential_match).uniq!
-            binding.pry
 
-          end
-        end
-      end
-    end
-    hash = Hash.new(0)
-    potential_users.each{|key| hash[key] += 1}
-    hash.max_by {|key, value| value}
-    redirect_to match_path(hash.values[0])
-    hash.delete(hash.first)
-  end
+
 end
 
+
+#1. Find activities for the current_user
+#2. Iterate over those activities
+#3. Find all the users related to that specific activity
