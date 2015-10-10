@@ -16,12 +16,13 @@ class ActivitiesController < ApplicationController
         end
         user.activities << activity
       end
+      next_user_seen = User.find(3) #temporary patch to make mark the first match! ALWAYS!
+      redirect_to match_path(next_user_seen)
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
-    next_user_seen = User.find(3) #temporary patch to make mark the first match! ALWAYS!
-    redirect_to match_path(next_user_seen)
+
   end
 
 private
