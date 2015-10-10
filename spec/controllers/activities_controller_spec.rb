@@ -3,8 +3,8 @@ require "rails_helper"
 
 RSpec.describe ActivitiesController do
   let(:log_me_in) {
-    #change log_me_in when mark finishes user auth
-    @user = User.create(name: "Jenny", email: "jenny@example.com", password_digest: "jenny", age: 25, gender: "Female", description: "I'm confused")
+    @user = create(:user)
+    session[:user_id] = @user.id
   }
   let(:activity_attr) { attributes_for(:activity) }
   let(:create_activity) { @user.activities.create(name: activity_attr[:name], image: activity_attr[:image])}
