@@ -13,14 +13,15 @@ describe 'possible match page' do
 
   let(:dummy_user){
     user = create(:user)
-    visit root_path
-    click_link "Login Here"
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
-    click_button 'Login'
-    find(:css, "#_name[value='Lifting']").set(true)
-    click_link "Create Activity"
-    click_button 'Logout'
+    user.activities.create(name: "Lifting")
+    # visit root_path
+    # click_link "Login Here"
+    # fill_in 'Email', :with => user.email
+    # fill_in 'Password', :with => user.password
+    # click_button 'Login'
+    # find(:css, "#name_[value='Lifting']").set(true)
+    # click_button "Create Activity"
+    # click_link 'Logout'
   }
 
   let(:potential_user) {
@@ -57,9 +58,10 @@ describe 'possible match page' do
 
   describe 'user matches page' do
     it 'shows on the matches for a current user' do
-      log_me_in
+      dummy_user
       find(:css, "#name_[value='Lifting']").set(true)
       click_button "Create Activity"
+      click_button "LIKE"
     end
   end
 
