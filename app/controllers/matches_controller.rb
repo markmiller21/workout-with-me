@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
   end
 
 
-	def show
+  def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
   end
@@ -29,6 +29,12 @@ class MatchesController < ApplicationController
     # use these three line get potential matches and redirect to show page at any time
     potential_matches = get_potential_matches(current_user)
     next_match = find_next_match(current_user, potential_matches)
-    redirect_to match_path(next_match)
+          binding.pry
+
+    if next_match.id == nil
+      render file: "error"
+    else
+      redirect_to match_path(next_match.id)
+    end
   end
 end
