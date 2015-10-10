@@ -3,6 +3,9 @@ class MatchesController < ApplicationController
 	def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
+
+    @possible_match = Match.find_by(id: params[:id])
+    @possible_user = User.find(@possible_match.responder_id)
   end
 
   def create
@@ -13,23 +16,9 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user.id)
     end
-    potential_users = []
-    User.all.each  do |potential_match|
-      current_user.activities.each do |curr_user_activity|
-        potential_match.activities.each do |pot_user_activity|
-          if pot_user_activity.name == curr_user_activity.name
-            potential_users.push(potential_match)
-            binding.pry
-
-          end
-        end
-      end
-    end
-    hash = Hash.new(0)
-    potential_users.each{|key| hash[key] += 1}
-    hash.max_by {|key, value| value}
-    redirect_to match_path(hash.values[0])
-    hash.delete(hash.first)
+    redirect_to match_path(current_user.initiator_matches.where(accepted: 2).sample.responder_id)
   end
+
 end
+
 
