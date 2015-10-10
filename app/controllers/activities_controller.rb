@@ -9,14 +9,10 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
-        binding.pry
         if Activity.find_by(name: activity)
-        binding.pry
           activity = Activity.find_by(name: activity)
-        binding.pry
         else
           activity = Activity.create(name: activity)
-        binding.pry
         end
         user.activities << activity
       end
