@@ -1,35 +1,35 @@
-require "rails_helper"
+# require "rails_helper"
 
-describe MatchesController do
+# describe MatchesController do
 
-  describe "GET #show" do
-
-
-    it "renders the #show view" do
-     @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
-     get :show, id: @potential_user.id
-     expect(response).to render_template :show
-   end
+#   describe "GET #show" do
 
 
-   describe "GET #index" do
-    it "renders the :index view" do
-      get :index
-      response.should render_template :index
-      @potential_match = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
-      get :show, id: @potential_match.id
-      expect(response).to render_template :show
-    end
-  end
+#     it "renders the #show view" do
+#      @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
+#      get :show, id: @potential_user.id
+#      expect(response).to render_template :show
+#    end
 
- it "populates an array of matches" do
-    contact = Factory(:contact)
-    get :index
-    assigns(:contacts).should eq([contact])
-  end
 
-  describe "POST #create" do
+#    describe "GET #index" do
+#     it "renders the :index view" do
+#       get :index
+#       response.should render_template :index
+#       @potential_match = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
+#       get :show, id: @potential_match.id
+#       expect(response).to render_template :show
+#     end
+#   end
+
+#  it "populates an array of matches" do
+#     contact = Factory(:contact)
+#     get :index
+#     assigns(:contacts).should eq([contact])
+#   end
+
+#   describe "POST #create" do
   	
-  end
+#   end
 
-end
+# end
