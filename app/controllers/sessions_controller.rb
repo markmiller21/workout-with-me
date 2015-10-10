@@ -16,9 +16,13 @@ class SessionsController < ApplicationController
       flash[:error] = "Invalid field, try logging in again"
       redirect_to login_path
     end
-	end
+  end
 
   def destroy
+    session[:user_id] = nil
+    flash[:message] = "You have been succesfully logged out"
+    redirect_to root_path
+
   end
 
   private
