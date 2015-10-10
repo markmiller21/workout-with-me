@@ -20,30 +20,8 @@ class ActivitiesController < ApplicationController
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
-
-    # the following needs to be moved to methods so that it can be called anywhere
-    potential_matches = []
-    current_user.activities.each do |activity|
-      activity.users.each do |user|
-        if current_user != user
-          potential_matches << user
-        end
-      end
-    end
-    for x in 0..potential_matches.length
-      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
-        next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) != []
-        next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
-        next
-      else
-        next_user_seen = potential_matches[x]
-        binding.pry
-        redirect_to match_path(next_user_seen)
-        break
-      end 
-    end
+    next_user_seen = User.find(3) #temporary patch to make mark the first match! ALWAYS!
+    redirect_to match_path(next_user_seen)
   end
 
 
