@@ -12,9 +12,9 @@ describe 'Logging in Process' do
 	}
 
 	describe "When User enters valid information" do
-		it "they should be redirected to the activites page" do
+		it "they should be redirected to the matches page" do
 			log_me_in
-			expect(page).to have_content('Activities')
+			expect(page).to have_content('Potential match')
 		end
 	end
 
