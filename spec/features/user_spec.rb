@@ -42,4 +42,16 @@ describe 'Sign up process' do
 		click_button("Register")
 		expect(page).to have_content('Activities')
 	end
+
+	it "With Invalid Name field" do
+		visit new_user_path
+		fill_in 'Name', :with => nil
+		fill_in 'Email', :with => user_attr[:email]
+		fill_in 'Password', :with => user_attr[:password]
+		fill_in 'Gender', :with => user_attr[:gender]
+		fill_in 'Description', :with => user_attr[:description]
+		fill_in 'Age', :with => user_attr[:age]
+		click_button("Register")
+		expect(page).to have_content('Register')
+	end
 end
