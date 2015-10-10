@@ -10,6 +10,9 @@ describe MatchesController do
       get :show, id: @potential_user.id
       expect(response).to render_template :show
     end
+
+
+
   end
 
 

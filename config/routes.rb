@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :matches
   resources :activities
   resources :users
+  resources :users do
+    resources :matches
+  end
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'
