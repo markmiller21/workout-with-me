@@ -8,6 +8,7 @@ RSpec.describe ActivitiesController do
   }
   let(:activity_attr) { attributes_for(:activity) }
   let(:create_activity) { @user.activities.create(name: activity_attr[:name], image: activity_attr[:image])}
+  let(:potential_match) { create(:potential_user) }
 
   before :each do
     log_me_in
@@ -24,13 +25,17 @@ RSpec.describe ActivitiesController do
     context "with invalid attributes" do
       it "should not redirect if activities not chosen" do
         post :create
-        expect(response).to_not redirect_to(match_path(User.all.sample.id))
+        expect(response).to_not redirect_to(match_path(potential_match))
       end
 
-      #why is this working?
       it "sets flash error if activities not chosen" do
         post :create
         expect(flash[:error]).to have_content("Must choose at least 1 activity")
+      end
+
+      it "should redirect to activities page again" do
+        post :create
+        expect(response).to redirect_to(activities_path)
       end
     end
 
