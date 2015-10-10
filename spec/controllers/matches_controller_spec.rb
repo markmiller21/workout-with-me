@@ -28,8 +28,8 @@ describe MatchesController do
     assigns(:contacts).should eq([contact])
   end
 
-
-end
-
+  describe "POST #create" do
+  	
+  end
 
 end
