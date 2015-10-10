@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'possible matches page' do
 
-  let(:log_me_in){
+  let(:log_me_in) {
     user = create(:user)
     visit root_path
     click_link "Login Here"
@@ -11,17 +11,24 @@ describe 'possible matches page' do
     click_button 'Login'
   }
 
+  let(:matched_user) {
+    matched_user = create(:matched_user)
+  }
+  let(:unmatched_user) {
+    unmatched_user = create(:unmatched_user)
+  }
   before(:each) do
     log_me_in
   end
 
 it 'page contains potential user on the page' do
-  @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
-  visit match_path(@potential_user)
-  expect(page).to have_content @potential_user.name
+
+  visit match_path(matched_user)
+  expect(page).to have_content matched_user.name
 end
 
 it 'page contains a see more button ' do
+
   expect(page).to have_content "See more"
 end
 
