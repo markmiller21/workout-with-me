@@ -24,6 +24,8 @@ class MatchesController < ApplicationController
         end
       end
     end
+
+    next_match = find_next_match(current_user, potential_matches)
     for x in 0..potential_matches.length
       if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
         next
