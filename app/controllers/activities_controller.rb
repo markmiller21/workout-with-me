@@ -9,70 +9,41 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
-        user.activities.find_or_create_by(name: activity)
+        if Activity.find_by(name: activity.capitalize) != []
+          activity = Activity.find_by(name: activity.capitalize)
+        else
+          activity = Activity.create(name: activitiy.capitalize)
+        end
+        user.activities << activity
       end
-     current_user_act_names = []
-    current_user.activities.each do |activity|
-      current_user_act_names.push(activity.name)
-    end
-
-    activities_in_db = []
-    current_user_act_names.each do |activity_name|
-      activities_in_db.push(Activity.where(name: activity_name))
-    end
-
-    potential_user = []
-    activities_in_db.flatten.each do |pot_match|
-      potential_user.push(pot_match.users)
-    end
-
-
-    user_id =[]
-    potential_user.flatten.each do |user|
-      user_id.push(user.id)
-    end
-
-    user_id.uniq!
-    user_id.each do |id|
-
-      current_user.initiator_matches.create(responder_id:id,accepted: 2)
-    end
-    Match.find()
-
-    redirect_to match_path(current_user.initiator_matches.sample.responder_id)
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
 
-    # current_user_act_names = []
-    # current_user.activities.each do |activity|
-    #   current_user_act_names.push(activity.name)
-    # end
-
-    # activities_in_db = []
-    # current_user_act_names.each do |activity_name|
-    #   activities_in_db.push(Activity.where(name: activity_name))
-    # end
-
-    # potential_user = []
-    # activities_in_db.flatten.each do |pot_match|
-    #   potential_user.push(pot_match.users)
-    # end
-
-
-    # user_id =[]
-    # potential_user.flatten.each do |user|
-    #   user_id.push(user.id)
-    # end
-
-    # user_id.uniq!
-    # user_id.each do |id|
-    #   current_user.initiator_matches.create(responder_id:id,accepted: 2)
-    # end
-
-
-    # redirect_to match_path(current_user.initiator_matches.sample.responder_id)
+    # the following needs to be moved to methods so that it can be called anywhere
+    potential_matches = []
+    current_user.activities.each do |activity|
+      activity.users.each do |user|
+        if current_user != user
+          potential_matches << user
+        end
+      end
+    end
+    for x in 0..potential_matches.length
+      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
+        next
+      else
+        next_user_seen = potential_matches[x]
+        binding.pry
+        redirect_to match_path(next_user_seen)
+        break
+      end 
+    end
   end
 
 
