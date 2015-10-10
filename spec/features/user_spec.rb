@@ -5,10 +5,8 @@ describe 'Logging in Process' do
 		user = create(:user)
 		visit login_path
 		within("#login") do
-			p user.inspect 
 	    fill_in 'Email', :with => user.email
 	    fill_in 'Password', :with => user.password
-			p user.inspect 
 	    click_button 'Login'
   	end
 	}
