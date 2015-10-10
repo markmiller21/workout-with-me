@@ -17,7 +17,7 @@
 
 </head>
 <body>
-  <%= render partial: "header" %>
+  <%= render file: "_header" %>
 	<% flash.each do |name, msg| %>
 		<%= content_tag :div, msg, class: name %>
 	<% end %>
