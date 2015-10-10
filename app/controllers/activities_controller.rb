@@ -9,10 +9,14 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities
       chosen_activities.each do |activity|
-        if Activity.find_by(name: activity.capitalize) != []
+        binding.pry
+        if Activity.find_by(name: activity.capitalize)
+        binding.pry
           activity = Activity.find_by(name: activity.capitalize)
+        binding.pry
         else
-          activity = Activity.create(name: activitiy.capitalize)
+          activity = Activity.create(name: activity.capitalize)
+        binding.pry
         end
         user.activities << activity
       end

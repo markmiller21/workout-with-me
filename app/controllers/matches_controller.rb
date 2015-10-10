@@ -3,7 +3,6 @@ class MatchesController < ApplicationController
 	def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
-    binding.pry
   end
 
   def create
@@ -35,5 +34,4 @@ class MatchesController < ApplicationController
       end 
     end
   end
-
 end
