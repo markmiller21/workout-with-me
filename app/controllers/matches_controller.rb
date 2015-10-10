@@ -26,17 +26,6 @@ class MatchesController < ApplicationController
     end
 
     next_match = find_next_match(current_user, potential_matches)
-    for x in 0..potential_matches.length
-      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
-        next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) != []
-        next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
-        next
-      else
-        redirect_to match_path(potential_matches[x])
-        break
-      end
-    end
+    redirect_to match_path(next_match)
   end
 end

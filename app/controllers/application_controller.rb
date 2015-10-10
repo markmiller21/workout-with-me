@@ -17,5 +17,17 @@ class ApplicationController < ActionController::Base
   end
 
   def find_next_match(current_user, potential_matches)
+    for x in 0..potential_matches.length
+      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
+        next
+      else
+        return potential_matches[x]
+      end 
+    end
   end
+
 end
