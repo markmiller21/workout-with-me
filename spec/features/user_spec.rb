@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Logging in Process' do 
+describe 'Logging in Process' do
 	let(:log_me_in){
 		user = create(:user)
 		visit login_path
@@ -11,14 +11,14 @@ describe 'Logging in Process' do
   	end
 	}
 
-	describe "When User enters valid information" do 
+	describe "When User enters valid information" do
 		it "they should be redirected to the activites page" do
 			log_me_in
 			expect(page).to have_content('Activities')
 		end
 	end
 
-	describe "When User enters INvalid information" do 
+	describe "When User enters INvalid information" do
 		it "they should be redirected to the login page" do
 			visit login_path
 			fill_in 'Email', :with => nil
@@ -29,7 +29,7 @@ describe 'Logging in Process' do
 	end
 end
 
-describe 'Sign up process' do 
+describe 'Sign up process' do
 	let(:user_attr){attributes_for(:user)}
 	it "Valid user" do
 		visit new_user_path
@@ -54,4 +54,12 @@ describe 'Sign up process' do
 		click_button("Register")
 		expect(page).to have_content('Register')
 	end
+
+	# describe 'User index page' do
+
+	# 	it 'on the correct user' do
+	# 		user = create(:user)
+
+
+
 end
