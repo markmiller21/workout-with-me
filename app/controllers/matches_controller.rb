@@ -31,7 +31,7 @@ class MatchesController < ApplicationController
       else
         redirect_to match_path(potential_matches[x])
         break
-      end 
+      end
     end
   end
 end

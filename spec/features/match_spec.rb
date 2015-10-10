@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'possible matches page' do
+describe 'possible match page' do
 
   let(:log_me_in) {
     user = create(:user)
@@ -11,8 +11,8 @@ describe 'possible matches page' do
     click_button 'Login'
   }
 
-  let(:matched_user) {
-    matched_user = create(:matched_user)
+  let(:potential_user) {
+    matched_user = create(:potential_user)
   }
   let(:unmatched_user) {
     unmatched_user = create(:unmatched_user)
@@ -21,31 +21,27 @@ describe 'possible matches page' do
     log_me_in
   end
 
-it 'page contains potential user on the page' do
+  it 'page contains potential user on the page' do
+    visit match_path(potential_user)
+    expect(page).to have_content potential_user.name
+  end
 
-  visit match_path(matched_user)
-  expect(page).to have_content matched_user.name
-end
+  it 'page contains a see more button ' do
+    visit match_path(potential_user)
+    expect(page).to have_content "See more"
+  end
 
-it 'page contains a see more button ' do
+  it 'page redirects to correct page when clicking See more link' do
+    visit match_path(potential_user)
+    click_link "See more"
+    expect(page).to have_content "Profile page"
+  end
 
-  expect(page).to have_content "See more"
-end
-
-it 'page redirects to correct page when clicking See more link' do
-
-  click_link "See more"
-  expect(page).to have_content "Profile page"
-  #Can't test going to a specific user yet, due to algorithm not being created
-end
-
-it 'page redirects to the next user if liked clicked' do
-
-  @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
-  visit match_path(@potential_user)
-  click_link "LIKE"
-  expect(page).to_not have_content @potential_user.name
-end
+  # it 'page redirects to the next user if liked clicked' do
+  #   visit match_path(potential_user)
+  #   click_button "LIKE"
+  #   expect(page).to_not have_content potential_user.name
+  # end
 
 end
 

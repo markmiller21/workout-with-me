@@ -8,7 +8,7 @@ FactoryGirl.define do
     description Faker::Lorem.word
   end
 
-  factory :matched_user, class: User do
+  factory :potential_user, class: User do
     name Faker::Name.name
     email Faker::Internet.email
     password Faker::Internet.password
