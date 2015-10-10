@@ -18,7 +18,11 @@ class MatchesController < ApplicationController
         last_match.update_attributes(accepted: -1)
       end
     else
-      last_match = Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id])
+      if params[:commit] == "LIKE"
+        Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id], accepted: 0)
+      else
+        Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id], accepted: -1)
+      end
     end
     potential_matches = []
     current_user.activities.each do |activity|
