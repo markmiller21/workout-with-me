@@ -1,5 +1,4 @@
 require "rails_helper"
-# change User.all.sample to filtered users
 
 RSpec.describe ActivitiesController do
   let(:log_me_in) {
@@ -7,8 +6,9 @@ RSpec.describe ActivitiesController do
     session[:user_id] = @user.id
   }
   let(:activity_attr) { attributes_for(:activity) }
-  let(:create_activity) { @user.activities.create(name: activity_attr[:name], image: activity_attr[:image])}
+  let(:create_activity) { create(:activity)}
   let(:potential_match) { create(:potential_user) }
+
 
   before :each do
     log_me_in
@@ -39,13 +39,26 @@ RSpec.describe ActivitiesController do
       end
     end
 
-    # context "with valid attributes" do
-    #   it "should redirect to potential matches page" do
-    #     post :create, activity: {name: "tennis"}
-    #     expect(response).to redirect_to(match_path(User.all.sample.id))
-    #   end
-    # end
+    context "with valid attributes" do
+      before :each do
+        subject { post :create, activity: "Tennis" }
+        # @user.activities << Activity.create(name: "Tennis")
+        # potential_match.activities << Activity.create(name: "Tennis")
+      end
 
+      it "returns 200 ok status" do
+        expect(response).to have_http_status(200)
+      end
+
+      it "should redirect to potential matches page" do
+        expect(subject).to redirect_to(match_path(potential_match))
+      end
+
+      # it "increases user activities amount of activities selected" do
+      #   expect {
+      #     post :create,
+      #   }
+      # end
+    end
   end
-
 end
