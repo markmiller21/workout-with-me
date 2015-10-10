@@ -43,6 +43,16 @@ describe 'possible match page' do
   #   expect(page).to_not have_content potential_user.name
   # end
 
+  describe 'user matches page' do
+    it 'shows on the matches for a current user' do
+      log_me_in
+      find(:css, "#_name[value='Lifting']").set(true)
+      click_link "Create Activity"
+
+
+    end
+  end
+
 
 
 end
