@@ -9,10 +9,11 @@ RSpec.describe ActivitiesController do
   let(:create_activity) { create(:activity)}
   let(:potential_match) { create(:potential_user) }
 
-
   before :each do
     log_me_in
   end
+
+  let(:current_user) { session[:user] }
 
   describe "GET #index" do
     it "renders the index template" do
@@ -42,23 +43,21 @@ RSpec.describe ActivitiesController do
     context "with valid attributes" do
       before :each do
         subject { post :create, activity: "Tennis" }
-        # @user.activities << Activity.create(name: "Tennis")
-        # potential_match.activities << Activity.create(name: "Tennis")
       end
 
-      it "returns 200 ok status" do
-        expect(response).to have_http_status(200)
+      it "returns 200 status" do
+        expect(response).to have_http_status(:ok)
       end
 
-      it "should redirect to potential matches page" do
+      it "should show potential matches page" do
         expect(subject).to redirect_to(match_path(potential_match))
       end
 
-      # it "increases user activities amount of activities selected" do
-      #   expect {
-      #     post :create,
-      #   }
-      # end
+      it "should add activity to user activities" do
+        expect {
+          subject
+        }.to change{@user.activities.length}.by(1)
+      end
     end
   end
 end
