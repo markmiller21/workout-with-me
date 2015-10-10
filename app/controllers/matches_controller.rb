@@ -9,11 +9,11 @@ class MatchesController < ApplicationController
   def create
     last_match = Match.find_by(initiator_id: params[:match][:responder_id], responder_id: current_user.id)
     if last_match
+      binding.pry
       last_match.update_attributes(accepted: 1)
     else
       last_match = Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id])
     end
-    binding.pry
     potential_matches = []
     current_user.activities.each do |activity|
       activity.users.each do |user|
@@ -30,7 +30,6 @@ class MatchesController < ApplicationController
       elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
         next
       else
-        binding.pry
         redirect_to match_path(potential_matches[x])
         break
       end 
