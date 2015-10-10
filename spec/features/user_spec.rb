@@ -55,10 +55,10 @@ describe 'Sign up process' do
 		expect(page).to have_content('Register')
 	end
 
-	describe 'User index page' do
+	# describe 'User index page' do
 
-		it 'on the correct user' do
-			user = create(:user)
+	# 	it 'on the correct user' do
+	# 		user = create(:user)
 
 
 
