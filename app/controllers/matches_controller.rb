@@ -16,14 +16,8 @@ class MatchesController < ApplicationController
     else
       last_match = Match.create(initiator_id: current_user.id, responder_id: params[:match][:responder_id])
     end
-    potential_matches = []
-    current_user.activities.each do |activity|
-      activity.users.each do |user|
-        if current_user != user
-          potential_matches << user
-        end
-      end
-    end
+
+    potential_matches = get_potential_matches(current_user)
 
     next_match = find_next_match(current_user, potential_matches)
     redirect_to match_path(next_match)

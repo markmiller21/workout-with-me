@@ -31,7 +31,14 @@ class ApplicationController < ActionController::Base
   end
 
   def get_potential_matches(current_user)
-    
+    potential_matches = []
+    current_user.activities.each do |activity|
+      activity.users.each do |user|
+        if current_user != user
+          potential_matches << user
+        end
+      end
+    end
   end
 
 end
