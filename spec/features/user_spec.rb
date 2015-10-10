@@ -11,4 +11,8 @@ describe 'Logging in Process' do
   	end
 	}
 
+	describe "When User enters valid information" do 
+
+	end
+
 end
