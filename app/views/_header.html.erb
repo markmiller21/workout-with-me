@@ -7,7 +7,7 @@
         <li><a href='/surveys'>Home</a></li>
         <% if logged_in? %>
         <li><%= link_to 'Profile', user_path(current_user)</li>
-        <li><a href='/logout'>Logout</a></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
         <li><a href='/login'>Login</a></li>
         <li><a href='/login'>Sign Up</a></li>
