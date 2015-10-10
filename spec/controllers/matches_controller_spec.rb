@@ -16,6 +16,9 @@ describe MatchesController do
     it "renders the :index view" do
       get :index
       response.should render_template :index
+      @potential_match = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
+      get :show, id: @potential_match.id
+      expect(response).to render_template :show
     end
   end
 
