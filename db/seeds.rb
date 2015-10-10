@@ -3,16 +3,32 @@ mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller
 navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
 
 lifting = Activity.create(name: "Lifting", image: "http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg")
+tennis = Activity.create(name: "Tennis", image: "http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg")
+basketball = Activity.create(name: "Basketball", image: "http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg")
+spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
+soccer = Activity.create(name: "Soccer", image: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg")
+
 mark.activities << lifting
 jenny.activities << lifting
 navraj.activities << lifting
-tennis = Activity.create(name: "Tennis", image: "http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg")
 jenny.activities << tennis
-basketball = Activity.create(name: "Basketball", image: "http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg")
 mark.activities << basketball
 navraj.activities << basketball
-spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
 jenny.activities << spin
 mark.activities << spin
-soccer = Activity.create(name: "Soccer", image: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg")
 navraj.activities << soccer
+
+for x in 0..100
+	if x % 2 == 1
+		user_gender = "male"
+	else
+		user_gender = "female"
+	end
+  new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: user_gender, description: Faker::Hacker.say_something_smart)
+
+  new_user.activities << lifting if x % 3 == 0
+  new_user.activities << tennis if x % 7 == 0
+  new_user.activities << spin if x % 5 == 0
+  new_user.activities << soccer if x % 8 == 0
+  new_user.activities << basketball if x % 11 == 0
+end
