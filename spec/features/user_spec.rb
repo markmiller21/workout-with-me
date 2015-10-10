@@ -30,5 +30,8 @@ describe 'Logging in Process' do
 end
 
 describe 'Sign up process' do 
+	let(:user_attr){attributes_for(:user)}
+	describe "Valid user" do
 
+	end
 end
