@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
 
 	def show
     @match = Match.new
+    binding.pry
     @potential_match = User.find_by(id: params[:id])
 
     @possible_match = Match.find_by(id: params[:id])
@@ -35,9 +36,9 @@ class MatchesController < ApplicationController
       elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
         next
       else
-        print "Atleast we made it this far.  I am going to return #{potential_matches[x].name} who has #{potential_matches[x].activities}"
-        Match.create(initiator_id: current_user.id, responder_id: potential_matches[x].id)
-        # below need to be a redirect to where-ever
+        # print "Atleast we made it this far.  I am going to return #{potential_matches[x].name} who has #{potential_matches[x].activities}"
+        # Match.create(initiator_id: current_user.id, responder_id: potential_matches[x].id)
+        redirect_to match_path(potential_matches[x])
         break
       end 
     end
