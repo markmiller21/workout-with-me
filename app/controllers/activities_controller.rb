@@ -10,12 +10,12 @@ class ActivitiesController < ApplicationController
     if chosen_activities
       chosen_activities.each do |activity|
         binding.pry
-        if Activity.find_by(name: activity.capitalize)
+        if Activity.find_by(name: activity)
         binding.pry
-          activity = Activity.find_by(name: activity.capitalize)
+          activity = Activity.find_by(name: activity)
         binding.pry
         else
-          activity = Activity.create(name: activity.capitalize)
+          activity = Activity.create(name: activity)
         binding.pry
         end
         user.activities << activity
@@ -27,20 +27,6 @@ class ActivitiesController < ApplicationController
     next_user_seen = User.find(3) #temporary patch to make mark the first match! ALWAYS!
     redirect_to match_path(next_user_seen)
   end
-
-
-
-
-
-
-
-
-#1.Need to find all of the users that have same exact activities
-#2.Then need to find the ones that have less in commmon and repeat pattern
-#3.With ones with same activitiy,find the user who contains all those similar activities and redirect to them
-#4.Create that possible match
-#5.So we the accept value to 2, and create a condition where you can't redirect to anyone with an accepted value of 2
-#6.
 
 private
 
