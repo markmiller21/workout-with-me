@@ -18,6 +18,4 @@ class MatchesController < ApplicationController
 end
 
 
-#1. Find activities for the current_user
-#2. Iterate over those activities
-#3. Find all the users related to that specific activity
+#1.

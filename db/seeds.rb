@@ -18,6 +18,7 @@ jenny.activities << spin
 mark.activities << spin
 navraj.activities << soccer
 
+
 for x in 0..100
   if x % 2 == 1
     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "male", description: Faker::Hacker.say_something_smart)
