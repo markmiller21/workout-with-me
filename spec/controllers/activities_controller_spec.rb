@@ -6,7 +6,6 @@ RSpec.describe ActivitiesController do
     session[:user_id] = @user.id
   }
   let(:activity_attr) { attributes_for(:activity) }
-  let(:create_activity) { create(:activity)}
   let(:potential_match) { create(:potential_user) }
 
   before :each do
@@ -42,7 +41,8 @@ RSpec.describe ActivitiesController do
 
     context "with valid attributes" do
       before :each do
-        subject { post :create, activity: "Tennis" }
+        Activity.create(name: "Tennis")
+        subject { post :create, "Tennis" }
       end
 
       it "returns 200 status" do
@@ -54,6 +54,7 @@ RSpec.describe ActivitiesController do
       end
 
       it "should add activity to user activities" do
+
         expect {
           subject
         }.to change{@user.activities.length}.by(1)
