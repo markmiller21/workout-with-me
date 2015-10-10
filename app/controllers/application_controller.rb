@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_potential_matches(current_user)
+    
+  end
+
 end
