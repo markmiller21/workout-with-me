@@ -58,7 +58,8 @@ describe 'possible match page' do
   describe 'user matches page' do
     it 'shows on the matches for a current user' do
       log_me_in
-      find(:css, "#_name[value='Lifting']").set(true)
+      # visit activities_path
+      find(:css, "#name_[value='Lifting']").set(true)
       click_link "Create Activity"
     end
   end
