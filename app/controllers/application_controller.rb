@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
         next
       else
         return potential_matches[x]
-      end 
+      end
     end
   end
 
