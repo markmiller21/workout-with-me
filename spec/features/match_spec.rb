@@ -17,7 +17,6 @@ describe 'possible match page' do
   let(:unmatched_user) {
     unmatched_user = create(:unmatched_user)
   }
-
   before(:each) do
     log_me_in
   end
@@ -38,13 +37,11 @@ describe 'possible match page' do
     expect(page).to have_content "Profile page"
   end
 
-  it 'page redirects to the next user if liked clicked' do
-    @potential_match = create(:user)
-    visit match_path(@potential_match)
-    p @potential_match.inspect
-    click_button "LIKE"
-    expect(page).to_not have_content @potential_match.name
-  end
+  # it 'page redirects to the next user if liked clicked' do
+  #   visit match_path(potential_user)
+  #   click_button "LIKE"
+  #   expect(page).to_not have_content potential_user.name
+  # end
 
 
 
