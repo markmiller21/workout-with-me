@@ -3,22 +3,22 @@ require 'rails_helper'
 describe 'possible match page' do
 
   let(:log_me_in) {
-    user = create(:user)
-    user.activities.create(name:"Lifting")
+    @user = create(:user)
+    @user.activities.create(name:"Lifting")
     visit root_path
     click_link "Login Here"
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', :with => @user.email
+    fill_in 'Password', :with => @user.password
     click_button 'Login'
   }
 
   let(:dummy_user){
-    user = create(:user)
-    user.activities.create(name: "Lifting")
+    @dummy = create(:user)
+    @dummy.activities.create(name: "Lifting")
     visit root_path
     click_link "Login Here"
-    fill_in 'Email', :with => user.email
-    fill_in 'Password', :with => user.password
+    fill_in 'Email', :with => @dummy.email
+    fill_in 'Password', :with => @dummy.password
     click_button 'Login'
     click_link 'Logout'
   }
@@ -58,6 +58,7 @@ describe 'possible match page' do
 
   describe 'user matches page' do
     it 'shows on the matches for a current user' do
+      Match.create(initiator_id:@user.id, responder_id: @dummy.id)
       click_button "LIKE"
       click_link "My matches"
     end
