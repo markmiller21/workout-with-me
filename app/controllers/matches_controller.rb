@@ -3,6 +3,9 @@ class MatchesController < ApplicationController
 	def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
+
+    @possible_match = Match.find_by(id: params[:id])
+    @possible_user = @possible_match.responder_id
   end
 
   def create
@@ -13,7 +16,7 @@ class MatchesController < ApplicationController
     else
       Match.create(responder_id: params[:match][:responder_id],initiator_id: current_user.id)
     end
-    redirect_to matches_pa
+    redirect_to match_path(current_user.initiator_matches.where(accepted: 2).sample.responder_id)
   end
 
 end

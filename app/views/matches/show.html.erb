@@ -1,10 +1,10 @@
 <h4>This is the match show page</h4>
-<h4>Potential match is <%= @potential_match.name %></h4>
-<%= link_to "See more", user_path(@potential_match) %>
+<h4>Potential match is <%= @possible_user.name %></h4>
+<%= link_to "See more", user_path(@possible_user) %>
 
 
 <%= form_for @match do |f| %>
-<%= f.hidden_field :responder_id, value: @potential_match.id %>
+<%= f.hidden_field :responder_id, value: @possible_user.id %>
 <%= f.submit "LIKE" %>
 <% end %>
 
