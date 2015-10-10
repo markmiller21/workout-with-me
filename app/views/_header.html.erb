@@ -1,1 +1,18 @@
-_header.html.erb
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="nav-bar header">
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href='/surveys'>Home</a></li>
+        <% if logged_in? %>
+        <li><%= link_to 'Profile', user_path(current_user)</li>
+        <li><a href='/logout'>Logout</a></li>
+        <% else %>
+        <li><a href='/login'>Login</a></li>
+        <li><a href='/login'>Sign Up</a></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>
