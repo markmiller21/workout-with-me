@@ -20,4 +20,14 @@ describe 'Logging in Process' do
 		end
 	end
 
+	describe "When User enters INvalid information" do 
+		it "they should be redirected to the login page" do
+			visit login_path
+			fill_in 'Email', :with => nil
+	    fill_in 'Password', :with => nil
+	    click_button 'Login'
+			expect(page).to have_content('Login')
+		end
+	end
+
 end
