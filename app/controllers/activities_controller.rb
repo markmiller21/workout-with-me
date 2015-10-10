@@ -22,13 +22,12 @@ class ActivitiesController < ApplicationController
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
-
   end
 
-private
+  private
 
-def params_activity
-  params.require(:activity).permit(:name)
-end
+    def params_activity
+      params.require(:activity).permit(:name)
+    end
 
 end
