@@ -22,6 +22,11 @@ RSpec.feature "Activities Page", :type => :feature do
       expect(page).to have_content("Select Your Activities")
     end
 
+    scenario "should have button to create activities" do
+      visit activities_path
+      expect(page).to have_button("Create Activity")
+    end
+
     scenario "should show images associated with activities" do
       visit activities_path
       expect(page).to have_selector("img[src$='#{}']")
