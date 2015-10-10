@@ -11,6 +11,18 @@ describe 'possible match page' do
     click_button 'Login'
   }
 
+  let(:dummy_user){
+    user = create(:user)
+    visit root_path
+    click_link "Login Here"
+    fill_in 'Email', :with => user.email
+    fill_in 'Password', :with => user.password
+    click_button 'Login'
+    find(:css, "#_name[value='Lifting']").set(true)
+    click_link "Create Activity"
+    click_button 'Logout'
+  }
+
   let(:potential_user) {
     matched_user = create(:potential_user)
   }
@@ -48,8 +60,6 @@ describe 'possible match page' do
       log_me_in
       find(:css, "#_name[value='Lifting']").set(true)
       click_link "Create Activity"
-
-
     end
   end
 
