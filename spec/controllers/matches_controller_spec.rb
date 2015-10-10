@@ -19,6 +19,12 @@ describe MatchesController do
     end
   end
 
+ it "populates an array of matches" do
+    contact = Factory(:contact)
+    get :index
+    assigns(:contacts).should eq([contact])
+  end
+
 
 end
 
