@@ -1,5 +1,9 @@
 class MatchesController < ApplicationController
 
+  def index
+  end
+
+
 	def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
