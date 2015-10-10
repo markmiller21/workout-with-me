@@ -22,19 +22,23 @@ class MatchesController < ApplicationController
     potential_matches = []
     current_user.activities.each do |activity|
       activity.users.each do |user|
-        potential_matches << user
+        if current_user != user
+          potential_matches << user
+        end
       end
     end
     for x in 0..potential_matches.length
-      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) == []
+      if Match.where(initiator_id: current_user.id, responder_id: potential_matches[x]) != []
         next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) == []
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: 1) != []
         next
-      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) == []
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: current_user.id, accepted: -1) != []
         next
       else
         print "Atleast we made it this far.  I am going to return #{potential_matches[x].name} who has #{potential_matches[x].activities}"
-        return potential_matches[x]
+        Match.create(initiator_id: current_user.id, responder_id: potential_matches[x].id)
+        # below need to be a redirect to where-ever
+        break
       end 
     end
   end
