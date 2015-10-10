@@ -20,7 +20,7 @@ class MatchesController < ApplicationController
 
     # Gather all the users with a similar interest
     potential_matches = []
-    current_user.acivities.each do |activity|
+    current_user.activities.each do |activity|
       activity.users.each do |user|
         potential_matches << user
       end
@@ -35,7 +35,7 @@ class MatchesController < ApplicationController
       else
         print "Atleast we made it this far.  I am going to return #{potential_matches[x].name} who has #{potential_matches[x].activities}"
         return potential_matches[x]
-      end          
+      end 
     end
   end
 
