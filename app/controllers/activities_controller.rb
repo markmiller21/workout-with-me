@@ -34,9 +34,10 @@ class ActivitiesController < ApplicationController
 
     user_id.uniq!
     user_id.each do |id|
+
       current_user.initiator_matches.create(responder_id:id,accepted: 2)
     end
-
+    Match.find()
 
     redirect_to match_path(current_user.initiator_matches.sample.responder_id)
     else

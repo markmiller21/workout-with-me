@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
     @potential_match = User.find_by(id: params[:id])
 
     @possible_match = Match.find_by(id: params[:id])
-    @possible_user = @possible_match.responder_id
+    @possible_user = User.find(@possible_match.responder_id)
   end
 
   def create
