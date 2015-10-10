@@ -27,5 +27,8 @@ describe 'Logging in Process' do
 			expect(page).to have_content('Login')
 		end
 	end
+end
+
+describe 'Sign up process' do 
 
 end
