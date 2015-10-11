@@ -25,7 +25,8 @@ describe SessionsController do
 			end
 			
 			it "expects a message flash" do
-        expect(flash[:message]).to have_content "You succesfully logged in"
+				post :create, session: { email: user[:email], password: user[:password] }
+        expect(flash[:message]).to have_content "You've succesfully logged in"
       end
 
 		end
