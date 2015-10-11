@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
 
       random_user = User.where.not(id: current_user.id ).sample
-      if Match.find_by(responder_id: random_user.id, initiator_id: current_user.id) || Match.find_by(responder_id: current_user.id, responder_id: random_user.id)
+      if Match.find_by(responder_id: random_user.id, initiator_id: current_user.id) || Match.find_by(responder_id: current_user.id, initiator_id: random_user.id)
         render file: "error"
       else
         redirect_to match_path(random_user)

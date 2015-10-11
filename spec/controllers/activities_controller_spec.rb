@@ -12,8 +12,6 @@ RSpec.describe ActivitiesController do
     log_me_in
   end
 
-  let(:current_user) { session[:user] }
-
   describe "GET #index" do
     it "renders the index template" do
       get :index
@@ -56,9 +54,11 @@ RSpec.describe ActivitiesController do
         expect(response).to redirect_to match_path(potential_match.id)
       end
 
-      xit "should add activity to user activities" do
-        post :create, name: ["Tennis"]
-        expect(@user.activities.length).to eq(1)
+      it "should add activity to user activities" do
+        potential_match.activities.create(name: "Tennis")
+        expect {
+          post :create, name: ["Tennis"]
+        }.to change(@user.activities,:count).by(1)
       end
     end
   end
