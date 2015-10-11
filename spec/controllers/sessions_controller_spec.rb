@@ -46,7 +46,12 @@ describe SessionsController do
       	expect(flash[:error]).to have_content "Invalid field, try logging in again"
       end
 		end
+
+		describe "DELETE #destroy" do
+			before(:each){
+				user = create(:user)
+				session[:user_id] = user.id
+			}
+		end
 	end
-
-
 end
