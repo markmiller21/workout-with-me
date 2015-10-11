@@ -22,6 +22,11 @@ RSpec.describe RatingsController do
         }.to change(Rating,:count).by(1)
       end
 
+      it "should add rating to rated user" do
+        expect {
+          post :create, ratee_id: matched_user, rank: 5
+        }.to change(@user.rater_ratings,:count).by(1)
+      end
     end
 
     context "invalid attributes" do
