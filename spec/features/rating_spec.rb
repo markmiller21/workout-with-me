@@ -20,6 +20,16 @@ RSpec.feature "Ratings Page", :type => :feature do
     click_button 'Login'
     click_link 'Logout'
   }
+  let(:potential_match2) {
+    create(:potential_user2)
+    potential_match.activities.create(name: "Lifting")
+    visit root_path
+    click_link "Login Here"
+    fill_in 'Email', :with => potential_match2.email
+    fill_in 'Password', :with => potential_match2.password
+    click_button 'Login'
+    click_link 'Logout'
+  }
   let(:unmatched_user) {
     create(:unmatched_user)
     unmatched_user.activities.create(name: "Soccer")
@@ -36,14 +46,10 @@ RSpec.feature "Ratings Page", :type => :feature do
   end
 # is ratings going to be a link we can click somewhere?
   describe "ratings index page" do
-    let(:rater_rating) { create(:rater_rating) }
-    let(:rater_ratings) { [rater_rating, create(:rater_rating)] }
-    let(:ratee_rating) { create(:ratee_rating) }
-    let(:ratee_ratings) { [ratee_rating, create(:ratee_rating)] }
 
     it "shows all ratings user gave" do
-      Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
-
+      match = Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
+      match.rater_ratings.create(rater_id: @user.id, ratee_id: potential_match.id, rank: 5)
       visit ratings_path
       rater_ratings.each do |rater_rating|
         expect(page).to have_content rater_rating.rank
@@ -51,6 +57,7 @@ RSpec.feature "Ratings Page", :type => :feature do
     end
 
     it "shows all ratings user recieved" do
+      match = Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
       visit ratings_path
       ratee_ratings.each do |ratee_rating|
         expect(page).to have_content ratee_rating.rank
