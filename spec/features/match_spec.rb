@@ -30,6 +30,7 @@ describe 'possible match page' do
     unmatched_user = create(:unmatched_user)
   }
   before(:each) do
+    potential_user = create(:potential_user)
     dummy_user
     log_me_in
   end

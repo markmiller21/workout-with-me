@@ -19,6 +19,7 @@ RSpec.feature "Activities Page", :type => :feature do
 
   before :each do
     register
+    potential_user = create(:potential_user)
   end
 
   describe "create activities" do
