@@ -25,37 +25,47 @@ describe SessionsController do
 			
 			it "expects a message flash" do
 				post :create, session: { email: user[:email], password: user[:password] }
-        expect(flash[:message]).to have_content "You've succesfully logged in"
-      end
+				expect(flash[:message]).to have_content "You've succesfully logged in"
+			end
 		end
 
 		describe "When unsuccesful" do 
 			before(:each){
-        post :create, session: { email: 'nil', password: 'nil' }
-      }
-      
-      it "redirects to login_path" do
-      	expect(response).to redirect_to(login_path)
-      end
-
-      it "doesn't set a session" do
-      	expect(session[:user_id]).to be_nil
-      end
-
-      it "expects an error flash" do
-      	expect(flash[:error]).to have_content "Invalid field, try logging in again"
-      end
-		end
-
-		describe "DELETE #destroy" do
-			before(:each){
-				user = create(:user)
-				session[:user_id] = user.id
+				post :create, session: { email: 'nil', password: 'nil' }
 			}
-			it "redirects to the login page" do 
-				delete :destroy
+
+			it "redirects to login_path" do
+				expect(response).to redirect_to(login_path)
+			end
+
+			it "doesn't set a session" do
 				expect(session[:user_id]).to be_nil
 			end
+
+			it "expects an error flash" do
+				expect(flash[:error]).to have_content "Invalid field, try logging in again"
+			end
+		end
+	end
+
+	describe "DELETE #destroy" do
+		before(:each){
+			user = create(:user)
+			session[:user_id] = user.id
+		}
+		it "removes the user id from the session" do 
+			delete :destroy
+			expect(session[:user_id]).to be_nil
+		end
+
+		it "redirects to the login page" do 
+			delete :destroy
+			expect(response).to redirect_to(login_path)
+		end
+
+		it "expects a flash message" do 
+			delete :destroy
+			expect(flash[:message]).to have_content "You've been succesfully logged out"
 		end
 	end
 end
