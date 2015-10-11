@@ -19,6 +19,11 @@ RSpec.describe ActivitiesController do
       get :index
       expect(response).to render_template("index")
     end
+
+    it "has a 200 status code" do
+      get :index
+      expect(response.status).to eq(200)
+    end
   end
 
   describe "POST #create" do
@@ -40,25 +45,41 @@ RSpec.describe ActivitiesController do
     end
 
     context "with valid attributes" do
-      before :each do
-        Activity.create(name: "Tennis")
-        subject { post :create, "Tennis" }
+      it "returns 302 status" do
+        post :create, "Tennis"
+        expect(response.status).to eq(302)
       end
 
-      it "returns 200 status" do
-        expect(response).to have_http_status(:ok)
+      it "should show potential matches page" do
+        potential_match.activities.create(name: "Tennis")
+        post :create, name: ["Tennis"]
+        expect(response).to redirect_to match_path(potential_match.id)
       end
 
-      # it "should show potential matches page" do
-      #   expect(subject).to redirect_to(match_path(potential_match))
-      # end
-
-      # it "should add activity to user activities" do
-
-      #   expect {
-      #     subject
-      #   }.to change{@user.activities.length}.by(1)
-      # end
+      it "should add activity to user activities" do
+        post :create, name: ["Tennis"]
+        expect(@user.activities.length).to eq(1)
+      end
     end
+  end
+
+  describe "DELETE #destroy" do
+    before :each do
+      @activity = @user.activities.create(name: "Tennis")
+    end
+
+    # it "should flash message before delete" do
+    # end
+
+    it "deletes activity" do
+      expect {
+        delete :destroy, id: @activity
+      }.to change(@user.activities,:count).by(-1)
+    end
+
+    # it "should flash message after successful delete" do
+    #   delete :destroy, id: @activity
+    #   expect(flash[:message]).to have_content("Activity deleted")
+    # end
   end
 end
