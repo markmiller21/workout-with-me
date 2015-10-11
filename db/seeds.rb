@@ -2,7 +2,7 @@ jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password
 mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "male", description: "Looking for someone to lift with 6 nights a week.  I've only been lifting for a few years but can push some weight.  Looking for someone of any level, I'd love to bring a beginner or get pushed by someone more advanced.")
 navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
 
-lifting = Activity.create(name: "Lifting", image: "http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg")
+lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
 tennis = Activity.create(name: "Tennis", image: "http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg")
 basketball = Activity.create(name: "Basketball", image: "http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg")
 spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
