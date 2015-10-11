@@ -65,7 +65,7 @@ describe 'possible match page' do
     end
 
     it 'list a match on the page' do
-      Match.create(initiator_id:@user.id, responder_id: @dummy.id, accepted: 2)
+      Match.create(initiator_id:@user.id, responder_id: @dummy.id, accepted: 1)
       click_link "My matches"
       expect(page).to have_content @dummy.name
     end
