@@ -1,14 +1,8 @@
 class MatchesController < ApplicationController
 
   def index
-    initiator_matches = current_user.initiator_matches.where(accepted: 1)
-    @initiator_matched_users = initiator_matches.map do |match|
-      User.find_by(id: match.responder_id)
-    end
-    responder_matches = current_user.responder_matches.where(accepted: 1)
-    @responder_matched_users = responder_matches.map do |match|
-      User.find_by(id: match.initiator_id)
-    end
+    @initiator_matches = current_user.initiator_matches.where(accepted: 1)
+    @responder_matches = current_user.responder_matches.where(accepted: 1)
   end
 
 

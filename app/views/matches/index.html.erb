@@ -1,12 +1,12 @@
 <h3><%= "Here are your matches  " + current_user.name %></h3>
-<% @initiator_matched_users.each do |user| %>
-  <%= user.name %>
+<% @initiator_matches.each do |match| %>
+  <%= link_to match.responder.name, match_messages_path(match.id) %>
   <p>Average Rating</p>
-  <%= user.average_rating %>
+  <%= match.responder.average_rating %>
 <% end %>
 
-<% @responder_matched_users.each do |user| %>
-  <%= user.name %>
+<% @responder_matches.each do |match| %>
+  <%=link_to match.initiator.name, match_messages_path(match.id) %>
   <p>Average Rating</p>
-  <%= user.average_rating %>
+  <%= match.initiator.average_rating %>
 <% end %>
