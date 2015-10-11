@@ -29,4 +29,23 @@ RSpec.feature "Ratings Page", :type => :feature do
     click_button 'Login'
     click_link 'Logout'
   }
+
+  before :each do
+    log_me_in
+  end
+# is ratings going to be a link we can click somewhere?
+  describe "ratings index page" do
+    let(:rater_rating) { create(:rater_rating) }
+    let(:rater_ratings) { [rater_rating, create(:rater_rating)] }
+
+    it "shows all ratings user gave" do
+      visit ratings_path
+      rater_ratings.each do |rater_rating|
+        expect(page).to have_content rater_rating.rank
+      end
+    end
+
+    it "shows all ratings user recieved" do
+    end
+  end
 end
