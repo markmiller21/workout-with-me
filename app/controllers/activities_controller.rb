@@ -22,6 +22,7 @@ class ActivitiesController < ApplicationController
       redirect_to match_path(random_user)
     else
       render file: "error"
+    end
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
