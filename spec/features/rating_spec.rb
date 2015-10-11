@@ -1,64 +1,45 @@
-# require "rails_helper"
+require "rails_helper"
 
-# RSpec.feature "Ratings Page", :type => :feature do
-#   let(:log_me_in) {
-#     @user = create(:user)
-#     @user.activities.create(name: "Lifting")
-#     visit root_path
-#     click_link "Login Here"
-#     fill_in 'Email', :with => @user.email
-#     fill_in 'Password', :with => @user.password
-#     click_button 'Login'
-#   }
-#   let(:potential_match) {
-#     create(:potential_user)
-#     potential_match.activities.create(name: "Lifting")
-#     visit root_path
-#     click_link "Login Here"
-#     fill_in 'Email', :with => potential_match.email
-#     fill_in 'Password', :with => potential_match.password
-#     click_button 'Login'
-#     click_link 'Logout'
-#   }
-#   let(:potential_match2) {
-#     create(:potential_user2)
-#     potential_match2.activities.create(name: "Lifting")
-#     visit root_path
-#     click_link "Login Here"
-#     fill_in 'Email', :with => potential_match2.email
-#     fill_in 'Password', :with => potential_match2.password
-#     click_button 'Login'
-#     click_link 'Logout'
-#   }
+RSpec.feature "Ratings", :type => :feature do
+  let(:potential_match) {
+    create(:potential_user)
+  }
 
-#   let(:unmatched_user) {
-#     create(:unmatched_user)
-#     unmatched_user.activities.create(name: "Soccer")
-#     visit root_path
-#     click_link "Login Here"
-#     fill_in 'Email', :with => unmatched_user.email
-#     fill_in 'Password', :with => unmatched_user.password
-#     click_button 'Login'
-#     click_link 'Logout'
-#   }
+  let(:potential_match2) {
+    create(:potential_user2)
+  }
 
+  let(:log_me_in) {
+    @user = create(:user)
+    @user.activities.create(name: "Lifting")
+    potential_match
+    potential_match2
+    visit root_path
+    click_link "Login Here"
+    fill_in 'Email', :with => @user.email
+    fill_in 'Password', :with => @user.password
+    click_button 'Login'
+  }
 
-# # is ratings going to be a link we can click somewhere?
-#   describe "ratings index page" do
-#      before :each do
-#       log_me_in
-#       match = Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
-#       first_rating = Rating.create(rater_id: @user.id, ratee_id: potential_match.id, rank: 5)
-#       match2 = Match.create(initiator_id: @user.id, responder_id: potential_match2.id, accepted: 1)
-#       second_rating = Rating.create(rater_id: @user.id, ratee_id: potential_match2.id, rank: 5)
-#     end
+  describe "view user rating" do
+    before :each do
+      log_me_in
+      potential_match.activities.create(name: "Lifting")
+      match = Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
+      @first_rating = Rating.create(rater_id: @user.id, ratee_id: potential_match.id, rank: 5)
+    end
 
-#     it "shows all ratings user recieved" do
-#       match = Match.create(initiator_id: @user.id, responder_id: potential_match.id, accepted: 1)
-#       visit ratings_path
-#       ratee_ratings.each do |ratee_rating|
-#         expect(page).to have_content ratee_rating.rank
-#       end
-#     end
-#   end
-# end
+    scenario "shows average rating for potential match" do
+      potential_match2.activities.create(name: "Lifting")
+      visit match_path(potential_match2)
+      expect(page).to have_content("Average Rating")
+      expect(page).to have_content Rating.average_rating(potential_match2)
+    end
+
+    # scenario "shows average rating for match" do
+    #   visit matches_path
+    #   expect(page).to have_content("Average Rating")
+    #   expect(page).to have_content Rating.average_rating(potential_match)
+    # end
+  end
+end
