@@ -5,7 +5,6 @@ describe SessionsController do
 		describe "When successful" do
 			before(:each){
 				@user = create(:user)
-				
 			}
 			let(:user) {attributes_for(:user)}
 
@@ -28,7 +27,12 @@ describe SessionsController do
 				post :create, session: { email: user[:email], password: user[:password] }
         expect(flash[:message]).to have_content "You've succesfully logged in"
       end
+		end
 
+		describe "When unsuccesful" do 
+			before(:each){
+        post :create, session: { username: 'nil', password: 'nil' }
+      }
 		end
 	end
 
