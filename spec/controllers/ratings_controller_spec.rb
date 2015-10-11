@@ -41,9 +41,11 @@ RSpec.describe RatingsController do
           post :create, ratee_id: matched_user
         }.to_not change(Rating,:count)
       end
+
+      it "should flash error if submit without rating" do
+        post :create, ratee_id: matched_user
+        expect(flash[:error]).to have_content("Cannot submit empty rating")
+      end
     end
-
   end
-
-
 end
