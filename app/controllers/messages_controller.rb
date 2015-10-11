@@ -5,6 +5,8 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @match = Match.find(params[:id])
+
     @message = Message.create!(message_attributes)
   end
 
