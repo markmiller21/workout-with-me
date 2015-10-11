@@ -1,3 +1,8 @@
 <h4>Profile page</h4>
 <h4>This is the <%= @user.name %> profile page</h4>
 <p><%= @average_rating %></p>
+
+<p>Your activities:</p>
+<% @activities.each do |activity| %>
+  <%= activity.name %>
+<% end %>
