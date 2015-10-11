@@ -14,7 +14,10 @@ describe SessionsController do
 				expect(response).to redirect_to(activities_path)
 			end
 
-
+			it "sets a sessoin" do 
+				post :create, session: { email: user[:email], password: user[:password] }
+				expect(session).to have_key(:user_id)
+			end
 		end
 	end
 
