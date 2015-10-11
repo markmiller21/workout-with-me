@@ -1,22 +1,21 @@
 require 'rails_helper'
 
+
+
 describe 'Logging in Process' do
+	let(:log_me_in) {
+  	@user = create(:user)
+  	@user.activities.create(name:"Lifting")
+  	visit root_path
+  	click_link "Login Here"
+  	fill_in 'Email', :with => @user.email
+  	fill_in 'Password', :with => @user.password
+  	click_button 'Login'
+ 	}
 
 	before(:each) do
 		potential_user = create(:potential_user)
 	end
-
-
-
-	let(:log_me_in){
-		user = create(:user)
-		visit login_path
-		within("#login") do
-			fill_in 'Email', :with => user.email
-			fill_in 'Password', :with => user.password
-			click_button 'Login'
-		end
-	}
 
 	describe "When User enters valid information" do
 		it "they should be redirected to the matches page" do
@@ -61,12 +60,26 @@ describe 'Sign up process' do
 		click_button("Register")
 		expect(page).to have_content('Register')
 	end
-
+end
 	# describe 'User index page' do
 
 	# 	it 'on the correct user' do
 	# 		user = create(:user)
 
+# describe "Profile Page" do
+# 	let(:log_me_in) {
+#   	@user = create(:user)
+#   	@user.activities.create(name:"Lifting")
+#   	visit root_path
+#   	click_link "Login Here"
+#   	fill_in 'Email', :with => @user.email
+#   	fill_in 'Password', :with => @user.password
+#   	click_button 'Login'
+#  	}
 
-
-end
+# 	it "should show user's average rating" do
+# 		log_me_in
+# 		visit user_path(@user)
+# 		expect(page).to have_content("My average rating")
+# 	end
+# end

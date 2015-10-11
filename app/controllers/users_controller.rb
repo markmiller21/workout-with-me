@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
-
+    ratee_ratings = Rating.where(ratee_id: @user.id).map do |ratee_rating|
+      ratee_rating.rank
+    end
+    @average_rating = ratee_ratings.inject { |sum,rating| sum + rating }
   end
 
   def new
