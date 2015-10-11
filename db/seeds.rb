@@ -7,6 +7,7 @@ tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uplo
 basketball = Activity.create(name: "Basketball", image: "https://pixabay.com/static/uploads/photo/2013/05/02/21/23/uss-nimitz-108622_640.jpg")
 spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
 soccer = Activity.create(name: "Soccer", image: "https://pixabay.com/static/uploads/photo/2014/05/21/15/28/soccer-349821_640.jpg")
+running = Activity.create(name: "Running", image: "https://res.cloudinary.com/mapmyfitness/image/upload/f167687b598b4deb85a33a0af8d0083c") 
 
 mark.activities << lifting
 jenny.activities << lifting
