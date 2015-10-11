@@ -64,15 +64,11 @@ RSpec.describe ActivitiesController do
   end
 
   describe "DELETE #destroy" do
-    before :each do
-      @user.activities.create [{name: "Tennis"}, {name: "Yoga"}]
-    end
-    context "with invalid attributes" do
-      it "deletes activity" do
-        expect {
-          delete :destroy, activity: { name: "Tennis" }
-        }.to change{@user.activities.length}.by(-1)
-      end
+    it "deletes activity" do
+      @activity = @user.activities.create(name: "Tennis")
+      expect {
+        delete :destroy, id: @activity.id
+      }.to change{@user.activities.length}.by(-1)
     end
   end
 end
