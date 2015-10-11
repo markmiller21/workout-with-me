@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:message] = "You've succesfully logged in"
 
-
+      #what is this suppose to render? potential matches? or matches page?
       random_user = User.where.not(id: current_user.id ).sample
       if Match.find_by(responder_id: random_user.id, initiator_id: current_user.id) || Match.find_by(responder_id: current_user.id, initiator_id: random_user.id)
         render file: "error"
