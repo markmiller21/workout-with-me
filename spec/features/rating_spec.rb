@@ -36,10 +36,10 @@ RSpec.feature "Ratings", :type => :feature do
       expect(page).to have_content potential_match2.average_rating
     end
 
-    # scenario "shows average rating for match" do
-    #   visit matches_path
-    #   expect(page).to have_content("Average Rating")
-    #   expect(page).to have_content Rating.average_rating(potential_match)
-    # end
+    scenario "shows average rating for match" do
+      visit matches_path
+      expect(page).to have_content("Average Rating")
+      expect(page).to have_content potential_match.average_rating
+    end
   end
 end
