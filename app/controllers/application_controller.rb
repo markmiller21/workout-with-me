@@ -41,5 +41,4 @@ class ApplicationController < ActionController::Base
     end
     return potential_matches
   end
-
 end
