@@ -25,8 +25,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    activity = current_user.activities.delete(id: params[:id])
-
+    activity = Activity.find_by(id: params[:id])
+    current_user.activities.delete(activity)
     redirect_to edit_user_path(current_user)
   end
 

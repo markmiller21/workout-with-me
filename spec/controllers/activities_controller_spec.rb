@@ -63,12 +63,12 @@ RSpec.describe ActivitiesController do
     end
   end
 
-  # describe "DELETE #destroy" do
-  #   it "deletes activity" do
-  #     @activity = @user.activities.create(name: "Tennis")
-  #     expect {
-  #       delete :destroy, id: @activity.id
-  #     }.to change{@user.activities.length}.by(-1)
-  #   end
-  # end
+  describe "DELETE #destroy" do
+    it "deletes activity" do
+      @activity = @user.activities.create(name: "Tennis")
+      expect {
+        delete :destroy, id: @activity
+      }.to change(@user.activities,:count).by(-1)
+    end
+  end
 end
