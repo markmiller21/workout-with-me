@@ -1,1 +1,8 @@
 <h3><%= "Here are your matches  " + current_user.name %></h3>
+<% @initiator_matches.each do |each_user| %>
+<%= User.find(each_user.respondable_id).name %>
+<% end %>
+
+<% @responder_matches.each do |each_user| %>
+<% User.find(each_user.initiator_id).name %>
+<% end %>
