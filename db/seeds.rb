@@ -6,7 +6,7 @@ lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/up
 tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
 basketball = Activity.create(name: "Basketball", image: "https://pixabay.com/static/uploads/photo/2013/05/02/21/23/uss-nimitz-108622_640.jpg")
 spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
-soccer = Activity.create(name: "Soccer", image: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg")
+soccer = Activity.create(name: "Soccer", image: "https://pixabay.com/static/uploads/photo/2014/05/21/15/28/soccer-349821_640.jpg")
 
 mark.activities << lifting
 jenny.activities << lifting
