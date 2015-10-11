@@ -31,8 +31,12 @@ describe SessionsController do
 
 		describe "When unsuccesful" do 
 			before(:each){
-        post :create, session: { username: 'nil', password: 'nil' }
+        post :create, session: { email: 'nil', password: 'nil' }
       }
+      it "redirects to login_path" do
+      	expect(response).to redirect_to(login_path)
+      end
+
 		end
 	end
 
