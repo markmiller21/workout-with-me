@@ -4,5 +4,5 @@
 <% end %>
 
 <% @responder_matches.each do |each_user| %>
-<% User.find(each_user.initiator_id).name %>
+<%= User.find(each_user.initiator_id).name %>
 <% end %>
