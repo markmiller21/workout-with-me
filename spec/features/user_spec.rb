@@ -17,12 +17,12 @@ describe 'Logging in Process' do
 		potential_user = create(:potential_user)
 	end
 
-	describe "When User enters valid information" do
-		it "they should be redirected to the matches page" do
-			log_me_in
-			expect(page).to have_content('Potential match')
-		end
-	end
+	# describe "When User enters valid information" do
+	# 	it "they should be redirected to the matches page" do
+	# 		log_me_in
+	# 		expect(page).to have_content('Potential match')
+	# 	end
+	# end
 
 	describe "When User enters INvalid information" do
 		it "they should be redirected to the login page" do

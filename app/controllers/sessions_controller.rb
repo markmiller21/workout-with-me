@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
       flash[:message] = "You've succesfully logged in"
-
-
-      random_user = User.where.not(id: current_user.id ).sample
-      if Match.find_by(responder_id: random_user.id, initiator_id: current_user.id) || Match.find_by(responder_id: current_user.id, initiator_id: random_user.id)
+      potential_matches = get_potential_matches(current_user)
+      next_match = find_next_match(current_user, potential_matches)
+      if next_match == nil
         render file: "error"
       else
-        redirect_to match_path(random_user)
+        redirect_to match_path(next_match)
       end
     else
       flash[:error] = "Invalid field, try logging in again"
