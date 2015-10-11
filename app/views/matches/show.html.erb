@@ -27,13 +27,19 @@
 					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
 				</div>
 
-				<div class="large-6 columns">
-					left
+				<div class="large-6 medium-6 small-6 columns">
+					<%= form_for @match do |f| %>
+						<%= f.hidden_field :responder_id, value: @potential_match.id %>
+						<%= f.submit "LIKE", :class => "button alert right" %>
+					<% end %>					
 					<!-- form for dislike goes here. Taking up exactly half of the field abover and aligns left -->
 				</div>
 
-				<div class="large-6 columns">
-					right
+				<div class="large-6 medium-6 small-6 columns">
+					<%= form_for @match do |f| %>
+					<%= f.hidden_field :responder_id, value: @potential_match.id %>
+					<%= f.submit "DISLIKE", :class => "button success left" %>
+					<% end %>
 					<!-- form for like goes here. Taking up exactly half of the field abover and aligns right -->
 				</div>
 
@@ -65,15 +71,3 @@
 <p>Average Rating</p>
 <%= @average_rating %>
 <%= link_to "See more", user_path(@potential_match) %>
-
-
-<%= form_for @match do |f| %>
-<%= f.hidden_field :responder_id, value: @potential_match.id %>
-<%= f.submit "LIKE" %>
-<% end %>
-
-<%= form_for @match do |f| %>
-<%= f.hidden_field :responder_id, value: @potential_match.id %>
-<%= f.submit "DISLIKE" %>
-<% end %>
-
