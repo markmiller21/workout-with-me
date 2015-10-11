@@ -20,7 +20,7 @@ describe 'possible match page' do
     fill_in 'Email', :with => @dummy.email
     fill_in 'Password', :with => @dummy.password
     click_button 'Login'
-    click_link 'Logout'
+    # log_me_out
   }
 
   let(:potential_user) {
@@ -61,13 +61,13 @@ describe 'possible match page' do
     it 'shows on the matches for a current user' do
       Match.create(initiator_id:@user.id, responder_id: @dummy.id)
       click_button "LIKE"
-      click_link "My matches"
+      click_link "Matches"
       expect(page).to have_content "Here are your matches " + @user.name
     end
 
     it 'list a match on the page' do
       Match.create(initiator_id:@user.id, responder_id: @dummy.id, accepted: 1)
-      click_link "My matches"
+      click_link "Matches"
       expect(page).to have_content @dummy.name
     end
   end
