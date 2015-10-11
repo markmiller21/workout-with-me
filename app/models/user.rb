@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
 	has_many :initiator_matches, :class_name => 'Match', :foreign_key => "initiator_id"
 	has_many :responder_matches, :class_name => 'Match', :foreign_key => "responder_id"
 
+    has_many :acceptor_messages, :class_name => 'Message', :foreign_key => "acceptor_id"
+  has_many :receiver_messages, :class_name => 'Message', :foreign_key => "receiver_id"
+
 	validates :name, :email, :gender, :presence => true
 
 	has_secure_password
