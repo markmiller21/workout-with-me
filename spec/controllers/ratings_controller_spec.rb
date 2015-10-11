@@ -21,7 +21,17 @@ RSpec.describe RatingsController do
           post :create, ratee_id: matched_user, rank: 5
         }.to change(Rating,:count).by(1)
       end
+
     end
+
+    context "invalid attributes" do
+      it "should not increase rating count" do
+        expect {
+          post :create, ratee_id: matched_user
+        }.to_not change(Rating,:count)
+      end
+    end
+
   end
 
 
