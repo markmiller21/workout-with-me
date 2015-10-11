@@ -52,6 +52,14 @@ describe SessionsController do
 				user = create(:user)
 				session[:user_id] = user.id
 			}
+			it "redirects to the login page" do 
+				delete :destroy
+				expect(session[:user_id]).to be_nil
+			end
 		end
 	end
 end
+
+
+
+
