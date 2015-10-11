@@ -4,7 +4,7 @@ RSpec.feature "Activities Page", :type => :feature do
   let(:new_user_attr) { attributes_for(:user)}
   let(:register) {
     visit root_path
-    click_link "Sign Up"
+    click_link "Signup"
     fill_in 'Name', :with => new_user_attr[:name]
     fill_in 'Email', :with => new_user_attr[:email]
     fill_in 'Password', :with => new_user_attr[:password]
