@@ -13,7 +13,7 @@ describe 'possible match page' do
   }
 
   let(:dummy_user){
-    @dummy = create(:user)
+    @dummy = create(:potential_user)
     @dummy.activities.create(name: "Lifting")
     visit root_path
     click_link "Login Here"
@@ -61,6 +61,13 @@ describe 'possible match page' do
       Match.create(initiator_id:@user.id, responder_id: @dummy.id)
       click_button "LIKE"
       click_link "My matches"
+      expect(page).to have_content "Here are your matches " + @user.name
+    end
+
+    it 'list a match on the page' do
+      Match.create(initiator_id:@user.id, responder_id: @dummy.id, accepted: 1)
+      click_link "My matches"
+      expect(page).to have_content @dummy.name
     end
   end
 
