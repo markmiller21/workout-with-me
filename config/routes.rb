@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :matches
   end
+  resources :messages
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'
