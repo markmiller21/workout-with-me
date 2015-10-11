@@ -4,11 +4,4 @@ class Rating < ActiveRecord::Base
 
   validates :rank, :presence => true
 
-  def self.average_rating(user)
-    all_ratings = where(ratee_id: user.id).map do |rating|
-      rating.rank
-    end
-    all_ratings.inject { |sum, rating| sum + rating }
-  end
-
 end

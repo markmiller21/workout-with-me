@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
 	validates :name, :email, :gender, :presence => true
 
 	has_secure_password
+
+  def average_rating
+    all_ratings = Rating.where(ratee_id: self.id).map do |rating|
+      rating.rank
+    end
+    all_ratings.inject { |sum, rating| sum + rating }
+  end
+
 end
