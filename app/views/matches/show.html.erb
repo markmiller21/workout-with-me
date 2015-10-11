@@ -50,9 +50,17 @@
 		<div class="row">
 			<div class="large-3 medium-2 hide-for-small columns"></div>
 			<div class="large-6 medium-8 columns">
+				
 				<div class="panel">
-					<h3 class="hide-for-small text-center">Activites</h3><hr/>
+					<h3 class="hide-for-small text-center">Activities</h3><hr/>
 					<h5 class="subheader"> <%=@potential_match%> </h5>
+
+					<% @potential_match.activities.each do |activity| %>
+
+						<%= activity.name %>
+
+					<% end %>
+
 				</div>
 			</div>
 			<div class="large-3 medium-2 hide-for-small columns"></div>
