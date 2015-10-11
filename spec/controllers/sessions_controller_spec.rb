@@ -18,6 +18,11 @@ describe SessionsController do
 				post :create, session: { email: user[:email], password: user[:password] }
 				expect(session).to have_key(:user_id)
 			end
+
+			it "sets session to the user_id" do 
+				post :create, session: { email: user[:email], password: user[:password] }
+				expect(session[:user_id]).to eq(@user.id)
+			end
 		end
 	end
 
