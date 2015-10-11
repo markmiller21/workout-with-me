@@ -1,5 +1,4 @@
 require "rails_helper"
-# change User.all.sample to filtered users
 
 RSpec.describe ActivitiesController do
   let(:log_me_in) {
@@ -7,11 +6,13 @@ RSpec.describe ActivitiesController do
     session[:user_id] = @user.id
   }
   let(:activity_attr) { attributes_for(:activity) }
-  let(:create_activity) { @user.activities.create(name: activity_attr[:name], image: activity_attr[:image])}
+  let(:potential_match) { create(:potential_user) }
 
   before :each do
     log_me_in
   end
+
+  let(:current_user) { session[:user] }
 
   describe "GET #index" do
     it "renders the index template" do
@@ -24,23 +25,40 @@ RSpec.describe ActivitiesController do
     context "with invalid attributes" do
       it "should not redirect if activities not chosen" do
         post :create
-        expect(response).to_not redirect_to(match_path(User.all.sample.id))
+        expect(response).to_not redirect_to(match_path(potential_match))
       end
 
-      #why is this working?
       it "sets flash error if activities not chosen" do
         post :create
         expect(flash[:error]).to have_content("Must choose at least 1 activity")
       end
+
+      it "should redirect to activities page again" do
+        post :create
+        expect(response).to redirect_to(activities_path)
+      end
     end
 
-    # context "with valid attributes" do
-    #   it "should redirect to potential matches page" do
-    #     post :create, activity: {name: "tennis"}
-    #     expect(response).to redirect_to(match_path(User.all.sample.id))
-    #   end
-    # end
+    context "with valid attributes" do
+      before :each do
+        Activity.create(name: "Tennis")
+        subject { post :create, "Tennis" }
+      end
 
+      it "returns 200 status" do
+        expect(response).to have_http_status(:ok)
+      end
+
+      # it "should show potential matches page" do
+      #   expect(subject).to redirect_to(match_path(potential_match))
+      # end
+
+      # it "should add activity to user activities" do
+
+      #   expect {
+      #     subject
+      #   }.to change{@user.activities.length}.by(1)
+      # end
+    end
   end
-
 end
