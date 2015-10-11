@@ -42,7 +42,17 @@
 				</div>
 
 			</div>
+			<div class="large-3 medium-2 hide-for-small columns"></div>
+		</div>
 
+		<div class="row">
+			<div class="large-3 medium-2 hide-for-small columns"></div>
+			<div class="large-6 medium-8 columns">
+				<div class="panel">
+					<h3 class="hide-for-small text-center">Activites</h3><hr/>
+					<h5 class="subheader"> <%=@potential_match.activites%> </h5>
+				</div>
+			</div>
 			<div class="large-3 medium-2 hide-for-small columns"></div>
 		</div>
 
@@ -64,8 +74,6 @@
 		<div class="spacer"></div>
 
 
-<h4>This is the match show page</h4>
-<h4>Potential match is <%= @potential_match.name %></h4>
+
 <p>Average Rating</p>
 <%= @average_rating %>
-<%= link_to "See more", user_path(@potential_match) %>
