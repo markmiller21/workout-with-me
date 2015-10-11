@@ -42,23 +42,25 @@ RSpec.describe ActivitiesController do
     context "with valid attributes" do
       before :each do
         Activity.create(name: "Tennis")
-        subject { post :create, "Tennis" }
+
       end
 
-      it "returns 200 status" do
-        expect(response).to have_http_status(:ok)
+      # it "returns 200 status" do
+      #   post :create, "Tennis"
+      #   expect(response).to have_http_status(:ok)
+      # end
+
+      it "should show potential matches page" do
+        post :create, "Tennis"
+        expect(response).to redirect_to match_path(potential_match.id)
       end
 
-      # it "should show potential matches page" do
-      #   expect(subject).to redirect_to(match_path(potential_match))
-      # end
+      it "should add activity to user activities" do
 
-      # it "should add activity to user activities" do
-
-      #   expect {
-      #     subject
-      #   }.to change{@user.activities.length}.by(1)
-      # end
+        expect {
+         post :create, "Tennis"
+        }.to change{@user.activities.length}.by(1)
+      end
     end
   end
 end
