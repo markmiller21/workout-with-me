@@ -58,7 +58,7 @@ describe 'Sign up process' do
 		fill_in 'Description', :with => user_attr[:description]
 		fill_in 'Age', :with => user_attr[:age]
 		click_button("Register")
-		expect(page).to have_content('Register')
+		expect(page).to have_button('Register')
 	end
 end
 	# describe 'User index page' do
