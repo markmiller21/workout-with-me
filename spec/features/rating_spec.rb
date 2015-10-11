@@ -19,5 +19,14 @@ RSpec.feature "Ratings Page", :type => :feature do
     click_button 'Login'
     click_link 'Logout'
   }
-
+  let(:unmatched_user) {
+    create(:unmatched_user)
+    unmatched_user.activities.create(name: "Soccer")
+    visit root_path
+    click_link "Login Here"
+    fill_in 'Email', :with => unmatched_user.email
+    fill_in 'Password', :with => unmatched_user.password
+    click_button 'Login'
+    click_link 'Logout'
+  }
 end
