@@ -23,6 +23,11 @@ describe SessionsController do
 				post :create, session: { email: user[:email], password: user[:password] }
 				expect(session[:user_id]).to eq(@user.id)
 			end
+			
+			it "expects a message flash" do
+        expect(flash[:message]).to have_content "You succesfully logged in"
+      end
+
 		end
 	end
 
