@@ -82,4 +82,4 @@ end
 # 		visit user_path(@user)
 # 		expect(page).to have_content("My average rating")
 # 	end
-end
+# end
