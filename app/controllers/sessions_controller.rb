@@ -9,7 +9,9 @@ class SessionsController < ApplicationController
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
       flash[:message] = "You've succesfully logged in"
-      redirect_to  match_path(User.find(User.all.sample.id))
+
+      random_user = User.where.not(id: current_user.id ).sample
+      redirect_to match_path(random_user)
     else
       flash[:error] = "Invalid field, try logging in again"
       redirect_to login_path
