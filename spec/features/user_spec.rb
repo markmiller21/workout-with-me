@@ -30,7 +30,7 @@ describe 'Logging in Process' do
 			fill_in 'Email', :with => nil
 			fill_in 'Password', :with => nil
 			click_button 'Login'
-			expect(page).to have_content('Login')
+			expect(page).to have_button("Login")
 		end
 	end
 end
