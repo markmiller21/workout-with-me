@@ -19,6 +19,11 @@ RSpec.describe ActivitiesController do
       get :index
       expect(response).to render_template("index")
     end
+
+    it "has a 200 status code" do
+      get :index
+      expect(response.status).to eq(200)
+    end
   end
 
   describe "POST #create" do
@@ -58,4 +63,6 @@ RSpec.describe ActivitiesController do
       end
     end
   end
+
+  describe ""
 end
