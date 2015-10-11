@@ -13,23 +13,23 @@ describe SessionsController do
 				expect(response).to redirect_to(activities_path)
 			end
 
-			it "sets a sessoin" do 
+			it "sets a sessoin" do
 				post :create, session: { email: user[:email], password: user[:password] }
 				expect(session).to have_key(:user_id)
 			end
 
-			it "sets session to the user_id" do 
+			it "sets session to the user_id" do
 				post :create, session: { email: user[:email], password: user[:password] }
 				expect(session[:user_id]).to eq(@user.id)
 			end
-			
+
 			it "expects a message flash" do
 				post :create, session: { email: user[:email], password: user[:password] }
 				expect(flash[:message]).to have_content "You've succesfully logged in"
 			end
 		end
 
-		describe "When unsuccesful" do 
+		describe "When unsuccesful" do
 			before(:each){
 				post :create, session: { email: 'nil', password: 'nil' }
 			}
@@ -53,17 +53,17 @@ describe SessionsController do
 			user = create(:user)
 			session[:user_id] = user.id
 		}
-		it "removes the user id from the session" do 
+		it "removes the user id from the session" do
 			delete :destroy
 			expect(session[:user_id]).to be_nil
 		end
 
-		it "redirects to the login page" do 
+		it "redirects to the login page" do
 			delete :destroy
 			expect(response).to redirect_to(login_path)
 		end
 
-		it "expects a flash message" do 
+		it "expects a flash message" do
 			delete :destroy
 			expect(flash[:message]).to have_content "You've been succesfully logged out"
 		end

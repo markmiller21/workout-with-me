@@ -43,7 +43,7 @@ RSpec.describe ActivitiesController do
 
       it "returns 302 status" do
         post :create, "Tennis"
-        expect(responsestatus).to eq(302)
+        expect(response.status).to eq(302)
       end
 
       it "should show potential matches page" do
