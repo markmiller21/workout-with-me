@@ -45,7 +45,6 @@ RSpec.describe ActivitiesController do
     end
 
     context "with valid attributes" do
-
       it "returns 302 status" do
         post :create, "Tennis"
         expect(response.status).to eq(302)
@@ -64,5 +63,16 @@ RSpec.describe ActivitiesController do
     end
   end
 
-  describe ""
+  describe "DELETE #destroy" do
+    before :each do
+      @user.activities.create [{name: "Tennis"}, {name: "Yoga"}]
+    end
+    context "with invalid attributes" do
+      it "deletes activity" do
+        expect {
+          delete :destroy, activity: { name: "Tennis" }
+        }.to change{@user.activities.length}.by(-1)
+      end
+    end
+  end
 end
