@@ -42,7 +42,9 @@ describe SessionsController do
       	expect(session[:user_id]).to be_nil
       end
 
-
+      it "expects an error flash" do
+      	expect(flash[:error]).to have_content "Invalid field, try logging in again"
+      end
 		end
 	end
 
