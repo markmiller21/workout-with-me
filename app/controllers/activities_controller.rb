@@ -16,8 +16,9 @@ class ActivitiesController < ApplicationController
         end
         user.activities << activity
       end
-      next_user_seen = User.find(User.all.sample.id) #temporary patch to make mark the first match! ALWAYS!
-      redirect_to match_path(next_user_seen)
+
+      random_user = User.where.not(id: current_user.id ).sample
+      redirect_to match_path(random_user)
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path

@@ -4,13 +4,14 @@ describe SessionsController do
 	describe "POST #create" do
 		describe "When successful" do
 			before(:each){
+				@potential_user = create(:potential_user)
 				@user = create(:user)
 			}
 			let(:user) {attributes_for(:user)}
 
-			it "redirects to the activities page" do
+			it "redirects to the login page" do
 				post :create, session: { email: user[:email], password: user[:password] }
-				expect(response).to redirect_to(activities_path)
+				expect(response).to redirect_to(match_path(@potential_user.id))
 			end
 
 			it "sets a sessoin" do
