@@ -4,7 +4,7 @@ navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "
 
 lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/uploads/photo/2015/02/27/17/44/weights-652488_640.jpg")
 tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
-basketball = Activity.create(name: "Basketball", image: "http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg")
+basketball = Activity.create(name: "Basketball", image: "https://pixabay.com/static/uploads/photo/2013/05/02/21/23/uss-nimitz-108622_640.jpg")
 spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
 soccer = Activity.create(name: "Soccer", image: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg")
 
