@@ -21,10 +21,9 @@ describe MatchesController do
 
    describe "GET #index" do
     it "renders the :index view" do
-      # @potential_user = create(:potential_user)
-      # Match.create(initiator_id: ,responder_id:)
+      log_me_in
       get :index
-      response.should render_template :index
+      expect(response).to render_template :index
 
     end
   end
