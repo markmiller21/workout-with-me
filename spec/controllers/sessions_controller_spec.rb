@@ -6,26 +6,28 @@ describe SessionsController do
 			before(:each){
 				@potential_user = create(:potential_user)
 				@user = create(:user)
+				@user.activities.create(name: "Tennis")
 			}
-			let(:user) {attributes_for(:user)}
+			let(:user_attr) {attributes_for(:user)}
 
-			it "redirects to the login page" do
-				post :create, session: { email: user[:email], password: user[:password] }
-				expect(response).to redirect_to(match_path(@potential_user.id))
-			end
+			# it "redirects to a potential match page" do
+			# 	@potential_user.activities.create(name: "Tennis")
+			# 	post :create, session: { email: @user.email, password: @user.password }
+			# 	expect(response).to redirect_to(match_path(@potential_user))
+			# end
 
 			it "sets a sessoin" do
-				post :create, session: { email: user[:email], password: user[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
 				expect(session).to have_key(:user_id)
 			end
 
 			it "sets session to the user_id" do
-				post :create, session: { email: user[:email], password: user[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
 				expect(session[:user_id]).to eq(@user.id)
 			end
 
 			it "expects a message flash" do
-				post :create, session: { email: user[:email], password: user[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
 				expect(flash[:message]).to have_content "You've succesfully logged in"
 			end
 		end
