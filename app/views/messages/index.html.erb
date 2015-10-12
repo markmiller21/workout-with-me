@@ -7,17 +7,11 @@
 
 <%= form_for [@match,Message.new], remote: true do |f| %>
   <%= f.hidden_field :match_id, value:params[:match_id] %>
-  <% if Match.find_by(id: params[:match_id]).initiator == current_user %>
-  <% reciever = Match.find_by(id: params[:match_id]).responder %>
-  <% else %>
-  <% reciever = Match.find_by(id: params[:match_id]).initiator %>
-
-  <%= f.hidden_field :match_id, value:params[:match_id] %>
-  <%= f.hidden_field :receiver_id, value: reciever.id %>
+  <%= f.hidden_field :receiver_id, value: @receiver.id %>
   <%= f.hidden_field :sender_id, value: current_user.id %>
   <%= f.text_field :content %>
   <%= f.submit "Send" %>
-  <% end %>
+
 <% end %>
 
 <%= subscribe_to "/messages/new" %>

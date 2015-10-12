@@ -1,8 +1,14 @@
 class MessagesController < ApplicationController
   before_action :message_attributes, only: [:create]
+
   def index
     @match = Match.find(params[:match_id])
     @messages = @match.messages.all
+    if @match.initiator == current_user
+      @receiver = @match.responder
+    else
+      @receiver = @match.initiator
+    end
   end
 
   def create
