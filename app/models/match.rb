@@ -3,5 +3,5 @@ class Match < ActiveRecord::Base
   belongs_to :responder, :class_name => 'User'
   has_many :messages
 
-  # validates :initiator_id, :responder_id, :presence => true
+  validates :initiator_id, :responder_id, :presence => true
 end
