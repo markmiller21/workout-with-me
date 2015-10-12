@@ -5,7 +5,7 @@
         <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
 
         <div class="row">
-          <div class="large-12 columns">
+          <div onClick="getLocation()" class="large-12 columns">
             <%= f.text_field :name, placeholder: "Name" %>
           </div>
         </div>
@@ -56,8 +56,8 @@
 
       <div class="row">
           <div class="large-12 cloumns">
-            <%= f.hidden_field :'lat' , id: 'long',value: '' %>
-            <%= f.hidden_field :'long', id:'lat', value: '' %>
+            <%= f.hidden_field :lat , id: 'lat', value: '' %>
+            <%= f.hidden_field :long, id:'long', value: '' %>
           </div>
         </div>
 
@@ -75,8 +75,8 @@
           }
         }
         function showPosition(position) {
-          latitude.innerHTML = position.coords.latitude
-          longitude.innerHTML = position.coords.longitude;
+          latitude.value = position.coords.latitude
+          longitude.value = position.coords.longitude;
         }
 
         </script>
@@ -88,7 +88,7 @@
 
 
         <div class="row">
-          <div onclick="getLocation()" class="large-12 columns">
+          <div class="large-12 columns">
             <%= f.submit "Register", :class => "button" %>
             <% end %>
           </div>
