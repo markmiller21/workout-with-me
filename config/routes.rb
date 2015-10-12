@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :locations
+
   # resources :messages
 
   get '/session' => 'sessions#index'
