@@ -16,6 +16,15 @@
 
  */
  
+*:not(body):not(hmtl) {
+	box-sizing: border-box;
+	border: 1px dashed #000;
+}
+
+.columns {
+	min-height: 50px;
+}
+
 body {
   background: #F0F0F3;
 }
