@@ -16,6 +16,11 @@
 
  */
  
+*:not(body):not(hmtl) {
+	box-sizing: border-box;
+	border: 1px dashed #000;
+}
+
 body {
   background: #F0F0F3;
 }

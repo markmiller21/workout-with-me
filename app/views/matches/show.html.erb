@@ -1,14 +1,14 @@
+<div class="spacer"></div>
+
 <div class="row">
 	<div class="large-12 columns">
-		<div class="spacer"></div>
-		<div class="spacer"></div>
 		<div class="row">
 
-			<div class="large-8 medium-6 small-12 columns">
+			<div class="large-8 medium-7 small-12 columns">
 				<img src="<%= @potential_match.avatar %>">
 			</div>
 
-			<div class="large-4 medium-6 hide-for-small columns">
+			<div class="large-4 medium-5 hide-for-small columns">
 				<div class="panel">
 					<h4 class="hide-for-small">Description<hr/></h4>
 					<h5 class="subheader"> <%=@potential_match.description%> </h5>
@@ -39,7 +39,6 @@
 						<%= f.submit "LIKE", :class => "button success left" %>
 					<% end %>					
 				</div>
-
 			</div>
 			<div class="large-3 medium-2 hide-for-small columns"></div>
 		</div>
@@ -59,9 +58,33 @@
 						</div>
 					<% end %>
 					<div class="spacer"></div>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
 				</div>
 			</div>
 			<div class="large-3 medium-2 hide-for-small columns"></div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+			<div class="small-12 show-for-small-only columns">
+				<div class="panel">
+					<h4>Description<hr/></h4>
+					<h5 class="subheader"> <%=@potential_match.description%> </h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+			<div class="large-12 medium-12 small-12 columns">
+				<div class="panel">
+					<h4 class="text-center">User Rating<hr/></h4>
+					<h5 class="subheader text-center"> <%=@average_rating%> </h5>
+				</div>
+			</div>
 		</div>
 
 	</div>
