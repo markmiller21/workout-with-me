@@ -62,10 +62,6 @@ describe 'Sign up process' do
 		expect(page).to have_button('Register')
 	end
 end
-	# describe 'User index page' do
-
-	# 	it 'on the correct user' do
-	# 		user = create(:user)
 
 describe "Profile Page" do
 	let(:log_me_in) {
