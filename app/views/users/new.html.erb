@@ -47,8 +47,11 @@
         </div>
 
 
-        <p id='lat'></p>
-        <p id='long'></p>
+        <p id='lat'>hi</p>
+        <p id='long'>yo</p>
+
+<button onclick="getLocation()">Try It</button>
+
 
         <script>
         var latitude = document.getElementById("lat");
@@ -64,8 +67,8 @@
 
 
         function showPosition(position) {
-          latitude.value = position.coords.latitude
-          longitude.value = position.coords.longitude;
+          latitude.innerHTML = position.coords.latitude
+          longitude.innerHTML = position.coords.longitude;
         }
 
         </script>
@@ -75,18 +78,10 @@
 
         <div class="row">
           <div class="large-12 cloumns">
-            <%= f.hidden_field :latitude, value:  %>
-            <%= f.hidden_field :longitude, value: %>
+            <%= f.hidden_field :'lat', value: 'id= lat'  %>
+            <%= f.hidden_field :'long', value: 'id= long' %>
           </div>
         </div>
-
-
-<%= form_tag locations_path, :method=>'post' do %>
-  <%= hidden_field_tag 'lat', value = ''%>
-  <%= hidden_field_tag 'lon', value = ''%>
-  <%= image_submit_tag 'loc.png'  %>
-<% end %>
-
 
 
         <div class="row">
