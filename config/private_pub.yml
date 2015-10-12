@@ -5,6 +5,6 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "secret"
 production:
-  server: "http://fitfriender.herokuapp.com/faye"
-  secret_token: "7ecc57c522c8ee6a3a31838e3f0e2455adb20fdec63a2a7852aa1761f9daecab"
+  server: "http://rajserver.herokuapp.com/faye"
+  secret_token: "295e71306195372d3c274c4ed7cbfe0be7c7fba5ec154ddee7f8c8ff4d9bd891"
   signature_expiration: 3600 # one hour
