@@ -49,16 +49,19 @@
 
         <p id='lat'></p>
         <p id='long'></p>
+
         <script>
-        var x = document.getElementById("demo");
+        var latitude = document.getElementById("lat");
+        var longitude = document.getElementById("long")
 
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
           } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            latitude.innerHTML = "Geolocation is not supported by this browser.";
           }
         }
+
 
         function showPosition(position) {
           x.innerHTML = "Latitude: " + position.coords.latitude +
