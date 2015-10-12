@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :find_next_match
+  before_action :require_login
 
   def current_user
   	if session[:user_id]
@@ -41,4 +42,14 @@ class ApplicationController < ActionController::Base
     end
     return potential_matches
   end
+
+  private
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "Please login to view"
+      redirect_to root_path
+    end
+  end
+
 end
