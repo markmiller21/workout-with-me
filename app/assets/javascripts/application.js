@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.touchSwipe
 //= require jquery_ujs
 //= require private_pub
 //= require foundation/foundation
@@ -18,3 +19,7 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	
+})
