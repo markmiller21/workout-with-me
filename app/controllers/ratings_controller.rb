@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
     rater_rating = current_user.rater_ratings.build(rating_attributes)
     if rater_rating.save
       flash[:message] = "Your rating has been submitted"
-      redirect_to match_messages_path
+      redirect_to match_messages_path(rater_rating.match)
     else
       flash[:error] = "Cannot submit empty rating"
     end
