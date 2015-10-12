@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     else
       @receiver = @match.initiator
     end
+    @new_rating = @receiver.ratee_ratings.new
   end
 
   def create

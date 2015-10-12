@@ -2,12 +2,12 @@
 <p><%= @receiver.name %></p>
 <p>User Rating</p>
 <p><%= @receiver.average_rating %></p>
-<%= form_for @rating do |f| %>
-  <%= f.radio_button("receiver","rating",1) %>
-  <%= f.radio_button("receiver","rating",2) %>
-  <%= f.radio_button("receiver","rating",3) %>
-  <%= f.radio_button("receiver","rating",4) %>
-  <%= f.radio_button("receiver","rating",5) %>
+<%= form_for @new_rating do |f| %>
+  <%= f.radio_button :rank, 1 %>
+  <%= f.radio_button :rank, 2 %>
+  <%= f.radio_button :rank, 3 %>
+  <%= f.radio_button :rank, 4 %>
+  <%= f.radio_button :rank, 5 %>
   <%= f.submit "Rate " + @receiver.name %>
 <% end %>
 
