@@ -5,6 +5,16 @@ class MatchesController < ApplicationController
     @responder_matches = current_user.responder_matches.where(accepted: 1)
   end
 
+  def initiate_match
+    potential_matches = get_potential_matches(current_user)
+    next_match = find_next_match(current_user, potential_matches)
+    if next_match == nil
+      render file: "error"
+    else
+      redirect_to match_path(next_match)
+    end 
+  end
+
 
   def show
     @match = Match.new
