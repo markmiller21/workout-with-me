@@ -26,7 +26,7 @@ $(document).ready(function(){
       if (direction == "left"){
       	$("#dislike_form").submit();
       } else if (direction == "right"){
-      	// alert("I'll give you a shot")
+      	$("#like_form").submit();
       }
     },threshold:75
   });
