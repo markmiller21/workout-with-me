@@ -8,7 +8,6 @@
 				<img src="<%= @potential_match.avatar %>">
 			</div>
 
-
 			<div class="large-4 medium-6 hide-for-small columns">
 				<div class="panel">
 					<h4 class="hide-for-small">Description<hr/></h4>
@@ -53,14 +52,13 @@
 				
 				<div class="panel">
 					<h3 class="hide-for-small text-center">Activities</h3><hr/>
-					<h5 class="subheader"> <%=@potential_match%> </h5>
 
 					<% @potential_match.activities.each do |activity| %>
-
-						<%= activity.name %>
-
+						<div class="large-4 medium-4 small-6 columns">
+							<p class="button secondary round"><%= activity.name %></p>
+						</div>
 					<% end %>
-
+					<div class="spacer"></div>
 				</div>
 			</div>
 			<div class="large-3 medium-2 hide-for-small columns"></div>
@@ -68,21 +66,6 @@
 
 	</div>
 </div>
-
-
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-		<div class="spacer"></div>
-
 
 
 <p>Average Rating</p>
