@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require private_pub
+//= require foundation/foundation
 //= require foundation
 //= require_tree .
 

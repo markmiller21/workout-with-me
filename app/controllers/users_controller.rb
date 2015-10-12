@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @average_rating = @user.average_rating
-    @activities = @user.activities
   end
 
   def new

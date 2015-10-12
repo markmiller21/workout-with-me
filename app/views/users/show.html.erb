@@ -1,9 +1,88 @@
-<h4>Profile page</h4>
-<h4>This is the <%= @user.name %> profile page</h4>
-<p>User Rating</p>
-<p><%= @average_rating %></p>
+<div class="spacer"></div>
 
-<p>Your activities:</p>
-<% @activities.each do |activity| %>
-  <%= activity.name %>
-<% end %>
+<div class="row">
+	<div class="large-12 columns">
+		<div class="row">
+
+			<div class="large-8 medium-7 small-12 columns">
+				<img src="<%= @user.avatar %>">
+			</div>
+
+			<div class="large-4 medium-5 hide-for-small columns">
+				<div class="panel">
+					<h4 class="hide-for-small">Description<hr/></h4>
+					<h5 class="subheader"> <%=@user.description%> </h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+
+			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+				<div class="panel">
+					<h4 class="text-center"><%=@user.name%>,  <%=@user.age%></h5>
+				</div>
+
+				<div class="large-6 medium-6 small-6 columns">
+					<%= form_for @user do |f| %>
+					  <%= f.hidden_field :responder_id, value: @user.id %>
+					  <%= f.submit "DISLIKE", :class => "button alert right" %>
+					<% end %>
+				</div>
+
+				<div class="large-6 medium-6 small-6 columns">
+					<%= form_for @user do |f| %>
+						<%= f.hidden_field :responder_id, value: @user.id %>
+						<%= f.submit "LIKE", :class => "button success left" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+
+				<div class="panel"> 
+					<h3 class="text-center">Activities</h3><hr/>
+
+					<% @user.activities.each do |activity| %>
+						<div class="large-4 medium-4 small-6 columns">
+							<p class="button secondary round activity-tags"><%= activity.name %></p>
+						</div>
+					<% end %>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+			<div class="small-12 show-for-small-only columns">
+				<div class="panel">
+					<h4 class="text-center">Description<hr/></h4>
+					<h5 class="subheader"> <%=@user.description%> </h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="spacer"></div>
+
+		<div class="row">
+			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+				<div class="panel">
+					<h4 class="text-center">User Rating<hr/></h4>
+					<h5 class="subheader text-center"> <%=@average_rating%> </h5>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+

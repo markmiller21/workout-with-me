@@ -16,9 +16,12 @@
 
  */
 
+*{
+  outline: 1px solid #000
+}
+
 *:not(body):not(hmtl) {
 	box-sizing: border-box;
-	border: 1px dashed #F0F0F3;
 }
 
 body {
@@ -56,4 +59,8 @@ body {
 
 #chat_title {
 
+}
+
+.activity-tags {
+  margin: 0 auto;
 }
