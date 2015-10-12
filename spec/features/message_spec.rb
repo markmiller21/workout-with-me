@@ -34,6 +34,10 @@ RSpec.feature "Messages", :type => :feature do
         expect(page).to have_content("User Rating")
         expect(page).to have_content @matched_user.average_rating
       end
+
+      scenario "should have link to rate user" do
+        expect(page).to have_button "Rate " + @matched_user.name
+      end
     end
   end
 end
