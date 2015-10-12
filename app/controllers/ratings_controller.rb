@@ -1,12 +1,23 @@
 class RatingsController < ApplicationController
 
   def create
-    rater_rating = current_user.rater_ratings.build(ratee_id: params[:ratee_id], rank: params[:rank])
-    if rater_rating.save
-      redirect_to #match/:id/chat
+    rater_rating = current_user.rater_ratings.build(rating_attributes)
+    if rater_rating.already_rated?
+      flash[:error] = "You've already rated this user"
     else
-      flash[:error] = "Cannot submit empty rating"
+      if rater_rating.save
+        flash[:message] = "Your rating has been submitted"
+      else
+        flash[:error] = "Cannot submit empty rating"
+      end
     end
+    redirect_to match_messages_path(rater_rating.match)
   end
+
+  private
+
+    def rating_attributes
+      params.require(:rating).permit(:rank, :ratee_id)
+    end
 
 end

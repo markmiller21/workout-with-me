@@ -22,7 +22,7 @@ RSpec.feature "Activities Page", :type => :feature do
     potential_user = create(:potential_user)
   end
 
-  describe "create activities" do
+  describe "create activities page" do
     scenario "should show all activities" do
       visit activities_path
       expect(page).to have_content("Select Your Activities")

@@ -1,5 +1,18 @@
-<h1>Chat</h1>
+<h1 id="chat_title">Chat</h1>
 
+<p><%= @receiver.name %></p>
+<p class="user_rating">User Rating: <%= @receiver.average_rating %></p>
+<%= form_for @rating do |f| %>
+  <%= f.hidden_field :ratee_id, value: @receiver.id %>
+  <%= f.radio_button :rank, 1 %>
+  <%= f.radio_button :rank, 2 %>
+  <%= f.radio_button :rank, 3 %>
+  <%= f.radio_button :rank, 4 %>
+  <%= f.radio_button :rank, 5 %>
+  <%= f.submit "Rate " + @receiver.name %>
+<% end %>
+<%= flash[:error] %>
+<%= flash[:message] %>
 <ul id="chat">
   <%= render @messages %>
 </ul>
@@ -11,7 +24,6 @@
   <%= f.hidden_field :sender_id, value: current_user.id %>
   <%= f.text_field :content %>
   <%= f.submit "Send" %>
-
 <% end %>
 
 <%= subscribe_to "/messages/new" %>
