@@ -1,8 +1,7 @@
-<h1>Chat</h1>
+<h1 id="chat_title">Chat</h1>
 
 <p><%= @receiver.name %></p>
-<p>User Rating</p>
-<p><%= @receiver.average_rating %></p>
+<p class="user_rating">User Rating: <%= @receiver.average_rating %></p>
 <%= form_for @rating do |f| %>
   <%= f.hidden_field :ratee_id, value: @receiver.id %>
   <%= f.radio_button :rank, 1 %>
