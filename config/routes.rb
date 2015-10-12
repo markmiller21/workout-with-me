@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   post '/ratings' => 'ratings#create'
+
+  get '/initiate_match' => 'matches#initiate_match', as: 'initiate_match'
 end
