@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.touchSwipe
 //= require jquery_ujs
 //= require private_pub
 //= require foundation/foundation
@@ -18,3 +19,16 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+	 $("#potential_match_avatar").swipe( {
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+      if (direction == "left"){
+      	$("#dislike_form").submit();
+      } else if (direction == "right"){
+      	$("#like_form").submit();
+      }
+    },threshold:75
+  });
+})
+

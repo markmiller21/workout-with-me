@@ -4,8 +4,10 @@
 	<div class="large-12 columns">
 		<div class="row">
 
-			<div class="large-8 medium-7 small-12 columns">
-				<img src="<%= @potential_match.avatar %>">
+			<div class="large-8 medium-7 small-12 columns" >
+				<div id="potential_match_avatar">
+					<img src="<%= @potential_match.avatar %>">
+				</div>
 			</div>
 
 			<div class="large-4 medium-5 hide-for-small columns">
@@ -26,14 +28,14 @@
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match do |f| %>
+					<%= form_for @match, html: {id: "dislike_form"} do |f| %>
 					  <%= f.hidden_field :responder_id, value: @potential_match.id %>
 					  <%= f.submit "DISLIKE", :class => "button alert right" %>
 					<% end %>
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match do |f| %>
+					<%= form_for @match, html: {id: "like_form"} do |f| %>
 						<%= f.hidden_field :responder_id, value: @potential_match.id %>
 						<%= f.submit "LIKE", :class => "button success left" %>
 					<% end %>
