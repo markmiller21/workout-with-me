@@ -18,7 +18,7 @@ RSpec.describe RatingsController do
     context "valid attributes" do
       it "should increase rating count" do
         expect {
-          post :create, ratee_id: matched_user, rank: 5
+          post :create, rating: { ratee_id: matched_user, rank: 5 }
         }.to change(Rating,:count).by(1)
       end
 
