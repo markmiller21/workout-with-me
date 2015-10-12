@@ -4,7 +4,9 @@
   <%= render @messages %>
 </ul>
 
+
 <%= form_for [@match,Message.new], remote: true do |f| %>
+  <%= f.hidden_field :match_id, value:params[:match_id] %>
   <%= f.text_field :content %>
   <%= f.submit "Send" %>
 <% end %>
