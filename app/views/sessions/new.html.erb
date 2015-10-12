@@ -11,7 +11,7 @@
 			</div>
 
 			<div class="spacer"></div>
-			
+
 			<div class="row">
 				<div class="large-12 columns">
 			<%= f.password_field :password, placeholder: "Password" %>
@@ -19,6 +19,33 @@
 			</div>
 
 			<div class="spacer"></div>
+
+
+			<div class="row">
+				<div class="large-12 cloumns">
+					<%= f.hidden_field :lat , id: 'lat', value: '' %>
+					<%= f.hidden_field :long, id:'long', value: '' %>
+				</div>
+			</div>
+
+
+			<script>
+			var latitude = document.getElementById("lat");
+			var longitude = document.getElementById("long")
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					latitude.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+			function showPosition(position) {
+				latitude.value = position.coords.latitude
+				longitude.value = position.coords.longitude;
+			}
+
+			</script>
 
 			<div class="row">
 				<div class="large-12 columns">
