@@ -79,7 +79,7 @@ describe "Profile Page" do
 
 	it "should show user's average rating" do
 		visit user_path(@user)
-		expect(page).to have_content("Average Rating")
+		expect(page).to have_content("User Rating")
 		expect(page).to have_content @user.average_rating
 	end
 end
