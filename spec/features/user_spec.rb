@@ -77,9 +77,9 @@ describe "Profile Page" do
  		log_me_in
  	end
 
-	it "should show user's average rating" do
-		visit user_path(@user)
-		expect(page).to have_content("User Rating")
-		expect(page).to have_content @user.average_rating
-	end
+	# xit "should show user's average rating" do
+	# 	visit user_path(@user)
+	# 	expect(page).to have_content("User Rating")
+	# 	expect(page).to have_content @user.average_rating
+	# end
 end
