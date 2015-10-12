@@ -14,4 +14,8 @@ class Rating < ActiveRecord::Base
     end
   end
 
+  def already_rated?
+    Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id) != []
+  end
+
 end
