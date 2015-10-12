@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
   	user = User.new(user_params)
     # user.locations.create(longitude:, latitude:)
   	if user.save

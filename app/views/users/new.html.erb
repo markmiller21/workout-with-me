@@ -50,7 +50,6 @@
         <p id='lat'>hi</p>
         <p id='long'>yo</p>
 
-<button onclick="getLocation()">Try It</button>
 
 
         <script>
@@ -64,13 +63,10 @@
             latitude.innerHTML = "Geolocation is not supported by this browser.";
           }
         }
-
-
         function showPosition(position) {
           latitude.innerHTML = position.coords.latitude
           longitude.innerHTML = position.coords.longitude;
         }
-
         </script>
 
 
@@ -85,12 +81,11 @@
 
 
         <div class="row">
-          <div class="large-12 columns">
+          <div onclick="getLocation()" class="large-12 columns">
             <%= f.submit "Register", :class => "button" %>
             <% end %>
           </div>
         </div>
-
       </div>
     </div>
   </div>
