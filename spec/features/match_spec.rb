@@ -27,17 +27,6 @@ RSpec.feature "Matches", :type => :feature do
       expect(page).to have_content potential_user.name
     end
 
-    it 'contains a see more button ' do
-      visit match_path(potential_user)
-      expect(page).to have_content "See more"
-    end
-
-    it 'redirects to correct page when clicking See more link' do
-      visit match_path(potential_user)
-      click_link "See more"
-      expect(page).to have_content "Profile page"
-    end
-
     it 'redirects to the next user if liked clicked' do
       visit match_path(potential_user)
       click_button "LIKE"
