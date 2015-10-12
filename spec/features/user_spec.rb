@@ -77,10 +77,13 @@ describe "Profile Page" do
   	fill_in 'Password', :with => @user.password
   	click_button 'Login'
  	}
+ 	before :each do
+ 		log_me_in
+ 	end
 
 	it "should show user's average rating" do
-		log_me_in
 		visit user_path(@user)
 		expect(page).to have_content("Average Rating")
+		expect(page).to have_content @user.average_rating
 	end
 end
