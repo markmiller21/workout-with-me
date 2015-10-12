@@ -28,14 +28,14 @@
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match do |f| %>
+					<%= form_for @match, html: {id: "dislike_form"} do |f| %>
 					  <%= f.hidden_field :responder_id, value: @potential_match.id %>
 					  <%= f.submit "DISLIKE", :class => "button alert right" %>
 					<% end %>
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match do |f| %>
+					<%= form_for @match, html: {id: "like_form"} do |f| %>
 						<%= f.hidden_field :responder_id, value: @potential_match.id %>
 						<%= f.submit "LIKE", :class => "button success left" %>
 					<% end %>

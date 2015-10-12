@@ -24,16 +24,7 @@ $(document).ready(function(){
 	 $("#potential_match_avatar").swipe( {
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
       if (direction == "left"){
-      	// alert("I dont like you");
-      	$.ajax({
-      		url: "/matches/create",
-      		method: "POST",
-      		data: ""
-      	}).done(function(data){
-      		alert(data)
-      	}).fail(funcction(data){
-      		alert("error")
-      	})
+      	$("#dislike_form").submit();
       } else if (direction == "right"){
       	// alert("I'll give you a shot")
       }
