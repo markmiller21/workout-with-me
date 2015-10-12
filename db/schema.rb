@@ -32,10 +32,12 @@ ActiveRecord::Schema.define(version: 20151011224831) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string  "content"
-    t.integer "sender_id"
-    t.integer "receiver_id"
-    t.integer "match_id"
+    t.string   "content",     null: false
+    t.integer  "sender_id",   null: false
+    t.integer  "receiver_id", null: false
+    t.integer  "match_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "ratings", force: :cascade do |t|
