@@ -15,10 +15,10 @@
  *= require foundation_and_overrides
 
  */
- 
+
 *:not(body):not(hmtl) {
 	box-sizing: border-box;
-	border: 1px dashed #000;
+	border: 1px dashed #F0F0F3;
 }
 
 body {
@@ -26,7 +26,7 @@ body {
 }
 .index-box {
   background: #fff;
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   margin: 100px 0;
   padding: 40px 20px 40px 20px;
 }
@@ -37,4 +37,23 @@ body {
 
 .activity_container img {
   width: 25%;
+}
+
+/* below is for message box */
+
+.user_rating {
+  font-size: .75em;
+}
+
+.message_content {
+  font-size: .90em;
+}
+
+.message_sender {
+  font-size: .4em;
+  color: #C0C0C0;
+}
+
+#chat_title {
+
 }
