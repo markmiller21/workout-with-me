@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
 
   def create
     rater_rating = current_user.rater_ratings.build(rating_attributes)
-    if rater_rating.already_rated?
+    if rater_rating.already_exists?
       flash[:error] = "You've already rated this user"
     else
       if rater_rating.save
