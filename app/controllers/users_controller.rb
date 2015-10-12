@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     # binding.pry
   	user = User.new(user_params)
-  	if user.save
+  	if user.save && user.valid?
        user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
   		session[:user_id] = user.id
   		redirect_to activities_path
