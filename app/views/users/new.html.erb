@@ -47,14 +47,25 @@
         </div>
 
 
-        <p id='lat'>hi</p>
+        <!-- <p id='lat'>hi</p>
         <p id='long'>yo</p>
 
+ -->
+
+
+
+      <div class="row">
+          <div class="large-12 cloumns">
+            <%= f.hidden_field :'lat' , id: 'long',value: '' %>
+            <%= f.hidden_field :'long', id:'lat', value: '' %>
+          </div>
+        </div>
 
 
         <script>
         var latitude = document.getElementById("lat");
         var longitude = document.getElementById("long")
+
 
         function getLocation() {
           if (navigator.geolocation) {
@@ -67,17 +78,13 @@
           latitude.innerHTML = position.coords.latitude
           longitude.innerHTML = position.coords.longitude;
         }
+
         </script>
 
 
 
 
-        <div class="row">
-          <div class="large-12 cloumns">
-            <%= f.hidden_field :'lat', value: 'id= lat'  %>
-            <%= f.hidden_field :'long', value: 'id= long' %>
-          </div>
-        </div>
+
 
 
         <div class="row">
