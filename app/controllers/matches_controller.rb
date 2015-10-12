@@ -29,7 +29,6 @@ class MatchesController < ApplicationController
       end
     end
 
-    # use these three line get potential matches and redirect to show page at any time
     potential_matches = get_potential_matches(current_user)
     next_match = find_next_match(current_user, potential_matches)
     if next_match == nil
