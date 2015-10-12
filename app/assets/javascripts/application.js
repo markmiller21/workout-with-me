@@ -24,6 +24,6 @@ $(document).ready(function(){
 	 $("#potential_match_avatar").swipe( {
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
       alert("You swiped " + direction );  
-    },threshold:0
+    },threshold:50
   });
 })
