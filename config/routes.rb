@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :matches do
     resources :messages
   end
-  resources :messages
+
+  # resources :messages
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'

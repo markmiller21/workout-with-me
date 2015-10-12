@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20151011224831) do
 
   create_table "messages", force: :cascade do |t|
     t.string  "content"
-    t.integer "accepter_id"
+    t.integer "sender_id"
     t.integer "receiver_id"
+    t.integer "match_id"
   end
 
   create_table "ratings", force: :cascade do |t|
