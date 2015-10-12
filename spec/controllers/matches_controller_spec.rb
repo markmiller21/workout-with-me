@@ -41,7 +41,7 @@ describe MatchesController do
       end
 
       it "redirects to login page" do
-        expect(page).to redirect_to login_path
+        is_expected.to redirect_to login_path
       end
 
       it "should flash message" do
