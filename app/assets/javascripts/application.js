@@ -25,10 +25,19 @@ $(document).ready(function(){
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
       if (direction == "left"){
       	// alert("I dont like you");
-      	$('')
+      	$.ajax({
+      		url: "/matches/create",
+      		method: "POST",
+      		data: ""
+      	}).done(function(data){
+      		alert(data)
+      	}).fail(funcction(data){
+      		alert("error")
+      	})
       } else if (direction == "right"){
       	// alert("I'll give you a shot")
       }
     },threshold:75
   });
 })
+
