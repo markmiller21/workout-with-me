@@ -25,6 +25,10 @@ RSpec.feature "Messages", :type => :feature do
       scenario "should show chat box" do
         expect(page).to have_content("Chat")
       end
+
+      scenario "should have send button" do
+        expect(page).to have_button("Send")
+      end
     end
   end
 end
