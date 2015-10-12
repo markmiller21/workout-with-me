@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   post '/ratings' => 'ratings#create'
 
-  get '/initiate_match' => 'match#initiate_match', as: 'initiate_match'
+  get '/initiate_match' => 'matches#initiate_match', as: 'initiate_match'
 end
