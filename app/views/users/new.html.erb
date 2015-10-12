@@ -64,8 +64,8 @@
 
 
         function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude +
-          "<br>Longitude: " + position.coords.longitude;
+          latitude.value = position.coords.latitude
+          longitude.value = position.coords.longitude;
         }
 
         </script>
@@ -75,10 +75,17 @@
 
         <div class="row">
           <div class="large-12 cloumns">
-            <%= f.hidden_field :longitude_val, value: %>
-            <%= f.hidden_field :latitude_val, value: %>
+            <%= f.hidden_field :latitude, value:  %>
+            <%= f.hidden_field :longitude, value: %>
           </div>
         </div>
+
+
+<%= form_tag locations_path, :method=>'post' do %>
+  <%= hidden_field_tag 'lat', value = ''%>
+  <%= hidden_field_tag 'lon', value = ''%>
+  <%= image_submit_tag 'loc.png'  %>
+<% end %>
 
 
 
