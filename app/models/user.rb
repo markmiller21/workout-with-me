@@ -15,7 +15,11 @@ class User < ActiveRecord::Base
 
   has_many :locations
 
-	validates :name, :email, :gender, :presence => true
+	validates :name, :email, :gender, :age, :presence => true
+  validates :age, numericality: { only_integer: true }
+  validates :email, uniqueness: true
+  validates :description, length: { maximum: 200 }, allow_blank: true
+
 
 	has_secure_password
 
