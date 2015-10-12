@@ -24,9 +24,10 @@ $(document).ready(function(){
 	 $("#potential_match_avatar").swipe( {
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
       if (direction == "left"){
-      	alert("hey I swiped left");
+      	// alert("I dont like you");
+      	$('')
       } else if (direction == "right"){
-      	alert("Hey I swiped right")
+      	// alert("I'll give you a shot")
       }
     },threshold:75
   });
