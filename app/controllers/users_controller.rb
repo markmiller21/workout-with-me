@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   def create
   	user = User.new(user_params)
+    # user.locations.create(longitude:, latitude:)
   	if user.save
   		session[:user_id] = user.id
   		redirect_to activities_path
@@ -22,7 +23,10 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :gender, :description, :age)
   end
+
+
 end
