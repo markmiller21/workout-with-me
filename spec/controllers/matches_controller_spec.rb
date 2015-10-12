@@ -49,7 +49,6 @@ describe MatchesController do
       end
     end
   end
-
 end
 
 
