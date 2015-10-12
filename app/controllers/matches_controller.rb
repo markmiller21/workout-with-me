@@ -13,7 +13,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-    binding.pry
     last_match = Match.find_by(initiator_id: params[:match][:responder_id], responder_id: current_user.id)
     if last_match
       if params[:commit] == "LIKE"
