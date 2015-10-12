@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'private_pub'
-gem 'thin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -56,5 +55,5 @@ group :test do
 end
 
 group :production do
-  gem 'thin'  
+  gem 'thin'
 end
