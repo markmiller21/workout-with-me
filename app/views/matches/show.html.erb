@@ -3,13 +3,11 @@
 <div class="row">
 	<div class="large-12 columns">
 		<div class="row">
-
 			<div class="large-8 medium-7 small-12 columns" >
 				<div id="potential_match_avatar">
-					<img src="<%= @potential_match.avatar %>">
+					<%= image_tag @user.avatar.url(:medium) %>
 				</div>
 			</div>
-
 			<div class="large-4 medium-5 hide-for-small columns">
 				<div class="panel">
 					<h4 class="hide-for-small">Description<hr/></h4>
@@ -48,7 +46,7 @@
 		<div class="row">
 			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
 
-				<div class="panel"> 
+				<div class="panel">
 					<h3 class="text-center">Activities</h3><hr/>
 
 					<% @potential_match.activities.each do |activity| %>
