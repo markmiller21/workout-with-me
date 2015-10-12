@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :sender_messages, :class_name => 'Message', :foreign_key => "sender_id"
   has_many :receiver_messages, :class_name => 'Message', :foreign_key => "receiver_id"
 
+  has_many :locations
+
 	validates :name, :email, :gender, :presence => true
 
 	has_secure_password
