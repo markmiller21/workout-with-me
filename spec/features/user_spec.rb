@@ -14,11 +14,12 @@ describe 'Logging in Process' do
  	}
 
 	before(:each) do
-		potential_user = create(:potential_user)
+		@potential_user = create(:potential_user)
 	end
 
 	# describe "When User enters valid information" do
-	# 	it "they should be redirected to the matches page" do
+	# 	it "they should be redirected to potential matches page" do
+	# 		@potential_user.activities.create(name: "Lifting")
 	# 		log_me_in
 	# 		expect(page).to have_content('Potential match')
 	# 	end

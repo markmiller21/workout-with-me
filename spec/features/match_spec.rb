@@ -33,12 +33,12 @@ RSpec.feature "Matches", :type => :feature do
       expect(page).to_not have_content potential_user.name
     end
 
-    it "should flash message if matched" do
-      matched_user.initiator_matches.create(responder_id: @user.id)
-      visit match_path(matched_user)
-      click_button "LIKE"
-      expect(page).to have_content "You've been matched!"
-    end
+    # it "should flash message if matched" do
+    #   matched_user.initiator_matches.create(responder_id: @user.id)
+    #   visit match_path(matched_user)
+    #   click_button "LIKE"
+    #   expect(page).to have_content "You've been matched!"
+    # end
   end
 
   describe 'user matches page' do

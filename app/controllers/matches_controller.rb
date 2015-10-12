@@ -17,6 +17,7 @@ class MatchesController < ApplicationController
     if last_match
       if params[:commit] == "LIKE"
         last_match.update_attributes(accepted: 1)
+        flash[:message] = "You've been matched!"
       else
         last_match.update_attributes(accepted: -1)
       end
