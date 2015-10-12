@@ -67,20 +67,20 @@ end
 	# 	it 'on the correct user' do
 	# 		user = create(:user)
 
-# describe "Profile Page" do
-# 	let(:log_me_in) {
-#   	@user = create(:user)
-#   	@user.activities.create(name:"Lifting")
-#   	visit root_path
-#   	click_link "Login Here"
-#   	fill_in 'Email', :with => @user.email
-#   	fill_in 'Password', :with => @user.password
-#   	click_button 'Login'
-#  	}
+describe "Profile Page" do
+	let(:log_me_in) {
+  	@user = create(:user)
+  	@user.activities.create(name:"Lifting")
+  	visit root_path
+  	click_link "Login Here"
+  	fill_in 'Email', :with => @user.email
+  	fill_in 'Password', :with => @user.password
+  	click_button 'Login'
+ 	}
 
-# 	it "should show user's average rating" do
-# 		log_me_in
-# 		visit user_path(@user)
-# 		expect(page).to have_content("My average rating")
-# 	end
-# end
+	it "should show user's average rating" do
+		log_me_in
+		visit user_path(@user)
+		expect(page).to have_content("Average Rating")
+	end
+end
