@@ -23,7 +23,11 @@ $(function(){ $(document).foundation(); });
 $(document).ready(function(){
 	 $("#potential_match_avatar").swipe( {
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      alert("You swiped " + direction );  
-    },threshold:50
+      if (direction == "left"){
+      	alert("hey I swiped left");
+      } else if (direction == "right"){
+      	alert("Hey I swiped right")
+      }
+    },threshold:75
   });
 })
