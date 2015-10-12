@@ -40,8 +40,8 @@ describe MatchesController do
         get :index
       end
 
-      it "redirects to login page" do
-        is_expected.to redirect_to login_path
+      it "redirects to home page" do
+        is_expected.to redirect_to root_path
       end
 
       it "should flash message" do
