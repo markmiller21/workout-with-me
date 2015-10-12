@@ -26,4 +26,4 @@
   <%= f.submit "Send" %>
 <% end %>
 
-<%= subscribe_to "/messages/new" %>
+<%= subscribe_to "/matches/#{@match.id}/messages" %>
