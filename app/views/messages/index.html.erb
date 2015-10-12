@@ -2,7 +2,8 @@
 <p><%= @receiver.name %></p>
 <p>User Rating</p>
 <p><%= @receiver.average_rating %></p>
-<%= form_for @new_rating do |f| %>
+<%= form_for @rating do |f| %>
+  <%= f.hidden_field :ratee_id, value: @receiver.id %>
   <%= f.radio_button :rank, 1 %>
   <%= f.radio_button :rank, 2 %>
   <%= f.radio_button :rank, 3 %>
@@ -22,7 +23,6 @@
   <%= f.hidden_field :sender_id, value: current_user.id %>
   <%= f.text_field :content %>
   <%= f.submit "Send" %>
-
 <% end %>
 
 <%= subscribe_to "/messages/new" %>
