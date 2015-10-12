@@ -1,4 +1,5 @@
 <h1>Chat</h1>
+
 <p><%= @receiver.name %></p>
 <p>User Rating</p>
 <p><%= @receiver.average_rating %></p>
@@ -11,7 +12,8 @@
   <%= f.radio_button :rank, 5 %>
   <%= f.submit "Rate " + @receiver.name %>
 <% end %>
-
+<%= flash[:error] %>
+<%= flash[:message] %>
 <ul id="chat">
   <%= render @messages %>
 </ul>
