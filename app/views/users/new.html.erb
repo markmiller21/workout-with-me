@@ -46,10 +46,36 @@
           </div>
         </div>
 
+
+        <p id='lat'></p>
+        <p id='long'></p>
+        <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+        }
+
+        </script>
+
+
+
+
         <div class="row">
           <div class="large-12 cloumns">
             <%= f.hidden_field :longitude_val, value: %>
-            <%= f.hidden_field : latitude_
+            <%= f.hidden_field :latitude_val, value: %>
+          </div>
+        </div>
 
 
 
