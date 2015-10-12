@@ -5,13 +5,13 @@
 		<div class="row">
 
 			<div class="large-8 medium-7 small-12 columns">
-				<img src="<%= @potential_match.avatar %>">
+				<img src="<%= @user.avatar %>">
 			</div>
 
 			<div class="large-4 medium-5 hide-for-small columns">
 				<div class="panel">
 					<h4 class="hide-for-small">Description<hr/></h4>
-					<h5 class="subheader"> <%=@potential_match.description%> </h5>
+					<h5 class="subheader"> <%=@user.description%> </h5>
 				</div>
 			</div>
 		</div>
@@ -22,19 +22,19 @@
 
 			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
 				<div class="panel">
-					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
+					<h4 class="text-center"><%=@user.name%>,  <%=@user.age%></h5>
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
 					<%= form_for @match do |f| %>
-					  <%= f.hidden_field :responder_id, value: @potential_match.id %>
+					  <%= f.hidden_field :responder_id, value: @user.id %>
 					  <%= f.submit "DISLIKE", :class => "button alert right" %>
 					<% end %>
 				</div>
 
 				<div class="large-6 medium-6 small-6 columns">
 					<%= form_for @match do |f| %>
-						<%= f.hidden_field :responder_id, value: @potential_match.id %>
+						<%= f.hidden_field :responder_id, value: @user.id %>
 						<%= f.submit "LIKE", :class => "button success left" %>
 					<% end %>
 				</div>
@@ -49,7 +49,7 @@
 				<div class="panel"> 
 					<h3 class="text-center">Activities</h3><hr/>
 
-					<% @potential_match.activities.each do |activity| %>
+					<% @user.activities.each do |activity| %>
 						<div class="large-4 medium-4 small-6 columns">
 							<p class="button secondary round activity-tags"><%= activity.name %></p>
 						</div>
@@ -67,7 +67,7 @@
 			<div class="small-12 show-for-small-only columns">
 				<div class="panel">
 					<h4 class="text-center">Description<hr/></h4>
-					<h5 class="subheader"> <%=@potential_match.description%> </h5>
+					<h5 class="subheader"> <%=@user.description%> </h5>
 				</div>
 			</div>
 		</div>
