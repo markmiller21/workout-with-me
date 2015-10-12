@@ -14,11 +14,12 @@ describe 'Logging in Process' do
  	}
 
 	before(:each) do
-		potential_user = create(:potential_user)
+		@potential_user = create(:potential_user)
 	end
 
 	# describe "When User enters valid information" do
-	# 	it "they should be redirected to the matches page" do
+	# 	it "they should be redirected to potential matches page" do
+	# 		@potential_user.activities.create(name: "Lifting")
 	# 		log_me_in
 	# 		expect(page).to have_content('Potential match')
 	# 	end
@@ -61,25 +62,24 @@ describe 'Sign up process' do
 		expect(page).to have_button('Register')
 	end
 end
-	# describe 'User index page' do
 
-	# 	it 'on the correct user' do
-	# 		user = create(:user)
+describe "Profile Page" do
+	let(:log_me_in) {
+  	@user = create(:user)
+  	@user.activities.create(name:"Lifting")
+  	visit root_path
+  	click_link "Login Here"
+  	fill_in 'Email', :with => @user.email
+  	fill_in 'Password', :with => @user.password
+  	click_button 'Login'
+ 	}
+ 	before :each do
+ 		log_me_in
+ 	end
 
-# describe "Profile Page" do
-# 	let(:log_me_in) {
-#   	@user = create(:user)
-#   	@user.activities.create(name:"Lifting")
-#   	visit root_path
-#   	click_link "Login Here"
-#   	fill_in 'Email', :with => @user.email
-#   	fill_in 'Password', :with => @user.password
-#   	click_button 'Login'
-#  	}
-
-# 	it "should show user's average rating" do
-# 		log_me_in
-# 		visit user_path(@user)
-# 		expect(page).to have_content("My average rating")
-# 	end
-# end
+	it "should show user's average rating" do
+		visit user_path(@user)
+		expect(page).to have_content("User Rating")
+		expect(page).to have_content @user.average_rating
+	end
+end
