@@ -64,15 +64,14 @@ ActiveRecord::Schema.define(version: 20151012162932) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                                                                                                                     null: false
-    t.string   "email",               limit: 100,                                                                                          null: false
-    t.string   "password_digest",                                                                                                          null: false
-    t.string   "gender",                                                                                                                   null: false
+    t.string   "name",                            null: false
+    t.string   "email",               limit: 100, null: false
+    t.string   "password_digest",                 null: false
+    t.string   "gender",                          null: false
     t.string   "description",         limit: 500
-    t.integer  "age",                                                                                                                      null: false
-    t.datetime "created_at",                                                                                                               null: false
-    t.datetime "updated_at",                                                                                                               null: false
-    t.string   "avatar",                          default: "http://prepgenie.ie/gamsat/wp-content/uploads/2015/08/default-avatar_man.png"
+    t.integer  "age",                             null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
