@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
+  def new
+    @user = User.new
+    @location = Location.new
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     @average_rating = @user.average_rating
-  end
-
-  def new
-  	@user = User.new
-    @location = Location.new
   end
 
   def create
@@ -22,6 +22,16 @@ class UsersController < ApplicationController
       flash[:errors] = user.errors.full_messages
   		redirect_to new_user_path
   	end
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    user = current_user
+    user.update(user_params)
+    redirect_to user_path(user)
   end
 
   private
