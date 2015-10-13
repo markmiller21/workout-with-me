@@ -15,7 +15,7 @@ RSpec.describe RatingsController do
       Match.create(initiator_id: @user.id, responder_id: matched_user.id, accepted: 1)
     end
 
-    context "valid attributes" do
+    context "valid rating given" do
       it "should increase rating count" do
         expect {
           post :create, rating: { ratee_id: matched_user, rank: 5 }
