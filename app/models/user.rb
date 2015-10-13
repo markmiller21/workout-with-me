@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 200 }, allow_blank: true
   validates_presence_of :name, :message => 'Please input a name'
 
+
 	has_secure_password
 
   def average_rating

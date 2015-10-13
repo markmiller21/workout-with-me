@@ -12,13 +12,14 @@ class UsersController < ApplicationController
   end
 
   def create
+    flash[:error]
+    # binding.pry
   	user = User.new(user_params)
   	if user.save && user.valid?
        user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
   		session[:user_id] = user.id
   		redirect_to activities_path
   	else
-  		# flash[:error] = "Invalid field, please try again"
   		redirect_to new_user_path
   	end
   end

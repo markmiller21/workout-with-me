@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :require_login
   # add_flash_types :blank_username
 
+  # flash { success: "It worked!", error: "It failed." }
+
   def current_user
   	if session[:user_id]
   		return User.find_by(id: session[:user_id])
