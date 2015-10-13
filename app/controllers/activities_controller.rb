@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
 
   def create
     chosen_activities = params[:name]
-    if chosen_activities && params[:user][:gender_preference]
+    if chosen_activities && params[:user]
       chosen_activities.each do |activity|
         if Activity.find_by(name: activity)
           activity = Activity.find_by(name: activity)
