@@ -2,13 +2,14 @@ require 'rails_helper'
 RSpec.feature "Matches", :type => :feature do
   let(:log_me_in) {
     @user = create(:user)
-    @user.activities.create(name:"Lifting")
     @user.locations.create(longitude: 131.123123,latitude: 123123.12312)
+    @user.activities.create(name:"Lifting")
     visit root_path
     click_link "Login Here"
     fill_in 'Email', :with => @user.email
     fill_in 'Password', :with => @user.password
     click_button 'Login'
+    @user.locations.first.update_attributes(longitude: 131.123123,latitude: 123123.12312)
   }
 
 
@@ -22,12 +23,12 @@ RSpec.feature "Matches", :type => :feature do
     @potential_match.locations.create(longitude: 123.321,latitude: 98773.3215)
     @matched_user.activities.create(name: "Lifting")
     @matched_user.locations.create(longitude: 123.321,latitude: 98773.3215)
-
     log_me_in
   end
-
   describe 'possible match page' do
     it 'contains potential user on the page' do
+      puts @user.locations.first.inspect
+      # puts @potential_match.locations.first.inspect
       visit match_path(@potential_match)
       expect(page).to have_content @potential_match.name
     end
