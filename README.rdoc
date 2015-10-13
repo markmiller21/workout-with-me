@@ -2,6 +2,10 @@ Do You Even?
 
 Trello link: https://trello.com/b/TRFtLdsc/workoutwithme
 
+Coveralls Progress
+
+[![Coverage Status](https://coveralls.io/repos/nyc-cicadas-2015/workout-with-me/badge.svg?branch=master&service=github)](https://coveralls.io/github/nyc-cicadas-2015/workout-with-me?branch=master)
+
 synposis
 - User will be able to sign onto the site threw their facebook account.  After signing-up they will need to add a few activities (ie basketball, lift, run, play tennis).  After diong so they will be matched with other users with with similar activites based on the criteria they provided us.  If two people are matched they will be able to message one another.
 
