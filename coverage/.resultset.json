@@ -483,17 +483,6 @@
         0,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/jennylee/Desktop/workout-with-me/app/controllers/application_controller.rb": [
@@ -503,6 +492,7 @@
         1,
         1,
         1,
+        null,
         null,
         1,
         123,
@@ -683,6 +673,7 @@
         1,
         1,
         null,
+        0,
         0,
         null,
         null,
@@ -1333,6 +1324,6 @@
         null
       ]
     },
-    "timestamp": 1444760380
+    "timestamp": 1444762009
   }
 }
