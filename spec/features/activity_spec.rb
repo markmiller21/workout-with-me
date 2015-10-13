@@ -8,9 +8,9 @@ RSpec.feature "Activities Page", :type => :feature do
     fill_in 'Name', :with => new_user_attr[:name]
     fill_in 'Email', :with => new_user_attr[:email]
     fill_in 'Password', :with => new_user_attr[:password]
-    fill_in 'Gender', :with => new_user_attr[:gender]
+    page.choose('user_gender_male')
     fill_in 'Description', :with => new_user_attr[:description]
-    fill_in 'Age', :with => new_user_attr[:age]
+    find('#user_age').find(:xpath, 'option[2]').select_option
     click_button 'Register'
   }
 

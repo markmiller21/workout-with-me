@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/markmiller21/Desktop/workout-with-me/spec/controllers/activities_controller_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/controllers/activities_controller_spec.rb": [
         1,
         null,
         1,
@@ -88,7 +88,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/rails_helper.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -142,14 +142,14 @@
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/environment.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/application.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/application.rb": [
         1,
         null,
         1,
@@ -186,12 +186,12 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/boot.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/environments/test.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/environments/test.rb": [
         1,
         null,
         null,
@@ -235,7 +235,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/assets.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -248,7 +248,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/backtrace_silencers.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -257,18 +257,18 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/cookies_serializer.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/filter_parameter_logging.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/inflections.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -286,18 +286,18 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/mime_types.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/session_store.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/initializers/wrap_parameters.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -313,7 +313,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/factories/activity_factory.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/factories/activity_factory.rb": [
         1,
         1,
         1,
@@ -321,47 +321,8 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/factories/match_factory.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/factories/match_factory.rb": [
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/factories/user_factory.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
         1,
         1,
         1,
@@ -372,7 +333,46 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/user.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/factories/user_factory.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/user.rb": [
         1,
         1,
         1,
@@ -412,7 +412,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/config/routes.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/config/routes.rb": [
         1,
         1,
         null,
@@ -439,11 +439,11 @@
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/helpers/application_helper.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/activities_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/activities_controller.rb": [
         1,
         null,
         1,
@@ -483,7 +483,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/application_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -540,7 +540,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/controllers/matches_controller_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/controllers/matches_controller_spec.rb": [
         1,
         null,
         1,
@@ -597,7 +597,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/matches_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/matches_controller.rb": [
         1,
         null,
         1,
@@ -648,7 +648,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/controllers/ratings_controller_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/controllers/ratings_controller_spec.rb": [
         1,
         null,
         1,
@@ -701,7 +701,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/ratings_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/ratings_controller.rb": [
         1,
         null,
         1,
@@ -726,7 +726,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/controllers/sessions_controller_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/controllers/sessions_controller_spec.rb": [
         1,
         null,
         1,
@@ -807,7 +807,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/sessions_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -847,7 +847,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/controllers/users_controller_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         1,
@@ -855,7 +855,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/users_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -870,7 +870,6 @@
         null,
         null,
         1,
-        null,
         6,
         6,
         5,
@@ -891,7 +890,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/activity_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/activity_spec.rb": [
         1,
         null,
         1,
@@ -940,7 +939,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/match_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/match_spec.rb": [
         1,
         1,
         1,
@@ -1000,7 +999,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/message_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/message_spec.rb": [
         1,
         null,
         1,
@@ -1046,7 +1045,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/rating_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/rating_spec.rb": [
         1,
         null,
         1,
@@ -1100,13 +1099,13 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/session_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/session_spec.rb": [
         1,
         null,
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/spec/features/user_spec.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/spec/features/user_spec.rb": [
         1,
         null,
         null,
@@ -1193,7 +1192,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/activity.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/activity.rb": [
         1,
         1,
         1,
@@ -1201,14 +1200,14 @@
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/user_activity.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/user_activity.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/match.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/match.rb": [
         1,
         1,
         1,
@@ -1222,7 +1221,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/rating.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/rating.rb": [
         1,
         1,
         1,
@@ -1245,12 +1244,12 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/location.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/location.rb": [
         1,
         1,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/controllers/messages_controller.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/controllers/messages_controller.rb": [
         1,
         1,
         null,
@@ -1277,7 +1276,7 @@
         null,
         null
       ],
-      "/Users/markmiller21/Desktop/workout-with-me/app/models/message.rb": [
+      "/Users/navrajnat/Desktop/workout-with-me/app/models/message.rb": [
         1,
         1,
         1,
@@ -1290,6 +1289,6 @@
         null
       ]
     },
-    "timestamp": 1444700383
+    "timestamp": 1444737280
   }
 }

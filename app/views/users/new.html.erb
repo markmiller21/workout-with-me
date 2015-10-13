@@ -24,7 +24,14 @@
 
         <div class="row">
           <div class="large-12 columns">
-            <%= f.text_field :gender, placeholder: "Gender" %>
+            <div>
+            Male
+            <%= radio_button("user","gender","Male") %>
+            </div>
+            <div>
+            Female
+            <%= radio_button("user","gender","Female") %>
+            </div>
           </div>
         </div>
 
@@ -36,7 +43,7 @@
 
         <div class="row">
           <div class="large-12 columns">
-            <%= f.text_field :age, placeholder: "Age" %>
+          <%= f.select :age, (18..99) %>
           </div>
         </div>
 
