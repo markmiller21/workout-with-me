@@ -18,6 +18,7 @@ RSpec.feature "Matches", :type => :feature do
 
   before(:each) do
     potential_user.activities.create(name: "Lifting")
+    potential_user.locations.create(longitude: 123.321,latitude: 98773.3215)
     matched_user.activities.create(name: "Lifting")
     log_me_in
   end

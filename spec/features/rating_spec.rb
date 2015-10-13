@@ -14,7 +14,9 @@ RSpec.feature "Ratings", :type => :feature do
     @user.activities.create(name: "Lifting")
     @user.locations.create(longitude: 131.123123,latitude: 123123.12312)
     potential_match
+    potential_match.locations.create(longitude: 123.321,latitude: 98773.3215)
     potential_match2
+    potential_match2.locations.create(longitude: 123.321,latitude: 98773.3215)
     visit root_path
     click_link "Login Here"
     fill_in 'Email', :with => @user.email
