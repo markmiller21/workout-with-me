@@ -28,13 +28,11 @@ for x in 0..100
   if x % 2 == 1
     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "male", description: Faker::Hacker.say_something_smart)
     new_user.activities << lifting
-    new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   else
     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "female", description: Faker::Hacker.say_something_smart)
     new_user.activities << spin
-    new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   end
-
+  new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   if x % 7 == 0
     new_user.activities << tennis
     new_user.activities << running
