@@ -43,3 +43,7 @@ for x in 0..100
     new_user.activities << soccer
   end
 end
+
+Location.where(latitude: nil, longitude: nil).each do |location|
+    location.destroy
+  end
