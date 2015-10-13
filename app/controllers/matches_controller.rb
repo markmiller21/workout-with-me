@@ -40,6 +40,7 @@ class MatchesController < ApplicationController
     end
 
     potential_matches = get_potential_matches(current_user)
+    binding.pry
     next_match = find_next_match(current_user, potential_matches)
     if next_match == nil
       render file: "error"
