@@ -18,6 +18,7 @@
           <li class="has-dropdown">
             <%= link_to "Edit Profile", root_path %>
             <ul class="dropdown">
+              <li><%= link_to "Edit Preferences", edit_user_path(current_user), id: "edit-link" %></li>
               <li><%= link_to "Logout", logout_path, method: :delete, id: "logout-link" %></li>
             </ul>
           </li>
