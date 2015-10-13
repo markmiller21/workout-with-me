@@ -1,14 +1,8 @@
 <div class="large-6 large-centered columns">
 
-	<% if flash[:errors] %>
-	<% flash[:errors].each do |msg| %>
-	<%= msg %>
-	<br>
-	<% end %>
-	<% end %>
-
 
 	<div class="index-box">
+	<%= flash[:login_fail] %>
 		<div class="row">
 			<div class="large-12 columns">
 				<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>

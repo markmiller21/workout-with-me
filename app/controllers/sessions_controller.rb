@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
         redirect_to match_path(next_match)
       end
     else
-      flash[:error] = "Invalid field, try logging in again"
+
+      flash[:login_fail] = "Please input the correct username/password!"
       redirect_to login_path
     end
   end
