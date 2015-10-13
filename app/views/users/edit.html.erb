@@ -1,4 +1,4 @@
-<h1>Edit Your Preferences</h1>
+<h1>Edit Your Profile</h1>
 <div class="large-8 large-centered columns">
   <% if flash[:errors] %>
     <% flash[:errors].each do |msg| %>
@@ -56,19 +56,8 @@
         <div class="row">
           <div class="large-12 columns">
             <%= f.label :avatar %>
+           <div class="round-image-50"><%= image_tag current_user.avatar.url(:thumb) %></div>
             <%= f.file_field :avatar, placeholder: "Avatar" %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <%= f.label :activities %>
-            <p>Click on activity to remove</p>
-            <% @user.activities.each do |activity| %>
-              <%= link_to activity.name, activity, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-            <div class="spacer"></div>
-            <%= link_to "Add Activities", activities_path %>
           </div>
         </div>
 

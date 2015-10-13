@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   post '/ratings' => 'ratings#create'
 
   get '/initiate_match' => 'matches#initiate_match', as: 'initiate_match'
+  get '/users/:id/preferences/edit' => 'users#edit_preferences', as: 'edit_preferences'
+  patch '/users/:id/preferences' => 'users#update_preferences'
 end

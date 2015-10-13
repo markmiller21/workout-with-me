@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   def get_potential_matches(current_user)
     potential_matches = Hash.new
     current_user.activities.each do |activity|
-      activity.users.each do |user|
+      activity.users.where(gender: current_user.gender_preference).each do |user|
         if current_user != user
           if potential_matches[user]
             potential_matches[user] += 1

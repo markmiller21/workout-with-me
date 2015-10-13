@@ -29,9 +29,34 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = current_user
-    user.update(user_params)
-    redirect_to user_path(user)
+    current_user.update(user_params)
+    redirect_to user_path(current_user)
+  end
+
+  def edit_preferences
+    @user = current_user
+    render :edit_preferences
+  end
+
+  def update_preferences
+    chosen_activities = params[:name]
+    if chosen_activities && params[:user]
+      chosen_activities.each do |activity|
+        if Activity.find_by(name: activity)
+          added_activity = Activity.find_by(name: activity)
+        else
+          added_activity = Activity.create(name: activity)
+        end
+        unless current_user.activities.include?(added_activity)
+          current_user.activities << added_activity
+        end
+      end
+      current_user.update_attributes(gender_preference: params[:user][:gender_preference])
+      redirect_to edit_preferences_path(current_user)
+    else
+      flash[:error] = "Must choose at least 1 activity/preference"
+      redirect_to edit_preferences_path(current_user)
+    end
   end
 
   private
