@@ -27,8 +27,6 @@ RSpec.feature "Matches", :type => :feature do
   end
   describe 'possible match page' do
     it 'contains potential user on the page' do
-      puts @user.locations.first.inspect
-      # puts @potential_match.locations.first.inspect
       visit match_path(@potential_match)
       expect(page).to have_content @potential_match.name
     end
