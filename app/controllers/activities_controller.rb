@@ -29,5 +29,4 @@ class ActivitiesController < ApplicationController
     redirect_to edit_user_path(current_user)
   end
 
-
 end
