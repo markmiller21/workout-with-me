@@ -3,6 +3,8 @@ mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller
 navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
 
 jenny.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+mark.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+navraj.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
 
 lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/uploads/photo/2015/02/27/17/44/weights-652488_640.jpg")
 tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
