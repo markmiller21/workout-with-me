@@ -4,4 +4,9 @@ class Match < ActiveRecord::Base
   has_many :messages
 
   validates :initiator, :responder, :presence => true
+
+
+# def calculate_distance(longitude,latitude)
+# end
+
 end
