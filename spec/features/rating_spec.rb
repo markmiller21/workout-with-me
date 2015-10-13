@@ -12,6 +12,7 @@ RSpec.feature "Ratings", :type => :feature do
   let(:log_me_in) {
     @user = create(:user)
     @user.activities.create(name: "Lifting")
+    @user.locations.create(longitude: 131.123123,latitude: 123123.12312)
     potential_match
     potential_match2
     visit root_path

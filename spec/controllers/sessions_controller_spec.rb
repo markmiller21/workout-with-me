@@ -7,6 +7,7 @@ describe SessionsController do
 				@potential_user = create(:potential_user)
 				@user = create(:user)
 				@user.activities.create(name: "Tennis")
+				@user.locations.create(longitude: 1231.12312, latitude: 12123.12312312)
 			}
 			let(:user_attr) {attributes_for(:user)}
 
