@@ -20,7 +20,7 @@ def calulate_distance(loc1, loc2)
   a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
   c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
 
-  rm * c # Delta in meters
+  (rm * c) * (0.00062137)
 end
 
 end
