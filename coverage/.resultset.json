@@ -49,13 +49,13 @@
         1,
         1,
         1,
-        0,
+        1,
         null,
         null,
         1,
         1,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -397,6 +397,7 @@
         null,
         null,
         null,
+        null,
         1,
         null,
         1,
@@ -454,18 +455,16 @@
         1,
         6,
         6,
-        6,
-        6,
         3,
-        0,
-        0,
-        0,
+        3,
+        2,
         null,
-        0,
+        1,
         null,
-        0,
+        3,
         null,
-        0,
+        3,
+        3,
         null,
         3,
         3,
@@ -1245,6 +1244,7 @@
         1,
         null,
         1,
+        null,
         null
       ],
       "/Users/navrajnat/Desktop/workout-with-me/app/models/user_activity.rb": [
@@ -1333,6 +1333,6 @@
         null
       ]
     },
-    "timestamp": 1444765799
+    "timestamp": 1444771079
   }
 }
