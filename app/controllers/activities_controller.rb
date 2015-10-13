@@ -5,9 +5,11 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: current_user.id) # should be current user
+    user = User.find_by(id: current_user.id)
+    user_gender_preference = params[:user][:gender_preference]
     chosen_activities = params[:name]
-    if chosen_activities
+    if chosen_activities && user_gender_preference
+      user.gender_preference = user_gender_preference
       chosen_activities.each do |activity|
         if Activity.find_by(name: activity)
           activity = Activity.find_by(name: activity)
