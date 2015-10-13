@@ -12,13 +12,14 @@ class MatchesController < ApplicationController
       render file: "error"
     else
       redirect_to match_path(next_match)
-    end 
+    end
   end
 
   def show
     @match = Match.new
     @potential_match = User.find_by(id: params[:id])
     @average_rating = @potential_match.average_rating
+    @distance_in_miles = calculate_distance([@potential_match.locations.first.latitude,@potential_match.locations.first.longitude],[current_user.locations.first.latitude,current_user.locations.first.longitude])
   end
 
   def create

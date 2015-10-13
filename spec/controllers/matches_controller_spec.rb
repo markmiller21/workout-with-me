@@ -4,6 +4,7 @@ describe MatchesController do
 
  let(:log_me_in) {
   @user = create(:user)
+  @user.locations.create(longitude: 123.321,latitude: 98773.3215)
   session[:user_id] = @user.id
 }
 
@@ -11,6 +12,8 @@ describe MatchesController do
     it "renders the #show view" do
       log_me_in
       @potential_user = User.create(name:"jenny",password_digest:"jenny",age:25,gender:"female",description:"just think about it",email:"jenny@jenny.com")
+          @potential_user.locations.create(longitude: 123.321,latitude: 98773.3215)
+
       get :show, id: @potential_user.id
       expect(response).to render_template :show
     end
@@ -20,6 +23,8 @@ describe MatchesController do
     context "if user logged in" do
       before :each do
         @potential_user = create(:potential_user)
+        @potential_user.locations.create(longitude: 123.321,latitude: 98773.3215)
+
         log_me_in
       end
 

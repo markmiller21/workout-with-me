@@ -6,7 +6,4 @@ class Match < ActiveRecord::Base
   validates :initiator, :responder, :presence => true
 
 
-# def calculate_distance(longitude,latitude)
-# end
-
 end
