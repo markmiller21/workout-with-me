@@ -47,7 +47,7 @@ describe SessionsController do
 			end
 
 			it "expects an error flash" do
-				expect(flash[:error]).to have_content "Invalid field, try logging in again"
+				expect(flash[:login_fail]).to have_content "Please input the correct username/password!"
 			end
 		end
 	end
