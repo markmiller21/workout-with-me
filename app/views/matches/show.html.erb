@@ -1,5 +1,5 @@
 <div class="spacer"></div>
-<%= flash[:message] %>
+<div id='message'><%= flash[:message] %></div>
 <div class="row">
 	<div class="large-12 columns">
 		<div class="row">
@@ -24,6 +24,14 @@
 				<div class="panel">
 					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
 				</div>
+
+
+				<script >
+				if ($("#message").text() == "You've been matched!"){
+						 alert("You have a match!!!");
+						 $("#message").hide();
+						}
+				</script>
 
 				<div class="large-6 medium-6 small-6 columns">
 					<%= form_for @match, html: {id: "dislike_form"} do |f| %>

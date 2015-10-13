@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?, :find_next_match
   before_action :require_login
+  # add_flash_types :blank_username
 
   def current_user
   	if session[:user_id]
