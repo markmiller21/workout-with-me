@@ -44,7 +44,7 @@ class MatchesController < ApplicationController
     if next_match == nil
       render file: "error"
     else
-      redirect_to match_path(next_match)
+      redirect_to match_path(next_match), alert:"You have a match!!!"
     end
   end
 end
