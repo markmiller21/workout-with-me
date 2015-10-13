@@ -10,7 +10,7 @@ RSpec.feature "Activities Page", :type => :feature do
     fill_in 'Password', :with => new_user_attr[:password]
     page.choose('user_gender_male')
     fill_in 'Description', :with => new_user_attr[:description]
-    fill_in 'Age', :with => new_user_attr[:age]
+    find('#user_age').find(:xpath, 'option[2]').select_option
     click_button 'Register'
   }
 
