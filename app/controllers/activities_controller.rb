@@ -9,11 +9,13 @@ class ActivitiesController < ApplicationController
     if chosen_activities && params[:user]
       chosen_activities.each do |activity|
         if Activity.find_by(name: activity)
-          activity = Activity.find_by(name: activity)
+          added_activity = Activity.find_by(name: activity)
         else
-          activity = Activity.create(name: activity)
+          added_activity = Activity.create(name: activity)
         end
-        current_user.activities << activity
+        unless current_user.activities.include?(added_activity)
+          current_user.activities << added_activity
+        end
       end
       current_user.update_attributes(gender_preference: params[:user][:gender_preference])
       redirect_to initiate_match_path
