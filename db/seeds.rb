@@ -37,11 +37,9 @@ for x in 0..100
     new_user.activities << tennis
     new_user.activities << running
   end
-
   if x % 4 == 0
     new_user.activities << basketball
   end
-
   if x % 11 == 0
     new_user.activities << soccer
   end
