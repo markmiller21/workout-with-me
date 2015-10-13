@@ -55,9 +55,9 @@ describe 'Sign up process' do
 		fill_in 'Name', :with => nil
 		fill_in 'Email', :with => user_attr[:email]
 		fill_in 'Password', :with => user_attr[:password]
-		fill_in 'Gender', :with => user_attr[:gender]
+    page.choose('user_gender_male')
 		fill_in 'Description', :with => user_attr[:description]
-		fill_in 'Age', :with => user_attr[:age]
+    find('#user_age').find(:xpath, 'option[2]').select_option
 		click_button("Register")
 		expect(page).to have_button('Register')
 	end
