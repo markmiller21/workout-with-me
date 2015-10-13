@@ -44,8 +44,8 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    potential_matches.sort {|a1,a2| a2[1]<=>a1[1]}
-    return potential_matches
+    
+    return potential_matches.sort {|a1,a2| a2[1]<=>a1[1]}
   end
 
   def calculate_distance(loc1, loc2)
