@@ -17,7 +17,6 @@ class ActivitiesController < ApplicationController
         user.activities << activity
       end
       redirect_to initiate_match_path
-    end
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
