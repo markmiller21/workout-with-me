@@ -51,7 +51,7 @@ RSpec.describe ActivitiesController do
       it "should show potential matches page" do
         potential_match.activities.create(name: "Tennis")
         post :create, name: ["Tennis"]
-        expect(response).to redirect_to match_path(potential_match.id)
+        expect(response).to redirect_to initiate_match_path
       end
 
       it "should add activity to user activities" do

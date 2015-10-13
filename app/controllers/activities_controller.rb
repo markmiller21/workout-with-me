@@ -16,13 +16,7 @@ class ActivitiesController < ApplicationController
         end
         user.activities << activity
       end
-
-      random_user = User.where.not(id: current_user.id ).sample
-      if random_user
-      redirect_to match_path(random_user)
-    else
-      render file: "error"
-    end
+      redirect_to initiate_match_path
     else
       flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
