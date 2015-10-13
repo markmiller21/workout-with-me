@@ -67,6 +67,8 @@
             <% @user.activities.each do |activity| %>
               <%= link_to activity.name, activity, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
+            <div class="spacer"></div>
+            <%= link_to "Add Activities", activities_path %>
           </div>
         </div>
 
