@@ -6,7 +6,7 @@ class Match < ActiveRecord::Base
   validates :initiator, :responder, :presence => true
 
 
-def calulate_distance(loc1, loc2)
+def calculate_distance(loc1, loc2)
   rad_per_deg = Math::PI/180
   rkm = 6371
   rm = rkm * 1000
