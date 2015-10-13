@@ -5,19 +5,17 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: current_user.id)
-    user_gender_preference = params[:user][:gender_preference]
     chosen_activities = params[:name]
-    if chosen_activities && user_gender_preference
-      user.gender_preference = user_gender_preference
+    if chosen_activities && params[:user][:gender_preference]
       chosen_activities.each do |activity|
         if Activity.find_by(name: activity)
           activity = Activity.find_by(name: activity)
         else
           activity = Activity.create(name: activity)
         end
-        user.activities << activity
+        current_user.activities << activity
       end
+      current_user.update_attributes(gender_preference: params[:user][:gender_preference])
       redirect_to initiate_match_path
     else
       flash[:error] = "Must choose at least 1 activity"
