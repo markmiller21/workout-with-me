@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   		session[:user_id] = user.id
   		redirect_to activities_path
   	else
-  		flash[:error] = "Invalid field, please try again"
+  		# flash[:error] = "Invalid field, please try again"
   		redirect_to new_user_path
   	end
   end
