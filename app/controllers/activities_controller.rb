@@ -37,4 +37,8 @@ class ActivitiesController < ApplicationController
       params.require(:activity).permit(:name)
     end
 
+    def params_gender_preference
+      params.require(:user).permit(:gender_preference)
+    end
+
 end
