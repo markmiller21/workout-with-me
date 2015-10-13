@@ -11,28 +11,31 @@ RSpec.feature "Matches", :type => :feature do
     click_button 'Login'
   }
 
-  let(:potential_user) { create(:potential_user) }
-  let(:matched_user) { create(:potential_user2) }
+
   let(:unmatched_user) { unmatched_user = create(:unmatched_user) }
-  let(:potential_users) {[potential_user, matched_user]}
+  # let(:potential_users) {[@potential_match, @match]}
 
   before(:each) do
-    potential_user.activities.create(name: "Lifting")
-    potential_user.locations.create(longitude: 123.321,latitude: 98773.3215)
-    matched_user.activities.create(name: "Lifting")
+    @potential_match = create(:potential_user)
+    @matched_user = create(:potential_user2)
+    @potential_match.activities.create(name: "Lifting")
+    @potential_match.locations.create(longitude: 123.321,latitude: 98773.3215)
+    @matched_user.activities.create(name: "Lifting")
+    @matched_user.locations.create(longitude: 123.321,latitude: 98773.3215)
+
     log_me_in
   end
 
   describe 'possible match page' do
     it 'contains potential user on the page' do
-      visit match_path(potential_user)
-      expect(page).to have_content potential_user.name
+      visit match_path(@potential_match)
+      expect(page).to have_content @potential_match.name
     end
 
     it 'redirects to the next user if liked clicked' do
-      visit match_path(potential_user)
+      visit match_path(@potential_match)
       click_button "LIKE"
-      expect(page).to_not have_content potential_user.name
+      expect(page).to_not have_content @potential_match.name
     end
 
     # it "should flash message if matched" do
@@ -45,15 +48,15 @@ RSpec.feature "Matches", :type => :feature do
 
   describe 'user matches page' do
     it 'shows the matches for a current user' do
-      Match.create(initiator_id: matched_user.id, responder_id: @user.id, accepted: 1)
+      Match.create(initiator_id: @matched_user.id, responder_id: @user.id, accepted: 1)
       click_link "Matches"
       expect(page).to have_content "Here are your matches " + @user.name
     end
 
     it 'list a match on the page' do
-      Match.create(initiator_id:@user.id, responder_id: matched_user.id, accepted: 1)
+      Match.create(initiator_id:@user.id, responder_id: @matched_user.id, accepted: 1)
       click_link "Matches"
-      expect(page).to have_content matched_user.name
+      expect(page).to have_content @matched_user.name
     end
   end
 end
