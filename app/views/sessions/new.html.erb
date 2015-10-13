@@ -1,58 +1,61 @@
 <div class="large-6 large-centered columns">
+
+
 	<div class="index-box">
+	<%= flash[:login_fail] %>
 		<div class="row">
-		<div class="large-12 columns">
-			<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>
+			<div class="large-12 columns">
+				<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>
 
-			<div class="row">
-				<div onClick="getLocation()" class="large-12 columns">
-					<%= f.text_field :email, placeholder: "Email" %>
+				<div class="row">
+					<div onClick="getLocation()" class="large-12 columns">
+						<%= f.text_field :email, placeholder: "Email" %>
+					</div>
 				</div>
-			</div>
 
-			<div class="spacer"></div>
+				<div class="spacer"></div>
 
-			<div class="row">
-				<div class="large-12 columns">
-			<%= f.password_field :password, placeholder: "Password" %>
+				<div class="row">
+					<div class="large-12 columns">
+						<%= f.password_field :password, placeholder: "Password" %>
+					</div>
 				</div>
-			</div>
 
-			<div class="spacer"></div>
+				<div class="spacer"></div>
 
 
-			<div class="row">
-				<div class="large-12 cloumns">
-					<%= f.hidden_field :lat , id: 'lat', value: '' %>
-					<%= f.hidden_field :long, id:'long', value: '' %>
+				<div class="row">
+					<div class="large-12 cloumns">
+						<%= f.hidden_field :lat , id: 'lat', value: '' %>
+						<%= f.hidden_field :long, id:'long', value: '' %>
+					</div>
 				</div>
-			</div>
 
 
-			<script>
-			var latitude = document.getElementById("lat");
-			var longitude = document.getElementById("long")
+				<script>
+				var latitude = document.getElementById("lat");
+				var longitude = document.getElementById("long")
 
-			function getLocation() {
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(showPosition);
-				} else {
-					latitude.innerHTML = "Geolocation is not supported by this browser.";
+				function getLocation() {
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(showPosition);
+					} else {
+						latitude.innerHTML = "Geolocation is not supported by this browser.";
+					}
 				}
-			}
-			function showPosition(position) {
-				latitude.value = position.coords.latitude
-				longitude.value = position.coords.longitude;
-			}
-			</script>
+				function showPosition(position) {
+					latitude.value = position.coords.latitude
+					longitude.value = position.coords.longitude;
+				}
+				</script>
 
-			<div class="row">
-				<div class="large-12 columns">
-				<%= f.submit "Login", :class => "button" %>
-				<% end %>
+				<div class="row">
+					<div class="large-12 columns">
+						<%= f.submit "Login", :class => "button" %>
+						<% end %>
+					</div>
 				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 </div>
