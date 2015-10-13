@@ -19,7 +19,7 @@
             <%= link_to "Settings", root_path %>
             <ul class="dropdown">
               <li><%= link_to "Edit Profile", edit_user_path(current_user), id: "edit-link" %></li>
-              <li><%= link_to "Edit Preferences", activities_path, id: "activities-link" %></li>
+              <li><%= link_to "Edit Preferences", edit_preferences_path(current_user), id: "edit-preferences-link" %></li>
               <li><%= link_to "Logout", logout_path, method: :delete, id: "logout-link" %></li>
             </ul>
           </li>

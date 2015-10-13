@@ -1,0 +1,87 @@
+<h3>Edit Your Preferences</h3>
+<%= flash[:error] %>
+
+
+<%= form_for @user, url: {action: "update_preferences" } do |f| %>
+  <p>I would like to be matched with:</p>
+  <div>
+    Male
+    <%= radio_button("user","gender_preference","Male") %>
+  </div>
+  <div>
+    Female
+    <%= radio_button("user","gender_preference","Female") %>
+  </div>
+  <div>
+    No Preference
+    <%= radio_button("user","gender_preference","No preference") %>
+  </div>
+  <div class="row">
+  <div class="large-12 columns">
+    <p>Click on activity to remove</p>
+      <% @user.activities.each do |activity| %>
+        <%= link_to activity.name, activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <div class="spacer"></div>
+  </div>
+</div>
+<p>Select activities</p>
+  <div class="activity_container">
+    <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
+    <div class="spacer"></div>
+    <% if @user.activities.find_by(name: "Lifting") %>
+      <%= check_box_tag "name[]","Lifting", {checked: true} %>Lifting
+    <% else %>
+      <%= check_box_tag "name[]","Lifting" %>Lifting
+    <% end %>
+  </div>
+
+  <div class="activity_container">
+    <img src="http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg"/>
+    <div class="spacer"></div>
+    <% if @user.activities.find_by(name: "Tennis") %>
+      <%= check_box_tag "name[]","Tennis", {checked: true} %>Tennis
+    <% else %>
+      <%= check_box_tag "name[]","Tennis" %>Tennis
+    <% end %>
+  </div>
+
+  <div class="activity_container">
+    <img src="http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg"/>
+    <div class="spacer"></div>
+    <% if @user.activities.find_by(name: "Basketball") %>
+      <%= check_box_tag "name[]","Basketball", {checked: true} %>Basketball
+    <% else %>
+      <%= check_box_tag "name[]","Basketball" %>Basketball
+    <% end %>
+  </div>
+
+  <div class="activity_container">
+    <img src="http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg"/>
+    <div class="spacer"></div>
+    <% if @user.activities.find_by(name: "Spin") %>
+      <%= check_box_tag "name[]","Spin", {checked: true} %>Spin
+    <% else %>
+      <%= check_box_tag "name[]","Spin" %>Spin
+    <% end %>
+  </div>
+
+  <div class="activity_container">
+    <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
+    <div class="spacer"></div>
+    <% if @user.activities.find_by(name: "Soccer") %>
+      <%= check_box_tag "name[]","Soccer", {checked: true} %>Soccer
+    <% else %>
+      <%= check_box_tag "name[]","Soccer" %>Soccer
+    <% end %>
+  </div>
+
+  <%= f.submit "Update", :class => "button" %>
+
+<% end %>
+
+
+
+
+
+
