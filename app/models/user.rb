@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, styles: { medium: "300x300^", thumb: "100x100^" }, default_url: "http://prepgenie.ie/gamsat/wp-content/uploads/2015/08/default-avatar_man.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "http://prepgenie.ie/gamsat/wp-content/uploads/2015/08/default-avatar_man.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_file_name :avatar, matches: [/png\Z/, /jpe?g\Z/]
   has_many :user_activities
@@ -15,7 +15,11 @@ class User < ActiveRecord::Base
 
   has_many :locations
 
-	validates :name, :email, :gender, :presence => true
+	validates :name, :gender, :age, :presence => true
+  validates :age, numericality: { only_integer: true }
+  validates :email, uniqueness: true, :email_format => {:message => 'Invalid email address' }
+  validates :description, length: { maximum: 200 }, allow_blank: true
+
 
 	has_secure_password
 
