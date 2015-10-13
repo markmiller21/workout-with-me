@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
         t.string :gender, null: false
         t.string :description, limit: 500
     	t.integer :age, null: false, limit: 3
+        t.string :gender_preference
 
     	t.timestamps null: false
     end
