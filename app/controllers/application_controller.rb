@@ -44,7 +44,6 @@ class ApplicationController < ActionController::Base
         end
       end
     end
-    
     return potential_matches.sort {|a1,a2| a2[1]<=>a1[1]}
   end
 
