@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20151012162932) do
     t.string   "gender",                          null: false
     t.string   "description",         limit: 500
     t.integer  "age",                             null: false
+    t.string   "gender_preference"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "avatar_file_name"

@@ -1,10 +1,10 @@
-jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 24, gender: "female", description: "looking for someone to play tennis with me occasionally.  Would also like to try some olympics lifts :)").locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-# mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "male", description: "Looking for someone to lift with 6 nights a week.  I've only been lifting for a few years but can push some weight.  Looking for someone of any level, I'd love to bring a beginner or get pushed by someone more advanced.")
-# navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
+jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 24, gender: "female", description: "looking for someone to play tennis with me occasionally.  Would also like to try some olympics lifts :)")
+mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "male", description: "Looking for someone to lift with 6 nights a week.  I'd also like to play ball occasionally.")
+navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
 
 jenny.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-# mark.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-# navraj.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+mark.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+navraj.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
 
 lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/uploads/photo/2015/02/27/17/44/weights-652488_640.jpg")
 tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
@@ -28,12 +28,12 @@ for x in 0..100
   if x % 2 == 1
     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "male", description: Faker::Hacker.say_something_smart)
     new_user.activities << lifting
+    new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   else
     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "female", description: Faker::Hacker.say_something_smart)
     new_user.activities << spin
+    new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
   end
-
-  new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
 
   if x % 7 == 0
     new_user.activities << tennis
