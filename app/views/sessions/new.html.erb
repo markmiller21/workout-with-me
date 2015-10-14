@@ -1,6 +1,5 @@
+<div class="spacer"></div>
 <div class="large-6 large-centered columns">
-
-
 	<div class="index-box">
 	<%= flash[:login_fail] %>
 		<div class="row">
@@ -25,12 +24,11 @@
 
 
 				<div class="row">
-					<div class="large-12 cloumns">
+					<div class="large-12 columns">
 						<%= f.hidden_field :lat , id: 'lat', value: '' %>
 						<%= f.hidden_field :long, id:'long', value: '' %>
 					</div>
 				</div>
-
 
 				<script>
 				var latitude = document.getElementById("lat");
