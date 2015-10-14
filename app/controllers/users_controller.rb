@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # binding.pry
   	user = User.new(user_params)
   	if user.save && user.valid?
        user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
