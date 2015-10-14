@@ -1,14 +1,39 @@
 <div id='message'><%= flash[:message] %></div>
 
 <h1> You have no more potential matches left </h1>
-  <script >
-        if ($("#message").text() == "You've been matched!"){
-             alert("You have a match!!!" + );
-             $("#message").hide();
-            }
-  </script>
 
-  if (window.confirm('You been matched!'))
-{
-window.location.href='https://www.google.com/chrome/browser/index.html';
-};
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+<script >
+        // if ($("#message").text() == "You've been matched!"){
+        //      alert("You have a match!!!" + );
+        //      $("#message").hide();
+        //     }
+        if ($("#message").text() == "You've been matched!"){
+                $(function() {
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height:300,
+      modal: true,
+      open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
+      buttons: {
+        "Start chatting!": function() {
+          window.location = "http://www.google.com"
+        },
+        "Keep on swiping!": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  });
+  }
+  </script>
+        </script>
+
+<div id="dialog-confirm">
+  <p><span class="ui-icon ui-icon-alert"></span></p>
+
+</div>
