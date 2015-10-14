@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates :description, length: { maximum: 500 }, allow_blank: true
 
 
-
+  # Willy nilly likes food but not snacks
 
 	has_secure_password
 
