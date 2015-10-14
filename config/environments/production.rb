@@ -2,7 +2,7 @@ Rails.application.configure do
   config.image_urls = {
     weight_lifting: "http://www.officialcollegelife.com/wp-content/uploads/2013/02/alabama-weight-room.jpg",
     basketball: "http://betterlivingpatios.com/wp-content/uploads/2014/04/Custom-Lighting-Ideas-for-Modern-Outdoor-Patio-Basketball-Court.jpg",
-    tennis: "http://www.bbc.co.uk/blogs/webwise/blog-tennis.jpg",
+    tennis: "http://ferrisracquetandfitness.com/wp-content/themes/DPCrqt/images/Facility_Placeholder.jpg",
     spin: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg",
     running: "https://res.cloudinary.com/mapmyfitness/image/upload/f167687b598b4deb85a33a0af8d0083c",
     soccer: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg",
