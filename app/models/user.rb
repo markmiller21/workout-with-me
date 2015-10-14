@@ -60,6 +60,15 @@ class User < ActiveRecord::Base
     end
   end
 
+   def add_activities(chosen_activities)
+    chosen_activities.each do |activity|
+      added_activity = Activity.find_or_create_by(name: activity)
+      unless self.activities.include?(added_activity)
+        self.activities << added_activity
+      end
+    end
+  end
+
   def average_rating
     all_ratings = Rating.where(ratee_id: self.id).map do |rating|
       rating.rank

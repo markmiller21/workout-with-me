@@ -17,8 +17,6 @@ class ApplicationController < ActionController::Base
   	session[:user_id]
   end
 
-
-
   def calculate_distance(loc1, loc2)
     rad_per_deg = Math::PI/180
     rkm = 6371
