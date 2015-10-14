@@ -125,6 +125,11 @@ RSpec.describe UsersController do
         @user.name.should eq("Jenny")
       end
 
+      it "should redirect to user profile page" do
+        patch :update, id: @user, user: { name: "Jenny" }
+        response.should redirect_to @user
+      end
+
     end
   end
 end
