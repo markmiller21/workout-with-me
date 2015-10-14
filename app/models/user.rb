@@ -25,6 +25,20 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
+  def find_next_match(potential_matches)
+    for x in 0..potential_matches.length
+      if Match.where(initiator_id: self.id, responder_id: potential_matches[x]) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: self.id, accepted: 1) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: self.id, accepted: -1) != []
+        next
+      else
+        return potential_matches[x]
+      end
+    end
+  end
+
   def average_rating
     all_ratings = Rating.where(ratee_id: self.id).map do |rating|
       rating.rank

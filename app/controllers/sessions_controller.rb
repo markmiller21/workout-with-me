@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
       flash[:message] = "You've succesfully logged in"
       potential_matches = get_potential_matches(current_user)
-      next_match = find_next_match(current_user, potential_matches)
+      next_match = current_user.find_next_match(potential_matches)
       if next_match == nil
         render file: "error"
       else
