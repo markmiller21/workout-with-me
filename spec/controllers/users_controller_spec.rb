@@ -200,10 +200,11 @@ RSpec.describe UsersController do
         @user.reload
         @user.gender_preference.should_not eq("Male")
       end
-      # it "redirects edit page" do
-      #   patch :update, id: @user, user: { email: "jenny" }
-      #   response.should redirect_to edit_user_path(@user)
-      # end
+
+      it "should flash error message" do
+        patch :update_preferences, id: @user, user: { gender_preference: "Male" }
+        expect(flash[:error]).to have_content("Must choose at least 1 activity/preference")
+      end
     end
   end
 end
