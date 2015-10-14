@@ -22,28 +22,21 @@
 
 			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
 				<div class="profile-box-show">
-					<h4 id='yolo' data-pot-id='<%=@potential_match.id%>' class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
+					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
 				</div>
 
+				<% if @last_match %>
+				<div hidden id='yolo' value='<%=@last_match.id%>' display='none'><%=@last_match.id%></div>
+				<% end %>
+				<% current_user.responder_matches.where(initiator_id: params[:id]).first.id %>
 
-				// <script >
-				// if ($("#message").text() == "You've been matched!"){
-				// 		 alert("You have a match!!!");
-				// 		 $("#message").hide();
-				// 		}
-				// </script>
 
-				<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 
 <script >
-        // if ($("#message").text() == "You've been matched!"){
-        //      alert("You have a match!!!" + );
-        //      $("#message").hide();
-        //     }
-
-        var test = $('#yolo').attr('data-pot-id')
+        var oldURL = document.referrer.split('/')[4].split('%')[0];
         if ($("#message").text() == "You've been matched!"){
           $("#message").hide();
           $(function() {
@@ -54,7 +47,7 @@
               open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
               buttons: {
                 "Start chatting!": function() {
-                  window.location = "/matches/" + test + "/messages"
+                  window.location = "/matches/" + oldURL + "/messages"
                 },
                 "Keep on swiping!": function() {
                   $( this ).dialog( "close" );

@@ -20,6 +20,7 @@ class MatchesController < ApplicationController
     @potential_match = User.find_by(id: params[:id])
     @average_rating = @potential_match.average_rating
     @distance_in_miles = calculate_distance([@potential_match.locations.first.latitude,@potential_match.locations.first.longitude],[current_user.locations.first.latitude,current_user.locations.first.longitude]).to_i
+    @last_match = current_user.responder_matches.where(initiator_id: params[:id]).first
   end
 
   def create
