@@ -79,6 +79,11 @@ RSpec.describe UsersController do
           post :create, user: { name: "Jenny", email: "jenny@example.com", password: "jenny", description: "I lift" }
         }.to change(User,:count).by(0)
       end
+
+      it "re-renders sign up page" do
+        post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
+        response.should redirect_to new_user_path
+      end
     end
 
     context "invalid email" do
