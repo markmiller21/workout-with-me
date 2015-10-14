@@ -130,7 +130,15 @@ RSpec.describe UsersController do
         response.should redirect_to @user
       end
 
+      it "should not create new user" do
+        expect {
+          patch :update, id: @user, user: user_attr
+        }.to change(User,:count).by(0)
+      end
     end
+
+    # context "invalid attributes" do
+    #   it
   end
 end
 
