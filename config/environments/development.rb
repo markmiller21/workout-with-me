@@ -1,8 +1,8 @@
 Rails.application.configure do  
   config.image_urls = {
-    weight_lifting: "https://pixabay.com/static/uploads/photo/2015/02/27/17/44/weights-652488_640.jpg",
-    basketball: "https://pixabay.com/static/uploads/photo/2013/05/02/21/23/uss-nimitz-108622_640.jpg",
-    tennis: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg",
+    weight_lifting: "http://www.officialcollegelife.com/wp-content/uploads/2013/02/alabama-weight-room.jpg",
+    basketball: "http://betterlivingpatios.com/wp-content/uploads/2014/04/Custom-Lighting-Ideas-for-Modern-Outdoor-Patio-Basketball-Court.jpg",
+    tennis: "http://www.bbc.co.uk/blogs/webwise/blog-tennis.jpg",
     spin: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg",
     running: "https://res.cloudinary.com/mapmyfitness/image/upload/f167687b598b4deb85a33a0af8d0083c",
     soccer: "https://pixabay.com/static/uploads/photo/2014/05/21/15/28/soccer-349821_640.jpg",
