@@ -135,6 +135,11 @@ RSpec.describe UsersController do
           patch :update, id: @user, user: user_attr
         }.to change(User,:count).by(0)
       end
+
+      it "should flash success message" do
+        patch :update, id: @user, user: { name: "Jenny" }
+        expect(flash[:message]).to have_content("Updated successfully")
+      end
     end
 
     context "invalid attributes" do
@@ -142,6 +147,11 @@ RSpec.describe UsersController do
         patch :update, id: @user, user: { email: "jenny" }
         @user.reload
         @user.email.should_not eq("jenny")
+      end
+
+      it "re-renders edit page" do
+        patch :update, id: @user, user: { email: "jenny" }
+        response.should render_template :edit
       end
     end
   end
