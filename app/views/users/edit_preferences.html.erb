@@ -143,23 +143,27 @@
     </div>
   </div>
 
+  <hr>
 
-  <p>I would like to be matched with:</p>
-  <div>
-    Male
-    <%= radio_button("user","gender_preference","Male") %>
+  <div class="row">
+    <h3 class="text-center">I would like to be matched with:</h3>
   </div>
-  <div>
-    Female
-    <%= radio_button("user","gender_preference","Female") %>
+  <div class="row">
+    <div class="large-4 medium-4 small-12 columns">
+      Males
+      <%= radio_button("user","gender_preference","Male") %>
+    </div>
+    <div class="large-4 medium-4 small-12 columns">
+      Females
+      <%= radio_button("user","gender_preference","Female") %>
+    </div>
+    <div class="large-4 medium-4 small-12 columns">
+      No Preference
+      <%= radio_button("user","gender_preference","No preference") %>
+    </div>
   </div>
-  <div>
-    No Preference
-    <%= radio_button("user","gender_preference","No preference") %>
-  </div>
-
+  <hr>
   <%= f.submit "Update", :class => "button" %>
-
 <% end %>
 </div>
 
