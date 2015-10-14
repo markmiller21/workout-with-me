@@ -137,8 +137,13 @@ RSpec.describe UsersController do
       end
     end
 
-    # context "invalid attributes" do
-    #   it
+    context "invalid attributes" do
+      it "does not change user's attributes" do
+        patch :update, id: @user, user: { email: "jenny" }
+        @user.reload
+        @user.email.should_not eq("jenny")
+      end
+    end
   end
 end
 
