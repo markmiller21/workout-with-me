@@ -23,7 +23,7 @@
 </ul>
 
 
-<%= form_for [@actual,Message.new], remote: true do |f| %>
+<%= form_for [@match,Message.new], remote: true do |f| %>
   <%= f.hidden_field :match_id, value:params[:match_id] %>
   <%= f.hidden_field :receiver_id, value: @receiver.id %>
   <%= f.hidden_field :sender_id, value: current_user.id %>
@@ -31,4 +31,4 @@
   <%= f.submit "Send" %>
 <% end %>
 
-<%= subscribe_to "/matches/#{@actual.id}/messages" %>
+<%= subscribe_to "/matches/#{@match.id}/messages" %>
