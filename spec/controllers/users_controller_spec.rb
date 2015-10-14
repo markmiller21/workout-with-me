@@ -44,7 +44,7 @@ RSpec.describe UsersController do
       end
     end
 
-    context "invalid attributes" do
+    context "missing fields" do
       it "empty name does not create new user" do
         expect {
           post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
@@ -54,6 +54,18 @@ RSpec.describe UsersController do
       it "empty email does not create new user" do
         expect {
           post :create, user: { name: "Jenny", password: "jenny", gender: "Female", age: 25 }
+        }.to change(User,:count).by(0)
+      end
+
+      it "empty password does not create new user" do
+        expect {
+          post :create, user: { name: "Jenny", email: "jenny@example.com", gender: "Female", age: 25 }
+        }.to change(User,:count).by(0)
+      end
+
+      it "no age does not create new user" do
+        expect {
+          post :create, user: { name: "Jenny", email: "jenny@example.com", password: "jenny", gender: "Female", description: "I lift"}
         }.to change(User,:count).by(0)
       end
     end
