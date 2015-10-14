@@ -36,6 +36,12 @@ RSpec.describe UsersController do
         post :create, user: user_attr
         response.should redirect_to activities_path
       end
+
+      it "creates a new location for user" do
+        expect {
+          post :create, user: user_attr
+        }.to change(Location,:count).by(1)
+      end
     end
   end
 
