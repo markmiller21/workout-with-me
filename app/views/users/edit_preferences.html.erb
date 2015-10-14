@@ -91,6 +91,59 @@
     </div>
   </div>
 
+
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:crossfit] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Crossfit") %>
+        <%= check_box_tag "name[]","Crossfit", {checked: true} %>Crossfit
+        <% else %>
+        <%= check_box_tag "name[]","Crossfit" %>Crossfit
+        <% end %>
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:yoga] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Yoga") %>
+        <%= check_box_tag "name[]","Yoga", {checked: true} %>Yoga
+        <% else %>
+        <%= check_box_tag "name[]","Yoga" %>Yoga
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:hiking] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Hiking") %>
+        <%= check_box_tag "name[]","Hiking", {checked: true} %>Hiking
+        <% else %>
+        <%= check_box_tag "name[]","Hiking" %>Hiking
+        <% end %>
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:racquetball] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Racquetball") %>
+        <%= check_box_tag "name[]","Racquetball", {checked: true} %>Racquetball
+        <% else %>
+        <%= check_box_tag "name[]","Racquetball" %>Racquetball
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
   <p>I would like to be matched with:</p>
   <div>
     Male
