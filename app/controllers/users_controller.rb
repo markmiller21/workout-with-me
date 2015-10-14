@@ -28,8 +28,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to user_path(current_user)
+    if current_user.save
+      current_user.update(user_params)
+      flash[:message] = "Updated successfully"
+      redirect_to user_path(current_user)
+    else
+      redirect_to edit_user_path(current_user)
+    end
   end
 
   def edit_preferences

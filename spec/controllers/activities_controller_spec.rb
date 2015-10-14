@@ -68,18 +68,15 @@ RSpec.describe ActivitiesController do
       @activity = @user.activities.create(name: "Tennis")
     end
 
-    # it "should flash message before delete" do
-    # end
-
     it "deletes activity" do
       expect {
         delete :destroy, id: @activity
       }.to change(@user.activities,:count).by(-1)
     end
 
-    # it "should flash message after successful delete" do
-    #   delete :destroy, id: @activity
-    #   expect(flash[:message]).to have_content("Activity deleted")
-    # end
+    it "should flash message after successful delete" do
+      delete :destroy, id: @activity
+      expect(flash[:message]).to have_content("Activity deleted")
+    end
   end
 end
