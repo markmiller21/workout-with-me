@@ -64,7 +64,13 @@
 			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
 				<div class="panel">
 					<h4 class="text-center">User Rating<hr/></h4>
-					<h5 class="subheader text-center"> <%=@average_rating%> </h5>
+					<h5 class="subheader text-center">
+						<% if @user.average_rating == nil %>
+    					<p>This user has no ratings yet</p>
+ 						<% else %>
+    					<%= @user.average_rating %>
+  					<% end %>
+  				</h5>
 				</div>
 			</div>
 		</div>
