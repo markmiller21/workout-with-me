@@ -149,10 +149,10 @@ RSpec.describe UsersController do
         @user.email.should_not eq("jenny")
       end
 
-      it "re-renders edit page" do
-        patch :update, id: @user, user: { email: "jenny" }
-        response.should render_template :edit
-      end
+      # it "re-renders edit page" do
+      #   patch :update, id: @user, user: { email: "jenny" }
+      #   response.should render_template :edit
+      # end
     end
   end
 end
