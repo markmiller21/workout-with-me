@@ -19,13 +19,34 @@ RSpec.describe MessagesController do
     @matched_user.activities << @shared_activity
     log_me_in
     @user.activities << @shared_activity
-    @match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 1)
   end
 
   describe "GET #index" do
-    it "renders the chat page" do
-      get :index, match_id: @match
-      expect(response).to render_template :index
+    context "both users liked" do
+      before :each do
+        @match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 1)
+      end
+
+      it "renders the chat page" do
+        get :index, match_id: @match
+        expect(response).to render_template :index
+      end
+
+      it "displays all the messages received and sent" do
+        get :index, match_id: @match
+        expect(@match.messages).to eq(@user.receiver_messages + @matched_user.sender_messages)
+      end
+
+    end
+    context "only one user liked" do
+      before :each do
+        @one_sided_match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 0)
+      end
+
+      # it "does not render chat page" do
+      #   get :index, match_id: @one_sided_match
+      #   expect(response).to_not render_template :index
+      # end
     end
   end
 
