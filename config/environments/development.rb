@@ -5,7 +5,7 @@ Rails.application.configure do
     tennis: "http://www.bbc.co.uk/blogs/webwise/blog-tennis.jpg",
     spin: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg",
     running: "https://res.cloudinary.com/mapmyfitness/image/upload/f167687b598b4deb85a33a0af8d0083c",
-    soccer: "https://pixabay.com/static/uploads/photo/2014/05/21/15/28/soccer-349821_640.jpg",
+    soccer: "http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg",
     crossfit: "http://crossfitmonarchy.com/wp-content/uploads/2013/01/1BAPOD-Wallpaper-GoalsAchievement-1024x681-1.jpg",
     yoga: "http://cdn.funcheap.com/wp-content/uploads/2015/08/Yoga-Class-Beach-6601.jpg",
     hiking: "http://www.lakearrowhead.com/img/hiking/hikers3.jpg",
