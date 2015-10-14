@@ -176,6 +176,11 @@ RSpec.describe UsersController do
         @user.activities.should eq(Activity.where(name: ["Tennis", "Lifting"]))
       end
 
+      it "updates user's gender preference" do
+        patch :update_preferences, id: @user, user: { gender_preference: "Male" }, name: ["Tennis"]
+        @user.reload
+        @user.gender_preference.should eq("Male")
+      end
       # it "should redirect to user profile page" do
       #   patch :update, id: @user, user: { name: "Jenny" }
       #   response.should redirect_to @user
