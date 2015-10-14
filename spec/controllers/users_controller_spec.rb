@@ -189,12 +189,17 @@ RSpec.describe UsersController do
     end
 
     context "invalid attributes" do
-      it "does not change user's preferences" do
+      it "does not change activities without gender preference chosen" do
         patch :update_preferences, id: @user, name: ["Tennis"]
         @user.reload
         @user.activities.should_not eq(Activity.find_by(name: "Tennis"))
       end
 
+      it "does not change gender preference without activities chosen" do
+        patch :update_preferences, id: @user, user: { gender_preference: "Male" }
+        @user.reload
+        @user.gender_preference.should_not eq("Male")
+      end
       # it "redirects edit page" do
       #   patch :update, id: @user, user: { email: "jenny" }
       #   response.should redirect_to edit_user_path(@user)
