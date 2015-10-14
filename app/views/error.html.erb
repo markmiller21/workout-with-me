@@ -18,9 +18,9 @@
               open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
               buttons: {
                 "Start chatting!": function() {
-                  window.location = "http://www.google.com"
+                  window.location = "/matches"
                 },
-                "Keep on swiping!": function() {
+                "Keep swiping!": function() {
                   window.location = ( "close" );
                 }
               }
@@ -30,5 +30,5 @@
         </script>
 
         <div id="dialog-confirm">
-          <p><span class="ui-icon ui-icon-alert"></span></p>
+          <p><span class="ui-icon ui-icon-alert">YOU MATCHED!</span></p>
         </div>

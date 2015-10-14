@@ -25,12 +25,9 @@
 					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
 				</div>
 
-				<% if @last_match %>
-				<div hidden id='yolo' value='<%=@last_match.id%>' display='none'><%=@last_match.id%></div>
-				<% end %>
 
 
-				<div id='find_match'><%=Match.find_by(initiator_id:@potential_match.id).id %></div>
+
 
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -38,16 +35,8 @@
 
 
 <script >
-        var oldURL = document.referrer.split('/')[4].split('%')[0];
-        var test = $('#find_match').text() // Takes you to current persons chat and not last
         if ($("#message").text() == "You've been matched!"){
           $("#message").hide();
-          $.ajax({
-          	method: post ,
-
-
-          })
-
           $(function() {
             $( "#dialog-confirm" ).dialog({
               resizable: false,
@@ -55,8 +44,8 @@
               modal: true,
               open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
               buttons: {
-                "Start chatting!": function() {
-                  window.location = "/matches/" + test + "/messages"
+                "See your current matches!!!": function() {
+                  window.location = "/matches"
                 },
                 "Keep on swiping!": function() {
                   $( this ).dialog( "close" );
@@ -69,7 +58,7 @@
       </script>
 
       <div id="dialog-confirm">
-        <p><span class="ui-icon ui-icon-alert"></span></p>
+        <p><span class="ui-icon ui-icon-alert">YOU MATCHED!</span></p>
       </div>
 
 
