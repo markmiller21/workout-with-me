@@ -57,7 +57,7 @@ RSpec.describe ActivitiesController do
       it "should add activity to user activities" do
         potential_match.activities.create(name: "Tennis")
         expect {
-          post :create, name: ["Tennis", "Soccer"], user: {gender_preference: "Male"}
+          post :create, name: ["Tennis"], user: {gender_preference: "Male"}
         }.to change(@user.activities,:count).by(1)
       end
     end
