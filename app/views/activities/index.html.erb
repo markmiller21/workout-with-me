@@ -95,22 +95,22 @@
   </div>
 
   <hr>
-  
+
   <div class="row">
     <h3 class="text-center">I would like to be matched with:</h3>
   </div>
   <div class="row">
     <div class="large-4 medium-4 small-12 columns">
       Males
-      <%= radio_button("user","gender_preference","Male") %>
+      <%= radio_button_tag "gender_preference","Male" %>
     </div>
     <div class="large-4 medium-4 small-12 columns">
       Females
-      <%= radio_button("user","gender_preference","Female") %>
+      <%= radio_button_tag "gender_preference","Female" %>
     </div>
     <div class="large-4 medium-4 small-12 columns">
       No Preference
-      <%= radio_button("user","gender_preference","No preference") %>
+      <%= radio_button_tag "gender_preference","No preference", true  %>
     </div>
   </div>
   <hr>
