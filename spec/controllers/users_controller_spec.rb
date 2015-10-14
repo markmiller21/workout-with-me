@@ -105,5 +105,12 @@ RSpec.describe UsersController do
     end
   end
 
+  describe "GET #edit" do
+    it "renders the #edit view" do
+      log_me_in
+      get :edit, id: @user
+      response.should render_template :edit
+    end
+  end
 end
 
