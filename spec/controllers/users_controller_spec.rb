@@ -31,6 +31,11 @@ RSpec.describe UsersController do
           post :create, user: user_attr
         }.to change(User,:count).by(1)
       end
+
+      it "redirects to activities path" do
+        post :create, user: user_attr
+        response.should redirect_to activities_path
+      end
     end
   end
 
