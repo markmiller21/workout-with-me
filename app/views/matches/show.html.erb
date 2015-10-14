@@ -1,112 +1,102 @@
 <div class="spacer"></div>
 <div id='message'><%= flash[:message] %></div>
-<div class="row">
-	<div class="large-12 columns">
-		<div class="row">
-			<div class="large-8 medium-7 small-12 columns" >
-				<div id="potential_match_avatar">
-					<%= image_tag @potential_match.avatar.url(:medium) %>
-				</div>
-			</div>
-			<div class="large-4 medium-5 hide-for-small columns">
-				<div class="profile-box-show">
-					<h4 class="hide-for-small">Description<hr/></h4>
-					<h5 class="subheader"> <%=@potential_match.description%> </h5>
-				</div>
+<div class="large-12 columns">
+	<div class="row">
+		<div class="large-8 medium-7 small-12 columns" >
+			<div id="potential_match_avatar">
+				<%= image_tag @potential_match.avatar.url(:medium) %>
 			</div>
 		</div>
+		<div class="large-4 medium-5 hide-for-small columns">
+			<div class="profile-box-show">
+				<h4 class="hide-for-small">Description<hr/></h4>
+				<h5 class="subheader"> <%=@potential_match.description%> </h5>
+			</div>
+		</div>
+	</div>
 
+	<div class="spacer"></div>
 
+	<div class="row">
 
-		<div class="spacer"></div>
-
-		<div class="row">
-
-			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-				<div class="profile-box-show">
-					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
-				</div>
-
-
-
+		<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+			<div class="profile-box-show">
+				<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
+			</div>
 
       <div id="dialog-confirm">
         <p><span class="ui-icon ui-icon-alert"></span></p>
       </div>
+      
+			<div class="large-6 medium-6 small-6 columns">
+				<%= form_for @match, html: {id: "dislike_form"} do |f| %>
+				<%= f.hidden_field :responder_id, value: @potential_match.id %>
+				<%= f.submit "DISLIKE", :class => "button alert right" %>
+				<% end %>
+			</div>
 
-
-				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match, html: {id: "dislike_form"} do |f| %>
-					  <%= f.hidden_field :responder_id, value: @potential_match.id %>
-					  <%= f.submit "DISLIKE", :class => "button alert right" %>
-					<% end %>
-				</div>
-
-				<div class="large-6 medium-6 small-6 columns">
-					<%= form_for @match, html: {id: "like_form"} do |f| %>
-						<%= f.hidden_field :responder_id, value: @potential_match.id %>
-						<%= f.submit "LIKE", :class => "button success left" %>
-					<% end %>
-				</div>
+			<div class="large-6 medium-6 small-6 columns">
+				<%= form_for @match, html: {id: "like_form"} do |f| %>
+				<%= f.hidden_field :responder_id, value: @potential_match.id %>
+				<%= f.submit "LIKE", :class => "button success left" %>
+				<% end %>
 			</div>
 		</div>
+	</div>
 
-		<div class="row">
-			<div class="large-8 large-offset-2 medium-10 medium-offset-1 small-12 columns">
+	  <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+	    <div class="activities-box">
+        <div class="row">
+		      <h3 class="text-center">Activities</h3>
+	      </div>
+	      <div class="row">
+		      <ul class="large-block-grid-3 medium-block-grid-3 small-block-grid-2">
+			      <% @potential_match.activities.each do |activity| %>
+					    <li class="button secondary round"><%= activity.name %></li>
+		        <% end %>
+		      </ul>
+		    </div>
+      </div>
+    </div>
+	</div>
 
-				<div class="activities-box">
-					<h3 class="text-center">Activities</h3><hr/>
-					<ul id="activity-tag-list">
-					<% @potential_match.activities.each do |activity| %>
-						<div class="large-4 medium-4 small-4 columns">
-							<li class="button secondary round"><%= activity.name %></li>
-							<div class="spacer"></div>
-						</div>
-					<% end %>
-					</ul>
-				</div>
+	<div class="spacer"></div>
+
+	<div class="row">
+		<div class="small-12 show-for-small-only columns">
+			<div class="profile-box-show">
+				<h4 class="text-center">Description<hr/></h4>
+				<h5 class="subheader"> <%=@potential_match.description%> </h5>
 			</div>
 		</div>
+	</div>
 
-		<div class="spacer"></div>
+	<div class="spacer"></div>
 
-		<div class="row">
-			<div class="small-12 show-for-small-only columns">
-			  <div class="profile-box-show">
-			    <h4 class="text-center">Description<hr/></h4>
-			    <h5 class="subheader"> <%=@potential_match.description%> </h5>
-			  </div>
-			</div>
-		</div>
-
-		<div class="spacer"></div>
-
-		<div class="row">
-			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-				<div class="ratings-box">
-					<h4 class="text-center">User Rating<hr/></h4>
-					<h5 class="subheader text-center">
+	<div class="row">
+		<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+			<div class="ratings-box">
+				<h4 class="text-center">User Rating<hr/></h4>
+				<h5 class="subheader text-center">
 					<% if @potential_match.average_rating == nil %>
-    				<p>This user has no ratings yet</p>
-  				<% else %>
-    				<%= @potential_match.average_rating %>
-  				<% end %>
-  				</h5>
-				</div>
+					  <p>This user has no ratings yet</p>
+					<% else %>
+					  <%= @potential_match.average_rating %>
+					<% end %>
+				</h5>
 			</div>
 		</div>
+	</div>
 
-		<div class="spacer"></div>
+	<div class="spacer"></div>
 
-		<div class="row">
-			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-				<div class="ratings-box">
-					<h4 class="text-center">Distance<hr/></h4>
-					<h5 class="subheader text-center"><%=@potential_match.name%> is <%=@distance_in_miles%> miles away</h5>
-				</div>
+	<div class="row">
+		<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+			<div class="ratings-box">
+				<h4 class="text-center">Distance<hr/></h4>
+				<h5 class="subheader text-center"><%=@potential_match.name%> is <%=@distance_in_miles%> miles away</h5>
 			</div>
 		</div>
-
 	</div>
 </div>
 
