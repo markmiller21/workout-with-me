@@ -1,7 +1,7 @@
 <div class="large-12 columns">
   <div class="row">
     <h3 class="text-center">Select Your Activities</h3>
-    <%= flash[:error] %>
+    <p class="error-message"><%= flash[:error] %></p>
   </div>
   <div class="spacer"></div>
   <%= form_for @activities do |f| %>
