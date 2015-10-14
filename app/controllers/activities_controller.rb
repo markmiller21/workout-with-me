@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
   def destroy
     activity = Activity.find_by(id: params[:id])
     current_user.activities.delete(activity)
+    flash[:message] = "Activity deleted"
     redirect_to edit_preferences_path(current_user)
   end
 
