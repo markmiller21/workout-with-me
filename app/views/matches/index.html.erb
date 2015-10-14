@@ -1,22 +1,12 @@
 <h3 id='match_page_header'><%= "Here are your matches  " + current_user.name %></h3>
 <% @initiator_matches.each do |match| %>
 <div class="round-image-50"><%= image_tag match.responder.avatar.url(:thumb)%></div>
-  <%= link_to match.responder.name, match_messages_path(match) %>
+  <p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p>
   <p>Rating</p>
-  <% if match.responder.average_rating == nil %>
-    <p>This user has no ratings yet</p>
-  <% else %>
-    <%= match.responder.average_rating %>
-  <% end %>
 <% end %>
 
 <% @responder_matches.each do |match| %>
-  <%=link_to match.initiator.name, match_messages_path(match) %>
   <div class="round-image-50"><%= image_tag match.initiator.avatar.url(:thumb)%></div>
-  <p>Rating</p>
-  <% if match.initiator.average_rating == nil %>
-    <p>This user has no ratings yet</p>
-  <% else %>
-    <%= match.initiator.average_rating %>
-  <% end %>
+    <%=link_to match.initiator.name, match_messages_path(match) %>
+  <p>Rating <%=match.initiator.average_rating %></p>
 <% end %>
