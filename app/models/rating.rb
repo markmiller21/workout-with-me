@@ -11,7 +11,7 @@ class Rating < ActiveRecord::Base
   end
 
   def already_exists?
-    Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id) != []
+    !Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id).empty?
   end
 
 end
