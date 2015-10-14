@@ -1,6 +1,6 @@
-jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 24, gender: "female", description: "looking for someone to play tennis with me occasionally.  Would also like to try some olympics lifts :)", gender_preference: "no_preference")
-mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "male", description: "Looking for someone to lift with 6 nights a week.  I'd also like to play ball occasionally.")
-navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
+jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 24, gender: "Female", description: "looking for someone to play tennis with me occasionally.  Would also like to try some olympics lifts :)", gender_preference: "no_preference")
+mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Looking for someone to lift with 6 nights a week.  I'd also like to play ball occasionally.")
+navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
 
 jenny.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
 mark.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
@@ -25,10 +25,10 @@ navraj.activities << soccer
 
 for x in 0..100
   if x % 2 == 1
-    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "male", description: Faker::Hacker.say_something_smart)
+    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Male", description: Faker::Hacker.say_something_smart)
     new_user.activities << lifting
   else
-    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "female", description: Faker::Hacker.say_something_smart)
+    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Female", description: Faker::Hacker.say_something_smart)
     new_user.activities << spin
   end
   new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
