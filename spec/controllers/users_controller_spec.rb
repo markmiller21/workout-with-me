@@ -157,11 +157,54 @@ RSpec.describe UsersController do
   end
 
   describe "GET #edit_preferences" do
-    it "renders the #edit view" do
+    it "renders the #edit_preferences view" do
       log_me_in
       get :edit_preferences, id: @user
       response.should render_template :edit_preferences
     end
+  end
+
+  describe "PATCH #update_preferences" do
+    before :each do
+      log_me_in
+    end
+
+    context "valid attributes" do
+      it "updates user's activities" do
+        patch :update_preferences, id: @user, user: { gender_preference: "Female" }, name: ["Tennis", "Lifting"]
+        @user.reload
+        @user.activities.should eq(Activity.where(name: ["Tennis", "Lifting"]))
+      end
+
+      # it "should redirect to user profile page" do
+      #   patch :update, id: @user, user: { name: "Jenny" }
+      #   response.should redirect_to @user
+      # end
+
+      # it "should not create new user" do
+      #   expect {
+      #     patch :update, id: @user, user: user_attr
+      #   }.to change(User,:count).by(0)
+      # end
+
+      # it "should flash success message" do
+      #   patch :update, id: @user, user: { name: "Jenny" }
+      #   expect(flash[:message]).to have_content("Updated successfully")
+      # end
+    end
+
+    # context "invalid attributes" do
+    #   it "does not change user's attributes" do
+    #     patch :update, id: @user, user: { email: "jenny" }
+    #     @user.reload
+    #     @user.email.should_not eq("jenny")
+    #   end
+
+    #   it "redirects edit page" do
+    #     patch :update, id: @user, user: { email: "jenny" }
+    #     response.should redirect_to edit_user_path(@user)
+    #   end
+    # end
   end
 end
 
