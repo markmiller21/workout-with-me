@@ -146,7 +146,7 @@ RSpec.describe UsersController do
       it "does not change user's attributes" do
         patch :update, id: @user, user: { email: "jenny" }
         @user.reload
-        @user.email.should_not eq("jenny")
+        expect(@user.email).to_not eq("jenny")
       end
 
       # it "redirects to edit page" do
