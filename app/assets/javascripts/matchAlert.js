@@ -7,7 +7,7 @@ $( document ).ready(function() {
         modal: true,
         open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
         buttons: {
-          "See your current matches!!!": function() {
+          "See your current matches!": function() {
             window.location = "/matches"
           },
           "Keep on swiping!": function() {

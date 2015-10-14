@@ -135,9 +135,13 @@ background-color: white;
 text-align: center;
 opacity: .8;
 filter: alpha(opacity=40);
-margin-top: 20px;
-height: 400px;
+height: 325px;
+margin-top:40px;
 vertical-align:center;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
+margin-top:50px;
 }
 
 #receiver_name{
