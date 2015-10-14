@@ -8,11 +8,7 @@ class ActivitiesController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities && params[:user]
       chosen_activities.each do |activity|
-        if Activity.find_by(name: activity)
-          added_activity = Activity.find_by(name: activity)
-        else
-          added_activity = Activity.create(name: activity)
-        end
+        added_activity = Activity.find_or_create_by(name: activity)
         unless current_user.activities.include?(added_activity)
           current_user.activities << added_activity
         end
