@@ -181,21 +181,11 @@ RSpec.describe UsersController do
         @user.reload
         @user.gender_preference.should eq("Male")
       end
-      # it "should redirect to user profile page" do
-      #   patch :update, id: @user, user: { name: "Jenny" }
-      #   response.should redirect_to @user
-      # end
 
-      # it "should not create new user" do
-      #   expect {
-      #     patch :update, id: @user, user: user_attr
-      #   }.to change(User,:count).by(0)
-      # end
-
-      # it "should flash success message" do
-      #   patch :update, id: @user, user: { name: "Jenny" }
-      #   expect(flash[:message]).to have_content("Updated successfully")
-      # end
+      it "should flash success message" do
+        patch :update_preferences, id: @user, user: { gender_preference: "Male" }, name: ["Tennis"]
+        expect(flash[:message]).to have_content("Preferences updated successfully")
+      end
     end
 
     # context "invalid attributes" do
