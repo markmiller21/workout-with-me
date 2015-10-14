@@ -5,7 +5,6 @@ $( document ).ready(function() {
         resizable: false,
         height:300,
         modal: true,
-        title: "yo",
         open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
         buttons: {
           "See your current matches!!!": function() {
