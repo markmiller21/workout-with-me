@@ -6,6 +6,7 @@ RSpec.describe UsersController do
     @user.locations.create(longitude: 123.321,latitude: 98773.3215)
     session[:user_id] = @user.id
   }
+  let(:user_attr) { attributes_for(:user) }
   let(:potential_match) { @potential_match = create(:potential_user) }
 
   describe "GET #new" do
@@ -21,15 +22,17 @@ RSpec.describe UsersController do
       get :show, id: potential_match
       response.should render_template :show
     end
-
-    it "assigns the requested user to @user" do
-      log_me_in
-      potential_match
-      get :show, id: potential_match
-      assigns(:potential_match).should eq(@potential_match)
-    end
   end
 
+  describe "POST #create" do
+    context "valid attributes" do
+      it "creates new user" do
+        expect {
+          post :create, user: user_attr
+        }.to change(User,:count).by(1)
+      end
+    end
+  end
 
 end
 
