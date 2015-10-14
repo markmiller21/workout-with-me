@@ -49,7 +49,7 @@ RSpec.feature "Ratings", :type => :feature do
 
     scenario "shows message if no ratings exist" do
       visit matches_path
-      expect(page).to have_content("This user has no ratings yet")
+      expect(page).to have_content("0.0")
     end
   end
 end
