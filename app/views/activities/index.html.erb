@@ -97,17 +97,19 @@
   <hr>
   
   <h3>I would like to be matched with:</h3>
-  <div>
-    Male
-    <%= radio_button("user","gender_preference","Male") %>
-  </div>
-  <div>
-    Female
-    <%= radio_button("user","gender_preference","Female") %>
-  </div>
-  <div>
-    No Preference
-    <%= radio_button("user","gender_preference","No preference") %>
+  <div class="row">
+    <div class="large-4 columns">
+      Male
+      <%= radio_button("user","gender_preference","Male") %>
+    </div>
+    <div class="large-4 columns">
+      Female
+      <%= radio_button("user","gender_preference","Female") %>
+    </div>
+    <div class="large-4 columns">
+      No Preference
+      <%= radio_button("user","gender_preference","No preference") %>
+    </div>
   </div>
   <hr>
   <%= f.submit %>
