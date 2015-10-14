@@ -7,12 +7,9 @@ class ApplicationController < ActionController::Base
   # add_flash_types :blank_username
 
   # flash { success: "It worked!", error: "It failed." }
-
   def current_user
-  	if session[:user_id]
-  		return User.find_by(id: session[:user_id])
-  	else
-  		return nil
+    if logged_in?
+  		return User.find(session[:user_id])
   	end
   end
 
