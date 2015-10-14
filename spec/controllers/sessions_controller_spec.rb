@@ -17,7 +17,7 @@ describe SessionsController do
 			# 	expect(response).to redirect_to(initiate_match_path)
 			# end
 
-			it "sets a sessoin" do
+			it "sets a session" do
 				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
 				expect(session).to have_key(:user_id)
 			end
