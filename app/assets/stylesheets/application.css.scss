@@ -136,12 +136,20 @@ text-align: center;
 opacity: .8;
 filter: alpha(opacity=40);
 height: 325px;
-margin-top:40px;
+margin-top:20px;
 vertical-align:center;
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
 margin-top:50px;
+
+}
+
+.ui-dialog-titlebar{
+text-align: center;
+opacity: .8;
+filter: alpha(opacity=40);
+font-size:30px;
 }
 
 #receiver_name{
@@ -194,3 +202,8 @@ position: absolute;
 #activity_submit{
 text-align:center;
 }
+
+#dialog-confirm{
+  font-size:100px;
+}
+
