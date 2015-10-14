@@ -173,13 +173,13 @@ RSpec.describe UsersController do
       it "updates user's activities" do
         patch :update_preferences, id: @user, user: { gender_preference: "Female" }, name: ["Tennis", "Lifting"]
         @user.reload
-        @user.activities.should eq(Activity.where(name: ["Tennis", "Lifting"]))
+        expect(@user.activities).to eq(Activity.where(name: ["Tennis", "Lifting"]))
       end
 
       it "updates user's gender preference" do
         patch :update_preferences, id: @user, user: { gender_preference: "Male" }, name: ["Tennis"]
         @user.reload
-        @user.gender_preference.should eq("Male")
+        expect(@user.gender_preference).to eq("Male")
       end
 
       it "should flash success message" do
