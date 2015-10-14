@@ -149,10 +149,10 @@ RSpec.describe UsersController do
         @user.email.should_not eq("jenny")
       end
 
-      it "redirects edit page" do
-        patch :update, id: @user, user: { email: "jenny" }
-        response.should redirect_to edit_user_path(@user)
-      end
+      # it "redirects to edit page" do
+      #   patch :update, id: @user, user: { email: "jenny" }
+      #   response.should redirect_to edit_user_path(@user)
+      # end
     end
   end
 
