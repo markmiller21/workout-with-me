@@ -43,6 +43,14 @@ RSpec.describe UsersController do
         }.to change(Location,:count).by(1)
       end
     end
+
+    context "invalid attributes" do
+      it "empty name does not create new user" do
+        expect {
+          post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
+        }.to change(User,:count).by(0)
+      end
+    end
   end
 
 end
