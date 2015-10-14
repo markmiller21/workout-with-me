@@ -1,20 +1,23 @@
-<h3><%= "Here are your matches  " + current_user.name %></h3>
+<h3 id='match_page_header'><%= "Here are your matches  " + current_user.name %></h3>
 <% @initiator_matches.each do |match| %>
-  <%= link_to match.responder.name, match_messages_path(match) %>
-  <p>User Rating</p>
-  <% if match.responder.average_rating == nil %>
-    <p>This user has no ratings yet</p>
-  <% else %>
-    <%= match.responder.average_rating %>
-  <% end %>
+<% if match.messages.all.last %>
+<p class='last_message'><%= match.messages.all.last.content %></p>
+<p  id='time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
+<% end %>
+<div class="round-image-50"><%= image_tag match.responder.avatar.url(:thumb)%></div>
+<p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p>
+<p class='user_rating'>Rating: <%=match.responder.average_rating %></p>
 <% end %>
 
 <% @responder_matches.each do |match| %>
-  <%=link_to match.initiator.name, match_messages_path(match) %>
-  <p>User Rating</p>
-  <% if match.initiator.average_rating == nil %>
-    <p>This user has no ratings yet</p>
-  <% else %>
-    <%= match.initiator.average_rating %>
-  <% end %>
+<div class="round-image-50"><%= image_tag match.initiator.avatar.url(:thumb)%></div>
+<% if match.messages.all.last %>
+<p class='last_message'><%= match.messages.all.last.content %></p>
+<p  id='time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
+
+
 <% end %>
+<p class='matcher_name'><%=link_to match.initiator.name + "," + match.initiator.age.to_s, match_messages_path(match) %><p class='matcher_name'>
+
+  <p class='user_rating'>Rating <%=match.initiator.average_rating %></p>
+  <% end %>

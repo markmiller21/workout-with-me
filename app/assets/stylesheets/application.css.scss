@@ -137,5 +137,39 @@ opacity: .8;
 filter: alpha(opacity=40);
 margin-top: 20px;
 height: 100px;
+}
 
+#receiver_name{
+  display:inline-block;
+}
+
+#match_page_header{
+  text-align:center;
+  border-bottom: solid 1px;
+
+}
+
+.matcher_name{
+ margin-bottom:-10px;
+}
+
+.user_rating{
+  margin-top:5px;
+  border-bottom: solid 1px;
+}
+
+.last_message{
+  margin-left:80px;
+  margin-top:-40px;
+}
+
+.time_message_sent{
+font-size: 10%;
+margin-left:200px;
+}
+
+#time{
+  font-size: 7px;
+  margin-left:250px;
+  float:righta
 }

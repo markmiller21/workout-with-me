@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
   def average_rating
     all_ratings = ratee_ratings.map(&:rank)
     if all_ratings.empty?
-      return nil
+      return "0.0"
     else
       (all_ratings.sum/all_ratings.length).to_f
     end
