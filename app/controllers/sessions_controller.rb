@@ -11,15 +11,14 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
       flash[:message] = "You've succesfully logged in"
-      potential_matches = current_user.get_potential_matches
-      next_match = current_user.find_next_match(potential_matches)
+      potential_matches = user.get_potential_matches
+      next_match = user.find_next_match(potential_matches)
       if next_match == nil
         render file: "error"
       else
         redirect_to match_path(next_match)
       end
     else
-
       flash[:login_fail] = "Please input the correct username/password!"
       redirect_to login_path
     end
