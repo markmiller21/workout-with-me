@@ -7,9 +7,9 @@
 
 <% @responder_matches.each do |match| %>
   <div class="round-image-50"><%= image_tag match.initiator.avatar.url(:thumb)%></div>
-    <p class='matcher_name'><%=link_to match.initiator.name + "," + match.initiator.age.to_s, match_messages_path(match) %><p class='matcher_name'>
-  <p class='user_rating'>Rating <%=match.initiator.average_rating %></p>
-    <% if match.messages.all.last %>
+     <% if match.messages.all.last %>
       <p class='last_message'><%= match.messages.all.last.content %></p>
     <% end %>
+    <p class='matcher_name'><%=link_to match.initiator.name + "," + match.initiator.age.to_s, match_messages_path(match) %><p class='matcher_name'>
+  <p class='user_rating'>Rating <%=match.initiator.average_rating %></p>
   <% end %>
