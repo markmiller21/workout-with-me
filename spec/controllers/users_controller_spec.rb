@@ -45,6 +45,11 @@ RSpec.describe UsersController do
     end
 
     context "missing fields" do
+      it "should flash error message" do
+        post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
+        expect(flash[:errors]).to have_content("can't be blank")
+      end
+
       it "empty name does not create new user" do
         expect {
           post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
@@ -76,11 +81,16 @@ RSpec.describe UsersController do
       end
     end
 
-    context "invalid attributes" do
-      it "invalid email does not create new user" do
+    context "invalid email" do
+      it "should not create new user" do
         expect {
           post :create, user: { name: "Jenny", email: "jenny", password: "jenny", age: 25, gender: "Female", description: "I lift" }
         }.to change(User,:count).by(0)
+      end
+
+      it "should flash error message" do
+        post :create, user: { name: "Jenny", email: "jenny", password: "jenny", age: 25, gender: "Female", description: "I lift" }
+        expect(flash[:errors]).to have_content("Invalid email address")
       end
     end
   end
