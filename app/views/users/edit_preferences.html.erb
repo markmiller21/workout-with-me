@@ -1,24 +1,11 @@
 <div class="large-12 columns">
   <div class="row">
-<h3>Edit Your Preferences</h3>
-<%= flash[:error] %>
-<%= flash[:message] %>
+    <h3>Edit Your Preferences</h3>
+    <%= flash[:error] %>
+    <%= flash[:message] %>
   </div>
 
 <%= form_for @user, url: {action: "update_preferences" } do |f| %>
-  <p>I would like to be matched with:</p>
-  <div>
-    Male
-    <%= radio_button("user","gender_preference","Male") %>
-  </div>
-  <div>
-    Female
-    <%= radio_button("user","gender_preference","Female") %>
-  </div>
-  <div>
-    No Preference
-    <%= radio_button("user","gender_preference","No preference") %>
-  </div>
   <div class="row">
   <div class="large-12 columns">
     <p>Click on activity to remove</p>
@@ -77,6 +64,20 @@
     <% else %>
       <%= check_box_tag "name[]","Soccer" %>Soccer
     <% end %>
+  </div>
+
+  <p>I would like to be matched with:</p>
+  <div>
+    Male
+    <%= radio_button("user","gender_preference","Male") %>
+  </div>
+  <div>
+    Female
+    <%= radio_button("user","gender_preference","Female") %>
+  </div>
+  <div>
+    No Preference
+    <%= radio_button("user","gender_preference","No preference") %>
   </div>
 
   <%= f.submit "Update", :class => "button" %>
