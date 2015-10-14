@@ -11,7 +11,7 @@ class RatingsController < ApplicationController
         flash[:error] = "Cannot submit empty rating"
       end
     end
-    redirect_to match_messages_path(rater_rating.match)
+    redirect_to match_messages_path(rater_rating.match.first.id)
   end
 
   private

@@ -1,6 +1,6 @@
 <h1 id="chat_title">Chat</h1>
-<div class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb) %></div>
-<p><%= @receiver.name %></p>
+<div class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb)%></div>
+<p id='receiver_name'><%= @receiver.name %></p>
 <p class="user_rating">User Rating:
   <% if @receiver.average_rating == nil %>
     <p>This user has no ratings yet</p>
