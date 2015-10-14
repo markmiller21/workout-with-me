@@ -11,8 +11,8 @@ $(document).ready(function() {
           "Start chatting!": function() {
             window.location = "/matches"
           },
-          "Keep swiping!": function() {
-            window.location = ( "close" );
+          "Close window!": function() {
+            $( this ).dialog( "close" );
           }
         }
       });
