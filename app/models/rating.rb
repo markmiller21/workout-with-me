@@ -8,9 +8,9 @@ class Rating < ActiveRecord::Base
 
   def match
     if Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
-      match = Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
+      Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
     else
-      match = Match.find_by(initiator_id: self.ratee.id, responder_id: self.rater.id, accepted: 1)
+      Match.find_by(initiator_id: self.ratee.id, responder_id: self.rater.id, accepted: 1)
     end
   end
 
