@@ -112,5 +112,20 @@ RSpec.describe UsersController do
       response.should render_template :edit
     end
   end
+
+  describe "PATCH #update" do
+    before :each do
+      log_me_in
+    end
+
+    context "valid attributes" do
+      it "changes user's attributes" do
+        patch :update, id: @user, user: { name: "Jenny" }
+        @user.reload
+        @user.name.should eq("Jenny")
+      end
+
+    end
+  end
 end
 
