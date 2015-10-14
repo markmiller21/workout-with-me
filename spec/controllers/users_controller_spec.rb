@@ -12,7 +12,7 @@ RSpec.describe UsersController do
   describe "GET #new" do
     it "renders the :new template" do
       get :new
-      response.should render_template :new
+      expect(response).to render_template :new
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe UsersController do
     it "renders the #show view" do
       log_me_in
       get :show, id: potential_match
-      response.should render_template :show
+      expect(response).to render_template :show
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe UsersController do
 
       it "redirects to activities path" do
         post :create, user: user_attr
-        response.should redirect_to activities_path
+        expect(response).to redirect_to activities_path
       end
 
       it "creates a new location for user" do
@@ -82,7 +82,7 @@ RSpec.describe UsersController do
 
       it "redirects to sign up page" do
         post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
-        response.should redirect_to new_user_path
+        expect(response).to redirect_to new_user_path
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe UsersController do
 
       it "redirects to sign up page" do
         post :create, user: { name: "Jenny", email: "jenny", password: "jenny", gender: "Female", age: 25 }
-        response.should redirect_to new_user_path
+        expect(response).to redirect_to new_user_path
       end
     end
   end
@@ -109,7 +109,7 @@ RSpec.describe UsersController do
     it "renders the #edit view" do
       log_me_in
       get :edit, id: @user
-      response.should render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
@@ -127,7 +127,7 @@ RSpec.describe UsersController do
 
       it "should redirect to user profile page" do
         patch :update, id: @user, user: { name: "Jenny" }
-        response.should redirect_to @user
+        expect(response).to redirect_to @user
       end
 
       it "should not create new user" do
@@ -160,7 +160,7 @@ RSpec.describe UsersController do
     it "renders the #edit_preferences view" do
       log_me_in
       get :edit_preferences, id: @user
-      response.should render_template :edit_preferences
+      expect(response).to render_template :edit_preferences
     end
   end
 
