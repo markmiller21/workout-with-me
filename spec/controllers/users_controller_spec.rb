@@ -149,10 +149,18 @@ RSpec.describe UsersController do
         @user.email.should_not eq("jenny")
       end
 
-      # it "re-renders edit page" do
-      #   patch :update, id: @user, user: { email: "jenny" }
-      #   response.should render_template :edit
-      # end
+      it "redirects edit page" do
+        patch :update, id: @user, user: { email: "jenny" }
+        response.should redirect_to edit_user_path(@user)
+      end
+    end
+  end
+
+  describe "GET #edit_preferences" do
+    it "renders the #edit view" do
+      log_me_in
+      get :edit_preferences, id: @user
+      response.should render_template :edit_preferences
     end
   end
 end
