@@ -16,8 +16,8 @@
   <%= f.radio_button :rank, 5 %>
   <%= f.submit "Rate " + @receiver.name %>
 <% end %>
-<%= flash[:error] %>
-<%= flash[:message] %>
+<p class="error-message"><%= flash[:error] %></p>
+<p class="alert-message"><%= flash[:message] %></p>
 <ul id="chat">
   <%= render @messages %>
 </ul>
