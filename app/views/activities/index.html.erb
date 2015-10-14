@@ -1,16 +1,6 @@
 <h3>Select Your Activities</h3>
 <%= flash[:error] %>
 <%= form_for @activities do |f| %>
-  <p>I would like to be matched with:</p>
-  <div>
-    Male
-    <%= radio_button("user","gender_preference","Male") %>
-  </div>
-  <div>
-    Female
-    <%= radio_button("user","gender_preference","Female") %>
-  </div>
-  <div>
     No Preference
     <%= radio_button("user","gender_preference","No preference") %>
   </div>
@@ -43,7 +33,18 @@
     <div class="spacer"></div>
     <%= check_box_tag "name[]", "Soccer" %>Soccer
   </div>
-
+  <hr>
+  <h3>I would like to be matched with:</h3>
+  <div>
+    Male
+    <%= radio_button("user","gender_preference","Male") %>
+  </div>
+  <div>
+    Female
+    <%= radio_button("user","gender_preference","Female") %>
+  </div>
+  <div>
+  <hr>
   <%= f.submit %>
 
 <% end %>
