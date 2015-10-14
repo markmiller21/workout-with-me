@@ -1,39 +1,61 @@
+<div class="large-12 columns">
 <div class="row">
   <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
     <h3 id='match_page_header'><%= "Here are your matches  " + current_user.name %></h3>
   </div>
 </div>
 
-<div class="row">
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+<div class="spacer"></div>
+
+
+
   <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
     <% @initiator_matches.each do |match| %>
-      <% if match.messages.all.last %>
-        <p class='last_message'><%= match.messages.all.last.content %></p>
-        <p id='time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
-      <% end %>
-      <div class="indiv-match-box">
-        <div class="round-image-50"><%= image_tag match.responder.avatar.url(:thumb)%></div>
-        <p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p>
-        <p class='user_rating'>Rating: <%=match.responder.average_rating %></p>
+      <div class="row">
+        <div class="individual-match-box">
+          <div class="large-2 columns small-3">
+            <div class="round-image-50-match-index">
+              <%= image_tag match.responder.avatar.url(:thumb)%>
+            </div>
+            <div class="spacer"></div>
+            <strong><p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p></strong>
+          </div>
+
+          <div class="large-10 columns">
+            <% if match.messages.all.last %>
+              <div class="row">
+                <div class="large-12 columns small-3">
+                  <p id='activities-index-message-time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns small-3">
+                  <div class="last-message-box"><p class='last_message'><%= match.messages.all.last.content %></p>
+                  </div>
+                </div>
+
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="matches-index-activities-list">
+                <p id="matched-user-activities">Activities:</p>
+                <% match.responder.activities.each do |activity| %>
+                  <p id="matched-user-activities"><%= activity.name %></p>
+                <% end %>
+
+                <ul class="inline-list">
+                  <li class="start-chat"><a href="">Chat</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <hr>
     <% end %>
   </div>
 </div>
 
-<div class="row">
-  <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-    <% @responder_matches.each do |match| %>
-      <div class="round-image-50"><%= image_tag match.initiator.avatar.url(:thumb)%></div>
-      <% if match.messages.all.last %>
-        <p class='last_message'><%= match.messages.all.last.content %></p>
-        <p id='time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
-      <% end %>
-      <div class="indiv-match-box">
-        <div class="round-image-50"><%= image_tag match.initiator.avatar.url(:thumb)%></div>
-        <p class='matcher_name'><%=link_to match.initiator.name + "," + match.initiator.age.to_s, match_messages_path(match) %><p class='matcher_name'>
-
-        <p class='user_rating'>Rating <%=match.initiator.average_rating %></p>
-      </div>
-    <% end %>
-  </div>
-</div>

@@ -57,122 +57,117 @@ color: #C0C0C0;
 }
 
 .round-image-50 {
-background-color: white;
-border: 1px solid #d9d9d9;
-border-radius: 25px;
--moz-border-radius: 25px;
--webkit-border-radius: 25px;
-height: 50px;
-width: 50px;
-overflow: hidden;
-text-align: center;
-img { width: 100% }
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  text-align: center;
+  img { width: 100% }
 }
 
 .activity-tags {
-margin: 0 auto;
-display: inline-block;
+  margin: 0 auto;
+  display: inline-block;
 }
 
 #potential_match_avatar {
-width: 300px;
-height: 300px;
-display: block;
-margin: 0px auto;
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: 0px auto;
 }
 
 .button-bar-index {
-width: 100%;
+  width: 100%;
 }
 
 .button-container-index{
-margin: 0px auto;
-text-align: center;
+  margin: 0px auto;
+  text-align: center;
 }
 
 
 #activity-tag-list li{
-display: inline;
-padding: 15px;
+  display: inline;
+  padding: 15px;
 }
 
 #activity-tag-list {
-text-align: center;
-margin-left: auto;
-margin-right: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ratings-box {
-background: #fff;
-border: 1px solid #ddd;
-margin: 25px;
-padding: 20px;
-height: 150px
+  background: #fff;
+  border: 1px solid #ddd;
+  margin: 25px;
+  padding: 20px;
+  height: 150px
 }
 
 .profile-box-show {
-border-style: solid;
-border-width: 1px;
-border-color: #d8d8d8;
-margin-bottom: 1.25rem;
-padding: 1.25rem;
-background: #FFFFFF;
-color: #333333;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #FFFFFF;
+  color: #333333;
 }
 
 .index-box{
-border-style: solid;
-border-width: 1px;
-border-color: #d8d8d8;
-margin-bottom: 1.25rem;
-padding: 1.25rem;
-background: #FFFFFF;
-color: #333333;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: #FFFFFF;
+  color: #333333;
 }
 
 .ui-dialog-buttonset{
-background-color: white;
-text-align: center;
-opacity: .8;
-filter: alpha(opacity=40);
-height: 325px;
-margin-top:20px;
-vertical-align:center;
+  background-color: white;
+  text-align: center;
+  opacity: .8;
+  filter: alpha(opacity=40);
+  height: 325px;
+  margin-top:20px;
+  vertical-align:center;
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
-margin-top:50px;
+  margin-top:50px;
 
 }
 
 .ui-dialog-titlebar{
-text-align: center;
-opacity: .8;
-filter: alpha(opacity=40);
-font-size:30px;
+  text-align: center;
+  opacity: .8;
+  filter: alpha(opacity=40);
+  font-size:30px;
 }
 
 #receiver_name{
-display:inline-block;
+  display:inline-block;
 }
 
 #match_page_header{
-text-align:center;
-border-bottom: solid 1px;
+  text-align:center;
+  border-bottom: solid 1px;
 
 }
 
 .matcher_name{
-margin-bottom:-10px;
+  margin-bottom:-10px;
 }
 
 .user_rating{
-margin-top:5px;
-}
-
-.last_message{
-margin-left:80px;
-margin-top:-40px;
+  margin-top:5px;
 }
 
 .time_message_sent{
@@ -233,6 +228,7 @@ padding: 7px;
 font-size:20px;
 }
 
+
 .message_sender span{
 background-color:#00204B;
 font-color:white;
@@ -243,4 +239,63 @@ padding: 3px;
 
 .small-spacer {
   height: 5px;
+}
+
+.individual-match-box {
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 6px -6px #777;
+  margin: auto;
+}
+
+.matcher_name {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .7em;
+}
+
+#matched-user-activities {
+  display: inline;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .7em;
+}
+
+#activities-index-message-time {
+  font-size: .5em;
+  float: right;
+  margin: .2em;
+  color: #C0C0C0;
+  display: inline;
+}
+
+.start-chat {
+  font-size: .7em;
+}
+
+.last_message {
+  font-size: .8em;
+  padding: .7em;
+}
+
+.last-message-box {
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 6px -6px #777;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.round-image-50-match-index {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    text-align: center;
+    display: inherit;
+    img { width: 100% };
+    margin-top: auto;
+    margin-bottom: auto;
 }
