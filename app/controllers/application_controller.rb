@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # flash { success: "It worked!", error: "It failed." }
   def current_user
     if logged_in?
-  		return User.find(session[:user_id])
+  	  return User.find_by(id: session[:user_id])
   	end
   end
 

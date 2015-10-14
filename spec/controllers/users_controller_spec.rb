@@ -12,7 +12,7 @@ RSpec.describe UsersController do
   describe "GET #new" do
     it "renders the :new template" do
       get :new
-      response.should render_template :new
+      expect(response).to render_template :new
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.describe UsersController do
     it "renders the #show view" do
       log_me_in
       get :show, id: potential_match
-      response.should render_template :show
+      expect(response).to render_template :show
     end
   end
 
@@ -34,7 +34,7 @@ RSpec.describe UsersController do
 
       it "redirects to activities path" do
         post :create, user: user_attr
-        response.should redirect_to activities_path
+        expect(response).to redirect_to activities_path
       end
 
       it "creates a new location for user" do
@@ -82,7 +82,7 @@ RSpec.describe UsersController do
 
       it "redirects to sign up page" do
         post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
-        response.should redirect_to new_user_path
+        expect(response).to redirect_to new_user_path
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe UsersController do
 
       it "redirects to sign up page" do
         post :create, user: { name: "Jenny", email: "jenny", password: "jenny", gender: "Female", age: 25 }
-        response.should redirect_to new_user_path
+        expect(response).to redirect_to new_user_path
       end
     end
   end
@@ -109,7 +109,7 @@ RSpec.describe UsersController do
     it "renders the #edit view" do
       log_me_in
       get :edit, id: @user
-      response.should render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
@@ -122,12 +122,12 @@ RSpec.describe UsersController do
       it "changes user's attributes" do
         patch :update, id: @user, user: { name: "Jenny" }
         @user.reload
-        @user.name.should eq("Jenny")
+        expect(@user.name).to eq("Jenny")
       end
 
       it "should redirect to user profile page" do
         patch :update, id: @user, user: { name: "Jenny" }
-        response.should redirect_to @user
+        expect(response).to redirect_to @user
       end
 
       it "should not create new user" do
@@ -146,7 +146,7 @@ RSpec.describe UsersController do
       it "does not change user's attributes" do
         patch :update, id: @user, user: { email: "jenny" }
         @user.reload
-        @user.email.should_not eq("jenny")
+        expect(@user.email).to_not eq("jenny")
       end
 
       # it "redirects to edit page" do
@@ -160,7 +160,7 @@ RSpec.describe UsersController do
     it "renders the #edit_preferences view" do
       log_me_in
       get :edit_preferences, id: @user
-      response.should render_template :edit_preferences
+      expect(response).to render_template :edit_preferences
     end
   end
 
@@ -173,13 +173,13 @@ RSpec.describe UsersController do
       it "updates user's activities" do
         patch :update_preferences, id: @user, user: { gender_preference: "Female" }, name: ["Tennis", "Lifting"]
         @user.reload
-        @user.activities.should eq(Activity.where(name: ["Tennis", "Lifting"]))
+        expect(@user.activities).to eq(Activity.where(name: ["Tennis", "Lifting"]))
       end
 
       it "updates user's gender preference" do
         patch :update_preferences, id: @user, user: { gender_preference: "Male" }, name: ["Tennis"]
         @user.reload
-        @user.gender_preference.should eq("Male")
+        expect(@user.gender_preference).to eq("Male")
       end
 
       it "should flash success message" do
@@ -192,13 +192,13 @@ RSpec.describe UsersController do
       it "does not change activities without gender preference chosen" do
         patch :update_preferences, id: @user, name: ["Tennis"]
         @user.reload
-        @user.activities.should_not eq(Activity.find_by(name: "Tennis"))
+        expect(@user.activities).to_not eq(Activity.find_by(name: "Tennis"))
       end
 
       it "does not change gender preference without activities chosen" do
         patch :update_preferences, id: @user, user: { gender_preference: "Male" }
         @user.reload
-        @user.gender_preference.should_not eq("Male")
+        expect(@user.gender_preference).to_not eq("Male")
       end
 
       it "should flash error message" do

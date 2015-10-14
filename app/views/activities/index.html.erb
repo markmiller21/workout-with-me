@@ -1,53 +1,123 @@
-<h3>Select Your Activities</h3>
-<%= flash[:error] %>
-<%= form_for @activities do |f| %>
-  <p>I would like to be matched with:</p>
-  <div>
-    Male
-    <%= radio_button("user","gender_preference","Male") %>
+<div class="large-12 columns">
+  <div class="row">
+    <h3 class="text-center">Select Your Activities</h3>
+    <%= flash[:error] %>
   </div>
-  <div>
-    Female
-    <%= radio_button("user","gender_preference","Female") %>
-  </div>
-  <div>
-    No Preference
-    <%= radio_button("user","gender_preference","No preference") %>
-  </div>
-  <div class="activity_container">
-    <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
-    <div class="spacer"></div>
-    <%= check_box_tag "name[]","Lifting" %>Lifting
-  </div>
-
-  <div class="activity_container">
-    <img src="http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg"/>
-    <div class="spacer"></div>
-    <%= check_box_tag "name[]", "Tennis" %>Tennis
+  <div class="spacer"></div>
+  <%= form_for @activities do |f| %>
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:weight_lifting] %>" />
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]","Lifting" %>Lifting
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:tennis] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Tennis" %>Tennis
+      </div>
+    </div>
   </div>
 
-  <div class="activity_container">
-    <img src="http://www.rowan.edu/studentaffairs/Rec/sports/W.%20Basketball.jpg"/>
-    <div class="spacer"></div>
-    <%= check_box_tag "name[]", "Basketball" %>Basketball
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:basketball] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Basketball" %>Basketball
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:spin] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Spin" %>Spin
+      </div>
+    </div>
   </div>
 
-  <div class="activity_container">
-    <img src="http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg"/>
-    <div class="spacer"></div>
-    <%= check_box_tag "name[]", "Spin" %>Spin
+
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:running] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Running" %>Running
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:soccer] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Soccer" %>Soccer
+      </div>
+    </div>
   </div>
 
-  <div class="activity_container">
-    <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
-    <div class="spacer"></div>
-    <%= check_box_tag "name[]", "Soccer" %>Soccer
+
+
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:crossfit] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Crossfit" %>Crossfit
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:yoga] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Yoga" %>Yoga
+      </div>
+    </div>
   </div>
 
+
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:hiking] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Hiking" %>Hiking
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:racquetball] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Racquetball" %>Racquetball
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  
+  <div class="row">
+    <h3 class="text-center">I would like to be matched with:</h3>
+  </div>
+  <div class="row">
+    <div class="large-4 medium-4 small-12 columns">
+      Males
+      <%= radio_button("user","gender_preference","Male") %>
+    </div>
+    <div class="large-4 medium-4 small-12 columns">
+      Females
+      <%= radio_button("user","gender_preference","Female") %>
+    </div>
+    <div class="large-4 medium-4 small-12 columns">
+      No Preference
+      <%= radio_button("user","gender_preference","No preference") %>
+    </div>
+  </div>
+  <hr>
   <%= f.submit %>
 
-<% end %>
-
+  <% end %>
+</div>
 
 
 
