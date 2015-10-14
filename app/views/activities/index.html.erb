@@ -58,6 +58,25 @@
 
 
 
+  <div class="row">
+    <div class="large-4 large-offset-1 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:crossfit] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Crossfit" %>Crossfit
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:yoga] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Yoga" %>Yoga
+      </div>
+    </div>
+  </div>
+
+
+
 
   <div class="activity_container">
     <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
