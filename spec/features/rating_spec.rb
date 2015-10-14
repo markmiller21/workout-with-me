@@ -43,7 +43,7 @@ RSpec.feature "Ratings", :type => :feature do
     scenario "shows average rating for match" do
       @first_rating = Rating.create(rater_id: @user.id, ratee_id: potential_match.id, rank: 5)
       visit matches_path
-      expect(page).to have_content("User Rating")
+      expect(page).to have_content("Rating")
       expect(page).to have_content potential_match.average_rating
     end
 
