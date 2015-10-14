@@ -47,11 +47,11 @@ class UsersController < ApplicationController
         end
       end
       current_user.update_attributes(gender_preference: params[:user][:gender_preference])
-      redirect_to edit_preferences_path(current_user)
+      flash[:message] = "Preferences updated successfully"
     else
       flash[:error] = "Must choose at least 1 activity/preference"
-      redirect_to edit_preferences_path(current_user)
     end
+    redirect_to edit_preferences_path(current_user)
   end
 
   private
