@@ -50,6 +50,12 @@ RSpec.describe UsersController do
           post :create, user: { email: "jenny@example.com", password: "jenny", gender: "Female", age: 25 }
         }.to change(User,:count).by(0)
       end
+
+      it "empty email does not create new user" do
+        expect {
+          post :create, user: { name: "Jenny", password: "jenny", gender: "Female", age: 25 }
+        }.to change(User,:count).by(0)
+      end
     end
   end
 
