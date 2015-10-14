@@ -66,5 +66,11 @@ RSpec.describe MessagesController do
         post :create, match_id: @match,  message: { match_id: @match.id, sender_id: @user.id, receiver_id: @matched_user.id, content: "Hey!" }
       }.to change(@user.sender_messages,:count).by(1)
     end
+
+    it "increases receiver messages count by 1" do
+      expect {
+        post :create, match_id: @match,  message: { match_id: @match.id, sender_id: @user.id, receiver_id: @matched_user.id, content: "Hey!" }
+      }.to change(@matched_user.receiver_messages,:count).by(1)
+    end
   end
 end
