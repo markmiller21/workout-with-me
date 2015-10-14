@@ -5,10 +5,10 @@ $( document ).ready(function() {
         resizable: false,
         height:300,
         modal: true,
-        title: "yo",
+        title: "You've been matched!",
         open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
         buttons: {
-          "See your current matches!!!": function() {
+          "See your current matches!": function() {
             window.location = "/matches"
           },
           "Keep on swiping!": function() {
@@ -16,6 +16,7 @@ $( document ).ready(function() {
           }
         }
       });
+      $('.ui-dialog-buttonset').prepend($('.ui-dialog-titlebar'))
     });
   }
 });

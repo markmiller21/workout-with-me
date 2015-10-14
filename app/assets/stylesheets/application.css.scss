@@ -135,8 +135,21 @@ background-color: white;
 text-align: center;
 opacity: .8;
 filter: alpha(opacity=40);
-margin-top: 20px;
-height: 100px;
+height: 325px;
+margin-top:20px;
+vertical-align:center;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
+margin-top:50px;
+
+}
+
+.ui-dialog-titlebar{
+text-align: center;
+opacity: .8;
+filter: alpha(opacity=40);
+font-size:30px;
 }
 
 #receiver_name{
@@ -181,6 +194,16 @@ margin-left:200px;
 }
 
 .alert-message {
-  color: #43ac6a;
-  font-size: 10px;
+color: #43ac6a;
+font-size: 10px;
+position: absolute;
 }
+
+#activity_submit{
+text-align:center;
+}
+
+#dialog-confirm{
+  font-size:100px;
+}
+

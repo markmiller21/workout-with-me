@@ -25,13 +25,14 @@
 				<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h4>
 			</div>
 
+			<div id='letsgo'>
       <div id="dialog-confirm">
         <p><span class="ui-icon ui-icon-alert"></span></p>
       </div>
     </div>
 	</div>
 	<div class="row">
-      
+
 			<div class="large-6 medium-6 small-6 columns">
 				<%= form_for @match, html: {id: "dislike_form"} do |f| %>
 				<%= f.hidden_field :responder_id, value: @potential_match.id %>
