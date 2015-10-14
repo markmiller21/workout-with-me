@@ -36,20 +36,29 @@ RSpec.describe MessagesController do
         get :index, match_id: @match
         expect(@match.messages).to eq(@user.receiver_messages + @matched_user.sender_messages)
       end
-
     end
-    context "only one user liked" do
-      before :each do
-        @one_sided_match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 0)
-      end
+
+    # context "only one user liked" do
+    #   before :each do
+    #     @one_sided_match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 0)
+    #   end
 
       # it "does not render chat page" do
       #   get :index, match_id: @one_sided_match
       #   expect(response).to_not render_template :index
       # end
-    end
+    # end
   end
 
   describe "POST #create" do
+    it "increases message count by 1" do
+      @match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 1)
+      expect {
+        post :create, match_id: @match,  message: { match_id: @match.id, sender_id: @user.id, receiver_id: @matched_user.id, content: "Hey!" }
+      }.to change(Message,:count).by(1)
+    end
+
+    it "increases sender messages count by 1" do
+    end
   end
 end

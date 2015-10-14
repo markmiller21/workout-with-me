@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.create!(message_attributes)
+    render :index
   end
 
   private
