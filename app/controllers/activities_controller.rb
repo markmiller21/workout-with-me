@@ -6,9 +6,9 @@ class ActivitiesController < ApplicationController
 
   def create
     chosen_activities = params[:name]
-    if chosen_activities && params[:user]
+    if chosen_activities && params[:gender_preference]
       current_user.add_activities(chosen_activities)
-      current_user.update_attributes(gender_preference: params[:user][:gender_preference])
+      current_user.update_attributes(gender_preference: params[:gender_preference])
       redirect_to initiate_match_path
     else
       flash[:error] = "Must choose at least 1 activity/preference"
