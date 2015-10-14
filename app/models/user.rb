@@ -70,14 +70,11 @@ class User < ActiveRecord::Base
   end
 
   def average_rating
-    all_ratings = Rating.where(ratee_id: self.id).map do |rating|
-      rating.rank
-    end
-    if all_ratings == []
-      return "This user has no ratings yet"
+    all_ratings = ratee_ratings.map(&:rank)
+    if all_ratings.empty?
+      return nil
     else
-      sum_of_ratings = all_ratings.inject { |sum, rating| sum + rating }
-      average = sum_of_ratings.to_f/(all_ratings.length).to_f
+      (all_ratings.sum/all_ratings.length).to_f
     end
   end
 
