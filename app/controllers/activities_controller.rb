@@ -11,7 +11,7 @@ class ActivitiesController < ApplicationController
       current_user.update_attributes(gender_preference: params[:gender_preference])
       redirect_to initiate_match_path
     else
-      flash[:error] = "Must choose at least 1 activity/preference"
+      flash[:error] = "Must choose at least 1 activity"
       redirect_to activities_path
     end
   end

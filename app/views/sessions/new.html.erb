@@ -1,7 +1,6 @@
 <div class="spacer"></div>
 <div class="large-6 large-centered columns">
 	<div class="index-box">
-	<%= flash[:login_fail] %>
 		<div class="row">
 			<div class="large-12 columns">
 				<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>
@@ -17,11 +16,9 @@
 				<div class="row">
 					<div class="large-12 columns">
 						<%= f.password_field :password, placeholder: "Password" %>
+						<p class="error-message"><%= flash[:login_fail] %></p>
 					</div>
 				</div>
-
-				<div class="spacer"></div>
-
 
 				<div class="row">
 					<div class="large-12 columns">

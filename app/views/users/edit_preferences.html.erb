@@ -1,8 +1,8 @@
 <div class="large-12 columns">
   <div class="row">
     <h3 class="text-center">Edit Your Preferences</h3>
-    <%= flash[:error] %>
-    <%= flash[:message] %>
+    <p class="error-message"><%= flash[:error] %></p>
+    <p class="alert-message"><%= flash[:message] %></p>
   </div>
 
 <%= form_for @user, url: {action: "update_preferences" } do |f| %>
