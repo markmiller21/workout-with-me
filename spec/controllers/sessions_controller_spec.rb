@@ -14,7 +14,7 @@ describe SessionsController do
 			# it "redirects to a potential match page" do
 			# 	@potential_user.activities.create(name: "Tennis")
 			# 	post :create, session: { email: @user.email, password: @user.password }
-			# 	expect(response).to redirect_to(match_path(@potential_user))
+			# 	expect(response).to redirect_to(initiate_match_path)
 			# end
 
 			it "sets a sessoin" do
