@@ -1298,9 +1298,10 @@
         null,
         1,
         5,
-        5,
         null,
-        0,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -1347,6 +1348,6 @@
         null
       ]
     },
-    "timestamp": 1444795771
+    "timestamp": 1444795948
   }
 }
