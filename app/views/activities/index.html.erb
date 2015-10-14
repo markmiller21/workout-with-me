@@ -1,9 +1,12 @@
-<h3>Select Your Activities</h3>
-<%= flash[:error] %>
-<%= form_for @activities do |f| %>
-    No Preference
-    <%= radio_button("user","gender_preference","No preference") %>
+<div class="large-12 columns">
+  <div class="row">
+    <h3>Select Your Activities</h3>
+    <%= flash[:error] %>
   </div>
+<%= form_for @activities do |f| %>
+  <div class="row">
+  
+
   <div class="activity_container">
     <img src="http://www.womenshealthmag.com/sites/womenshealthmag.com/files/images/beauty-weights-art.jpg"/>
     <div class="spacer"></div>
@@ -14,6 +17,9 @@
     <img src="http://sport.maths.org/content/sites/sport.maths.org/files/iStock_Tennis_crop.jpg"/>
     <div class="spacer"></div>
     <%= check_box_tag "name[]", "Tennis" %>Tennis
+  </div>
+
+
   </div>
 
   <div class="activity_container">
@@ -44,6 +50,9 @@
     <%= radio_button("user","gender_preference","Female") %>
   </div>
   <div>
+    No Preference
+    <%= radio_button("user","gender_preference","No preference") %>
+  </div>
   <hr>
   <%= f.submit %>
 
