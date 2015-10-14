@@ -3,16 +3,17 @@
     <h3>Select Your Activities</h3>
     <%= flash[:error] %>
   </div>
+  <div class="spacer"></div>
   <%= form_for @activities do |f| %>
   <div class="row">
-    <div class="large-4 large-offset-1 columns">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:weight_lifting] %>" />
         <div class="spacer"></div>
         <%= check_box_tag "name[]","Lifting" %>Lifting
       </div>
     </div>
-    <div class="large-4 large-offset-2 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:tennis] %>"/>
         <div class="spacer"></div>
@@ -22,14 +23,14 @@
   </div>
 
   <div class="row">
-    <div class="large-4 large-offset-1 columns">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:basketball] %>"/>
         <div class="spacer"></div>
         <%= check_box_tag "name[]", "Basketball" %>Basketball
       </div>
     </div>
-    <div class="large-4 large-offset-2 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:spin] %>"/>
         <div class="spacer"></div>
@@ -40,14 +41,14 @@
 
 
   <div class="row">
-    <div class="large-4 large-offset-1 columns">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:running] %>"/>
         <div class="spacer"></div>
         <%= check_box_tag "name[]", "Running" %>Running
       </div>
     </div>
-    <div class="large-4 large-offset-2 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:soccer] %>"/>
         <div class="spacer"></div>
@@ -59,14 +60,14 @@
 
 
   <div class="row">
-    <div class="large-4 large-offset-1 columns">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:crossfit] %>"/>
         <div class="spacer"></div>
         <%= check_box_tag "name[]", "Crossfit" %>Crossfit
       </div>
     </div>
-    <div class="large-4 large-offset-2 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:yoga] %>"/>
         <div class="spacer"></div>
@@ -77,14 +78,14 @@
 
 
   <div class="row">
-    <div class="large-4 large-offset-1 columns">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:hiking] %>"/>
         <div class="spacer"></div>
         <%= check_box_tag "name[]", "Hiking" %>Hiking
       </div>
     </div>
-    <div class="large-4 large-offset-2 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:racquetball] %>"/>
         <div class="spacer"></div>
@@ -92,7 +93,7 @@
       </div>
     </div>
   </div>
-  
+
   <hr>
   
   <h3>I would like to be matched with:</h3>
