@@ -22,16 +22,60 @@
 
 			<div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
 				<div class="profile-box-show">
-					<h4 class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
+					<h4 id='yolo' data-pot-id='<%=@potential_match.id%>' class="text-center"><%=@potential_match.name%>,  <%=@potential_match.age%></h5>
 				</div>
 
 
-				<script >
-				if ($("#message").text() == "You've been matched!"){
-						 alert("You have a match!!!");
-						 $("#message").hide();
-						}
-				</script>
+				// <script >
+				// if ($("#message").text() == "You've been matched!"){
+				// 		 alert("You have a match!!!");
+				// 		 $("#message").hide();
+				// 		}
+				// </script>
+
+				<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+<script >
+        // if ($("#message").text() == "You've been matched!"){
+        //      alert("You have a match!!!" + );
+        //      $("#message").hide();
+        //     }
+
+        var test = $('#yolo').attr('data-pot-id')
+        if ($("#message").text() == "You've been matched!"){
+          $("#message").hide();
+          $(function() {
+            $( "#dialog-confirm" ).dialog({
+              resizable: false,
+              height:300,
+              modal: true,
+              open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
+              buttons: {
+                "Start chatting!": function() {
+                  window.location = "/matches/" + test + "/messages"
+                },
+                "Keep on swiping!": function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            });
+          });
+        }
+        </script>
+      </script>
+
+      <div id="dialog-confirm">
+        <p><span class="ui-icon ui-icon-alert"></span></p>
+      </div>
+
+
+
+
+
+
+
 
 				<div class="large-6 medium-6 small-6 columns">
 					<%= form_for @match, html: {id: "dislike_form"} do |f| %>
