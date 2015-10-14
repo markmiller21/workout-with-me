@@ -1,13 +1,16 @@
 <div class="spacer"></div>
 <div class="large-8 large-centered columns">
-  <% if flash[:errors] %>
-  <% flash[:errors].each do |msg| %>
-  <p class="error-message"><%= msg %></p>
-  <br>
-<% end %>
-<% end %>
+
 
   <div class="index-box">
+
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |msg| %>
+    <p class="error-message"><%= msg %></p>
+    <% end %>
+    <% end %>
+
+
     <div class="row">
       <div class="large-12 columns">
         <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
@@ -35,12 +38,12 @@
         <div class="row">
           <div class="large-12 columns">
             <div>
-            Male
-            <%= radio_button("user","gender","Male") %>
+              Male
+              <%= radio_button("user","gender","Male") %>
             </div>
             <div>
-            Female
-            <%= radio_button("user","gender","Female") %>
+              Female
+              <%= radio_button("user","gender","Female") %>
             </div>
           </div>
         </div>
@@ -65,7 +68,7 @@
 
 
 
-      <div class="row">
+        <div class="row">
           <div class="large-12 cloumns">
             <%= f.hidden_field :lat , id: 'lat', value: '' %>
             <%= f.hidden_field :long, id:'long', value: '' %>
