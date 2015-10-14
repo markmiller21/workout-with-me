@@ -6,7 +6,7 @@ class MatchesController < ApplicationController
   end
 
   def initiate_match
-    potential_matches = get_potential_matches(current_user)
+    potential_matches = current_user.get_potential_matches
     next_match = current_user.find_next_match(potential_matches)
     if next_match == nil
       render file: "error"
@@ -39,7 +39,7 @@ class MatchesController < ApplicationController
       end
     end
 
-    potential_matches = get_potential_matches(current_user)
+    potential_matches = current_user.get_potential_matches
     next_match = current_user.find_next_match(potential_matches)
     if next_match == nil
       render file: "error"
