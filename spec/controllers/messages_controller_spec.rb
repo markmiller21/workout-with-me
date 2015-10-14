@@ -51,14 +51,20 @@ RSpec.describe MessagesController do
   end
 
   describe "POST #create" do
-    it "increases message count by 1" do
+    before :each do
       @match = @matched_user.initiator_matches.create(responder_id: @user.id, accepted: 1)
+    end
+
+    it "increases message count by 1" do
       expect {
         post :create, match_id: @match,  message: { match_id: @match.id, sender_id: @user.id, receiver_id: @matched_user.id, content: "Hey!" }
       }.to change(Message,:count).by(1)
     end
 
     it "increases sender messages count by 1" do
+      expect {
+        post :create, match_id: @match,  message: { match_id: @match.id, sender_id: @user.id, receiver_id: @matched_user.id, content: "Hey!" }
+      }.to change(@user.sender_messages,:count).by(1)
     end
   end
 end
