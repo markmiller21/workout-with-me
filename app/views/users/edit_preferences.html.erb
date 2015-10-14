@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:tennis] %>"/>
         <div class="spacer"></div>
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
       <div class="activity_container">
         <img src="<%= Rails.configuration.image_urls[:spin] %>"/>
         <div class="spacer"></div>
@@ -66,14 +66,29 @@
     </div>
   </div>
 
-  <div class="activity_container">
-    <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
-    <div class="spacer"></div>
-    <% if @user.activities.find_by(name: "Soccer") %>
-      <%= check_box_tag "name[]","Soccer", {checked: true} %>Soccer
-    <% else %>
-      <%= check_box_tag "name[]","Soccer" %>Soccer
-    <% end %>
+  <div class="row">
+    <div class="large-4 large-offset-1 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:soccer] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Soccer") %>
+        <%= check_box_tag "name[]","Soccer", {checked: true} %>Soccer
+        <% else %>
+        <%= check_box_tag "name[]","Soccer" %>Soccer
+        <% end %>
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 medium-5 medium-offset-1 small-12 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:running] %>"/>
+        <div class="spacer"></div>
+        <% if @user.activities.find_by(name: "Running") %>
+        <%= check_box_tag "name[]","Running", {checked: true} %>Running
+        <% else %>
+        <%= check_box_tag "name[]","Running" %>Running
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <p>I would like to be matched with:</p>
