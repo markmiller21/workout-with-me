@@ -41,21 +41,17 @@ class UsersController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities && params[:user]
       chosen_activities.each do |activity|
-        if Activity.find_by(name: activity)
-          added_activity = Activity.find_by(name: activity)
-        else
-          added_activity = Activity.create(name: activity)
-        end
+        added_activity = Activity.find_or_create_by(name: activity)
         unless current_user.activities.include?(added_activity)
           current_user.activities << added_activity
         end
       end
       current_user.update_attributes(gender_preference: params[:user][:gender_preference])
-      redirect_to edit_preferences_path(current_user)
+      flash[:message] = "Preferences updated successfully"
     else
       flash[:error] = "Must choose at least 1 activity/preference"
-      redirect_to edit_preferences_path(current_user)
     end
+    redirect_to edit_preferences_path(current_user)
   end
 
   private
