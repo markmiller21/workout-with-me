@@ -65,7 +65,13 @@ RSpec.describe UsersController do
 
       it "no age does not create new user" do
         expect {
-          post :create, user: { name: "Jenny", email: "jenny@example.com", password: "jenny", gender: "Female", description: "I lift"}
+          post :create, user: { name: "Jenny", email: "jenny@example.com", password: "jenny", gender: "Female", description: "I lift" }
+        }.to change(User,:count).by(0)
+      end
+
+      it "no gender chosen does not create new user" do
+        expect {
+          post :create, user: { name: "Jenny", email: "jenny@example.com", password: "jenny", description: "I lift" }
         }.to change(User,:count).by(0)
       end
     end
