@@ -122,7 +122,7 @@ RSpec.describe UsersController do
       it "changes user's attributes" do
         patch :update, id: @user, user: { name: "Jenny" }
         @user.reload
-        @user.name.should eq("Jenny")
+        expect(@user.name).to eq("Jenny")
       end
 
       it "should redirect to user profile page" do
