@@ -76,7 +76,22 @@
   </div>
 
 
-
+  <div class="row">
+    <div class="large-4 large-offset-1 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:hiking] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Hiking" %>Hiking
+      </div>
+    </div>
+    <div class="large-4 large-offset-2 columns">
+      <div class="activity_container">
+        <img src="<%= Rails.configuration.image_urls[:racquetball] %>"/>
+        <div class="spacer"></div>
+        <%= check_box_tag "name[]", "Racquetball" %>Racquetball
+      </div>
+    </div>
+  </div>
 
   <div class="activity_container">
     <img src="http://rezatehranicohen.info/wp-content/uploads/rezatehranicohen-info/sites/593/Document.jpeg"/>
