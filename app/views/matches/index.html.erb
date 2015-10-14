@@ -1,7 +1,7 @@
-<h3><%= "Here are your matches  " + current_user.name %></h3>
+<h3 id='match_page_header'><%= "Here are your matches  " + current_user.name %></h3>
 <% @initiator_matches.each do |match| %>
   <%= link_to match.responder.name, match_messages_path(match) %>
-  <p>User Rating</p>
+  <p>Rating</p>
   <% if match.responder.average_rating == nil %>
     <p>This user has no ratings yet</p>
   <% else %>
@@ -11,7 +11,7 @@
 
 <% @responder_matches.each do |match| %>
   <%=link_to match.initiator.name, match_messages_path(match) %>
-  <p>User Rating</p>
+  <p>Rating</p>
   <% if match.initiator.average_rating == nil %>
     <p>This user has no ratings yet</p>
   <% else %>
