@@ -1,17 +1,17 @@
-$( document ).ready(function() {
+$(document).ready(function() {
   if ($("#message").text() == "You've been matched!"){
+    $("#message").hide();
     $(function() {
-      $( "#dialog-confirm" ).dialog({
+      $( "#error-confirm" ).dialog({
         resizable: false,
         height:300,
         modal: true,
-        title: "yo",
         open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
         buttons: {
-          "See your current matches!!!": function() {
+          "Start chatting!": function() {
             window.location = "/matches"
           },
-          "Keep on swiping!": function() {
+          "Close window!": function() {
             $( this ).dialog( "close" );
           }
         }

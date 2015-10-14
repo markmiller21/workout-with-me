@@ -2,33 +2,6 @@
 
 <h1> You have no more potential matches left </h1>
 
-
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-
-      <script >
-        if ($("#message").text() == "You've been matched!"){
-          $("#message").hide();
-          $(function() {
-            $( "#dialog-confirm" ).dialog({
-              resizable: false,
-              height:300,
-              modal: true,
-              open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
-              buttons: {
-                "Start chatting!": function() {
-                  window.location = "/matches"
-                },
-                "Keep swiping!": function() {
-                  window.location = ( "close" );
-                }
-              }
-            });
-          });
-        }
-        </script>
-
-        <div id="dialog-confirm">
-          <p><span class="ui-icon ui-icon-alert">YOU MATCHED!</span></p>
-        </div>
+<div id="error-confirm">
+  <p><span class="ui-icon ui-icon-alert"></span></p>
+</div>
