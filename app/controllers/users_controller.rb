@@ -41,12 +41,6 @@ class UsersController < ApplicationController
     chosen_activities = params[:name]
     if chosen_activities && params[:user]
       current_user.add_activities(chosen_activities)
-      # chosen_activities.each do |activity|
-      #   added_activity = Activity.find_or_create_by(name: activity)
-      #   unless current_user.activities.include?(added_activity)
-      #     current_user.activities << added_activity
-      #   end
-
       current_user.update_attributes(gender_preference: params[:user][:gender_preference])
       flash[:message] = "Preferences updated successfully"
     else
