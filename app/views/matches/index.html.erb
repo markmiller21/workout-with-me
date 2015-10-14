@@ -2,11 +2,19 @@
 <% @initiator_matches.each do |match| %>
   <%= link_to match.responder.name, match_messages_path(match) %>
   <p>User Rating</p>
-  <%= match.responder.average_rating %>
+  <% if match.responder.average_rating == nil %>
+    <p>This user has no ratings yet</p>
+  <% else %>
+    <%= match.responder.average_rating %>
+  <% end %>
 <% end %>
 
 <% @responder_matches.each do |match| %>
   <%=link_to match.initiator.name, match_messages_path(match) %>
   <p>User Rating</p>
-  <%= match.initiator.average_rating %>
+  <% if match.initiator.average_rating == nil %>
+    <p>This user has no ratings yet</p>
+  <% else %>
+    <%= match.initiator.average_rating %>
+  <% end %>
 <% end %>

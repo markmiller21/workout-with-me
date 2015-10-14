@@ -25,15 +25,56 @@ class User < ActiveRecord::Base
 
 	has_secure_password
 
-  def average_rating
-    all_ratings = Rating.where(ratee_id: self.id).map do |rating|
-      rating.rank
+  def get_potential_matches
+    potential_matches = Hash.new
+    self.activities.each do |activity|
+      if self.gender_preference == "No preference"
+        potential_users = activity.users
+      else
+        potential_users = activity.users.where(gender: self.gender_preference)
+      end
+        potential_users.each do |user|
+          if self != user
+            if potential_matches[user]
+              potential_matches[user] += 1
+            else
+              potential_matches[user] = 1
+            end
+          end
+        end
+      end
+    return potential_matches.sort {|a1,a2| a2[1]<=>a1[1]}
+  end
+
+  def find_next_match(potential_matches)
+    for x in 0..potential_matches.length
+      if Match.where(initiator_id: self.id, responder_id: potential_matches[x]) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: self.id, accepted: 1) != []
+        next
+      elsif Match.where(initiator_id: potential_matches[x], responder_id: self.id, accepted: -1) != []
+        next
+      else
+        return potential_matches[x]
+      end
     end
-    if all_ratings == []
-      return "This user has no ratings yet"
+  end
+
+   def add_activities(chosen_activities)
+    chosen_activities.each do |activity|
+      added_activity = Activity.find_or_create_by(name: activity)
+      unless self.activities.include?(added_activity)
+        self.activities << added_activity
+      end
+    end
+  end
+
+  def average_rating
+    all_ratings = ratee_ratings.map(&:rank)
+    if all_ratings.empty?
+      return nil
     else
-      sum_of_ratings = all_ratings.inject { |sum, rating| sum + rating }
-      average = sum_of_ratings.to_f/(all_ratings.length).to_f
+      (all_ratings.sum/all_ratings.length).to_f
     end
   end
 

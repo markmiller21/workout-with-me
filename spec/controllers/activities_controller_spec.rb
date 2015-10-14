@@ -44,13 +44,13 @@ RSpec.describe ActivitiesController do
 
     context "with valid attributes" do
       it "returns 302 status" do
-        post :create, name: ["Tennis"], user: {gender_preference: "Male"}
+        post :create, name: ["Tennis", "Soccer"], user: {gender_preference: "Male"}
         expect(response.status).to eq(302)
       end
 
       it "should show potential matches page" do
         potential_match.activities.create(name: "Tennis")
-        post :create, name: ["Tennis"], user: {gender_preference: "Male"}
+        post :create, name: ["Tennis", "Soccer"], user: {gender_preference: "Male"}
         expect(response).to redirect_to initiate_match_path
       end
 

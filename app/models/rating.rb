@@ -7,15 +7,11 @@ class Rating < ActiveRecord::Base
   validates :rater, :presence => true
 
   def match
-    if Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
-      match = Match.find_by(initiator_id: self.rater.id, responder_id: self.ratee.id, accepted: 1)
-    else
-      match = Match.find_by(initiator_id: self.ratee.id, responder_id: self.rater.id, accepted: 1)
-    end
+    Match.where(initiator_id: [self.rater.id, self.ratee.id], responder_id: [self.rater.id, self.ratee.id], accepted: 1)
   end
 
   def already_exists?
-    Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id) != []
+    !Rating.where(rater_id: self.rater.id, ratee_id: self.ratee.id).empty?
   end
 
 end

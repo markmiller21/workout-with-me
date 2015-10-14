@@ -7,7 +7,7 @@ RSpec.feature "Messages", :type => :feature do
     @user.activities.create(name: "Lifting")
     @user.locations.create(longitude: 131.123123,latitude: 123123.12312)
     visit root_path
-    click_link "Login Here"
+   first(:link,"Login Here").click
     fill_in 'Email', :with => @user.email
     fill_in 'Password', :with => @user.password
     click_button 'Login'

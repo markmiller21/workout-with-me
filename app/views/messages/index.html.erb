@@ -1,7 +1,12 @@
 <h1 id="chat_title">Chat</h1>
 <div class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb) %></div>
 <p><%= @receiver.name %></p>
-<p class="user_rating">User Rating: <%= @receiver.average_rating %></p>
+<p class="user_rating">User Rating:
+  <% if @receiver.average_rating == nil %>
+    <p>This user has no ratings yet</p>
+  <% else %>
+    <%= @receiver.average_rating %>
+  <% end %>
 <%= form_for @rating do |f| %>
   <%= f.hidden_field :ratee_id, value: @receiver.id %>
   <%= f.radio_button :rank, 1 %>
