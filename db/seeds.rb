@@ -3,6 +3,8 @@ dian = User.create(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian
 frank = User.create(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
 grant = User.create(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
 jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
+jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
+jenny.save
 julianna = User.create(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
 karl = User.create(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
 maggie = User.create(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
@@ -96,7 +98,7 @@ zach.activities << lifting
 # dian.avatar = File.open('/Users/myAccount/avatars/user.png')
 # grant.avatar = File.open('/Users/myAccount/avatars/user.png')
 # frank.avatar = File.open('/Users/myAccount/avatars/user.png')
-jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
+
 # julianna.avatar = File.open('/Users/myAccount/avatars/user.png')
 # karl.avatar = File.open('/Users/myAccount/avatars/user.png')
 # maggie.avatar = File.open('/Users/myAccount/avatars/user.png')
