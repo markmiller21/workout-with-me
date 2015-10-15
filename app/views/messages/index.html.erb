@@ -19,11 +19,9 @@
   </div>
 </div>
 
-<div class="row">
+<div id='container_chat' class="row">
   <div class="large-12 columns">
     <div class="row">
-      <div class="large-2 columns small-3"></div>
-      <div class="large-10 columns">
         <ul id="chat">
           <%= render @messages %>
         </ul>
@@ -37,7 +35,6 @@
           <% end %>
           <%= subscribe_to "/matches/#{@match.id}/messages" %>
         </ul>
-      </div>
     </div>
   </div>
   <hr/>

@@ -229,17 +229,21 @@ margin:auto;
 margin:auto;
 }
 
-.message_sender{
-background-color:blue;
-
-}
-
-.message_content{
-border-radius: 25px;
-}
 
 .message_content span{
-background-color:yellow;
+background-color:white;
 border-radius: 25px;
+padding: 7px;
+font-size:20px;
+}
 
+.message_sender span{
+background-color:blue;
+border-radius: 25px;
+font-size:13px;
+padding: 3px;
+}
+
+.small-spacer {
+  height: 5px;
 }
