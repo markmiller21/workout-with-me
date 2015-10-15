@@ -1,4 +1,4 @@
-Rails.application.configure do  
+Rails.application.configure do
   config.image_urls = {
     weight_lifting: "http://www.officialcollegelife.com/wp-content/uploads/2013/02/alabama-weight-room.jpg",
     basketball: "http://betterlivingpatios.com/wp-content/uploads/2014/04/Custom-Lighting-Ideas-for-Modern-Outdoor-Patio-Basketball-Court.jpg",
@@ -46,6 +46,14 @@ Rails.application.configure do
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credential => {
+      :bucket => ENV['fitfriender-assets'],
+      :access_key_id => ENV['AKIAJTHNDI75LP7KS67A'],
+      :secret_access_key => ENV['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']
+      }
+    }
   config.assets.raise_runtime_errors = true
 
   # Raises error for missing translations
