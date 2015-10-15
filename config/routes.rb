@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
   root 'sessions#index'
 
-  resources :matches, except: :destroy
+  resources :matches, only: [ :index, :show, :create]
   resources :activities, only: [ :index, :create, :destroy ]
-  resources :users
-  resources :users do
-    resources :matches
-  end
+  resources :users, except: :destroy
   resources :matches do
-    resources :messages
+    resources :messages, only: [:index, :create]
   end
-
-  resources :locations
-
-  # resources :messages
 
   get '/session' => 'sessions#index'
   get '/login' => 'sessions#new'
