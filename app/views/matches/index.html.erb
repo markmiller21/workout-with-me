@@ -4,28 +4,29 @@
       <h3 id='match_page_header'>Here are your matches</h3>
     </div>
   </div>
+<hr>
   <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-    <hr>
     <% @initiator_matches.each do |match| %>
+
     <div class="row">
-      <div class="large-2 columns small-3">
+      <div class="large-2 medium-3 small-4 columns">
         <div class="round-image-50-match-index">
           <%= image_tag match.responder.avatar.url(:thumb)%>
         </div>
       </div>
 
-      <div class="large-10 columns">
+      <div class="large-10 medium-9 small-8 columns">
         <div class="row">
           <div class="matches-index-activities-list">
             <strong><p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p></strong>
             <% if match.messages.all.last %>
               <div class="row">
-                <div class="large-12 columns small-3">
+                <div class="large-12 medium-12 small-12 columns">
                   <p id='activities-index-message-time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
                 </div>
               </div>
               <div class="row">
-                <div class="large-12 columns small-3">
+                <div class="large-12 medium-12 small-12 columns">
                   <div class="last-message-box"><p class='last_message'><%= match.messages.all.last.content %></p>
                   </div>
                 </div>
@@ -33,43 +34,48 @@
             <% else %>
               <p id="no_messages">No previous messages</p>
             <% end %>
-            <p class="start-chat"><%= link_to "Chat", match_messages_path(match) %></p>
+
             <div id="matched-user-activities">
               <% match.responder.activities.each do |activity| %>
-                <p><%= activity.name %></p>
+                <div class="activities-name">
+                  <p><%= activity.name %> </p>
+                </div>
               <% end %>
+              <div class="start-chat">
+                <p><%= link_to "Chat", match_messages_path(match) %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
     <% end %>
   </div>
 
 
  <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
-    <hr>
-    <% @responder_matches.each do |match| %>
+
+  <% @responder_matches.each do |match| %>
+
     <div class="row">
-      <div class="large-2 columns small-3">
+      <div class="large-2 medium-3 small-4 columns">
         <div class="round-image-50-match-index">
           <%= image_tag match.initiator.avatar.url(:thumb)%>
         </div>
       </div>
 
-      <div class="large-10 columns">
+      <div class="large-10 medium-9 small-8 columns">
         <div class="row">
           <div class="matches-index-activities-list">
             <strong><p class='matcher_name'><%= link_to match.initiator.name, match_messages_path(match) %></p></strong>
             <% if match.messages.all.last %>
               <div class="row">
-                <div class="large-12 columns small-3">
+                <div class="large-12 medium-12 small-12 columns">
                   <p id='activities-index-message-time' class='last_message'><%= match.messages.all.last.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%B %d, %Y at %l:%M") %></p>
                 </div>
               </div>
               <div class="row">
-                <div class="large-12 columns small-3">
+                <div class="large-12 medium-12 small-12 columns">
                   <div class="last-message-box"><p class='last_message'><%= match.messages.all.last.content %></p>
                   </div>
                 </div>
@@ -77,17 +83,21 @@
             <% else %>
               <p id="no_messages">No previous messages</p>
             <% end %>
-            <p class="start-chat"><%= link_to "Chat", match_messages_path(match) %></p>
+
             <div id="matched-user-activities">
               <% match.initiator.activities.each do |activity| %>
-                <p><%= activity.name %></p>
+                <div class="activities-name">
+                  <p><%= activity.name %> </p>
+                </div>
               <% end %>
+              <div class="start-chat">
+                <p><%= link_to "Chat", match_messages_path(match) %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
     <% end %>
   </div>
 </div>

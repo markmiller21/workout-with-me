@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'sessions#index'
 
-  resources :matches
-  resources :activities
+  resources :matches, except: :destroy
+  resources :activities, only: [ :index, :create, :destroy ]
   resources :users
   resources :users do
     resources :matches
