@@ -61,9 +61,9 @@ Rails.application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credential => {
-      :bucket => ENV['fitfriender-assets'],
-      :access_key_id => ENV['AKIAJTHNDI75LP7KS67A'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
     }
   config.log_level = :debug
