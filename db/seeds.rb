@@ -1,20 +1,58 @@
-cody = User.create(email: "codywebber@gmail.com", name: "Cody Weber", password: "cody", age: 22, gender: "Male", description: "Looking for someone to lift with 6 times per week.  Like to lift before 9 each day", gender_preference: "no_preference")
-dian = User.create(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian", age: 30, gender: "Female", description: "Looking for a spin partner and someone to go to some yoga classes with me.  Up for any night", gender_preference: "no_preference")
-frank = User.create(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
-grant = User.create(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
-jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
-jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
-jenny.save
-julianna = User.create(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
-karl = User.create(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
-maggie = User.create(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
-mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Need a new lifting partner since I moved to NYC.  I'm down any night of the week.  I'd also like to play ball occasionally.", gender_preference: "no_preference")
-marymargaret = User.create(email: "marymargarettonner@gmail.com", name: "Marymargaret Tonner", password: "marymargaret", age: 21, gender: "Female", description: "need to start running more and lifting a few nights a week", gender_preference: "no_preference")
-navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season", gender_preference: "no_preference")
-nick = User.create(email: "nickferraro@gmail.com", name: "Nick Ferraro", password: "nick", age: 23, gender: "Male", description: "I hit the gym 4 nights a week and run every other. Would love a partner to push me (evalavation masks encouraged)", gender_preference: "no_preference")
-tommy = User.create(email: "tommyeastman@gmail.com", name: "Tommy Eastman", password: "tommy", age: 23, gender: "Male", description: "Need to get back into the gym.  Also want to get back into yoga.", gender_preference: "no_preference")
-zach = User.create(email: "zachweiss@gmail.com", name: "Zach Weiss", password: "zach", age: 19, gender: "Male", description: "If you're down for 5am lifts or 9pm runs give me shout", gender_preference: "no_preference")
+cody = User.new(email: "codywebber@gmail.com", name: "Cody Weber", password: "cody", age: 22, gender: "Male", description: "Looking for someone to lift with 6 times per week.  Like to lift before 9 each day", gender_preference: "no_preference")
+cody.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/cody.jpg')
+cody.save
 
+dian = User.new(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian", age: 30, gender: "Female", description: "Looking for a spin partner and someone to go to some yoga classes with me.  Up for any night", gender_preference: "no_preference")
+dian.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/dian.jpg')
+dian.save
+
+frank = User.new(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+frank.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/frank.jpg')
+frank.save
+
+grant = User.new(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+grant.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/grant.jpg')
+grant.save
+
+jenny = User.new(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
+jenny.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/jenny.jpg')
+jenny.save
+
+julianna = User.new(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
+julianna.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/juilianna.jpg')
+julianna.save
+
+karl = User.new(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
+karl.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/karl.jpg')
+karl.save
+
+maggie = User.new(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
+maggie.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/maggie.jpg')
+maggie.save
+
+mark = User.new(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Need a new lifting partner since I moved to NYC.  I'm down any night of the week.  I'd also like to play ball occasionally.", gender_preference: "no_preference")
+mark.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/mark.jpg')
+mark.save
+
+marymargaret = User.new(email: "marymargarettonner@gmail.com", name: "Marymargaret Tonner", password: "marymargaret", age: 21, gender: "Female", description: "need to start running more and lifting a few nights a week", gender_preference: "no_preference")
+marymargaret.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/marymargaret.jpg')
+marymargaret.save
+
+navraj = User.new(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season", gender_preference: "no_preference")
+navraj.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/navraj.jpg')
+navraj.save
+
+nick = User.new(email: "nickferraro@gmail.com", name: "Nick Ferraro", password: "nick", age: 23, gender: "Male", description: "I hit the gym 4 nights a week and run every other. Would love a partner to push me (evalavation masks encouraged)", gender_preference: "no_preference")
+nick.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/nick.jpg')
+nick.save
+
+tommy = User.new(email: "tommyeastman@gmail.com", name: "Tommy Eastman", password: "tommy", age: 23, gender: "Male", description: "Need to get back into the gym.  Also want to get back into yoga.", gender_preference: "no_preference")
+tommy.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/tommy.jpg')
+tommy.save
+
+zach = User.new(email: "zachweiss@gmail.com", name: "Zach Weiss", password: "zach", age: 19, gender: "Male", description: "If you're down for 5am lifts or 9pm runs give me shout", gender_preference: "no_preference")
+zach.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/zach.jpg')
+zach.save
 cody.locations.create(latitude: 40.748817, longitude: -73.985428)
 dian.locations.create(latitude: 40.548812, longitude: -73.985421)
 frank.locations.create(latitude: 40.248817, longitude: -73.985422)
@@ -94,24 +132,8 @@ tommy.activities << yoga
 zach.activities << running
 zach.activities << lifting
 
-# cody.avatar = File.open('/Users/myAccount/avatars/user.png')
-# dian.avatar = File.open('/Users/myAccount/avatars/user.png')
-# grant.avatar = File.open('/Users/myAccount/avatars/user.png')
-# frank.avatar = File.open('/Users/myAccount/avatars/user.png')
-<<<<<<< Updated upstream
 
-=======
-# jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
->>>>>>> Stashed changes
-# julianna.avatar = File.open('/Users/myAccount/avatars/user.png')
-# karl.avatar = File.open('/Users/myAccount/avatars/user.png')
-# maggie.avatar = File.open('/Users/myAccount/avatars/user.png')
-# mark.avatar = File.open('/Users/myAccount/avatars/user.png')
-# marymargaret.avatar = File.open('/Users/myAccount/avatars/user.png')
-# navraj.avatar = File.open('/Users/myAccount/avatars/user.png')
-# nick.avatar = File.open('/Users/myAccount/avatars/user.png')
-# tommy.avatar = File.open('/Users/myAccount/avatars/user.png')
-# zach.avatar = File.open('/Users/myAccount/avatars/user.png')
+
 # for x in 0..100
 #   if x % 2 == 1
 #     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Male", description: Faker::Hacker.say_something_smart)
