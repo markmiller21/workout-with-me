@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       if params[:user][:long] != ""
         user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
       else
-        user.locations.create(longitude:40.7484, latitude:73.9857)
+        user.locations.create(longitude:-73.9857, latitude:40.7484)
       end
       redirect_to activities_path
     else
