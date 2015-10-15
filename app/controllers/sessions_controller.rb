@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       if params[:session][:lat] != ""
         user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
       else
-        user.locations.first.update_attributes(latitude: 555.555,longitude: 444.444)
+        user.locations.first.update_attributes(latitude: 40.7484,longitude: 73.9857)
       end
       flash[:message] = "You've succesfully logged in"
       potential_matches = user.get_potential_matches
