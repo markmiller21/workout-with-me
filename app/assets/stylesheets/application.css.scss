@@ -168,7 +168,10 @@ margin-bottom:-10px;
 
 .user_rating{
 margin-top:5px;
+<<<<<<< HEAD
 border-bottom: solid 1px;
+=======
+>>>>>>> Add color to the messages
 }
 
 .last_message{
@@ -223,5 +226,20 @@ margin:auto;
 }
 
 #rate_button{
-  margin:auto;
+margin:auto;
+}
+
+.message_sender{
+background-color:blue;
+
+}
+
+.message_content{
+border-radius: 25px;
+}
+
+.message_content span{
+background-color:yellow;
+border-radius: 25px;
+
 }
