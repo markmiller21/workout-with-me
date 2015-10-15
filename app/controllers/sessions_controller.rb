@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user.try(:authenticate, session_params[:password])
       session[:user_id] = user.id
-      user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
+      if params[:session][:lat] != ""
+        user.locations.first.update_attributes(latitude: session_params[:lat],longitude: session_params[:long])
+      else
+        user.locations.first.update_attributes(latitude: 555.555,longitude: 444.444)
+      end
       flash[:message] = "You've succesfully logged in"
       potential_matches = user.get_potential_matches
       next_match = user.find_next_match(potential_matches)
