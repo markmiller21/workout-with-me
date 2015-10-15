@@ -14,13 +14,17 @@ class UsersController < ApplicationController
   def create
   	user = User.new(user_params)
   	if user.save && user.valid?
-       user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
-  		session[:user_id] = user.id
-  		redirect_to activities_path
-  	else
+      session[:user_id] = user.id
+      if params[:user][:long] != ""
+        user.locations.create(longitude:params[:user][:long], latitude:params[:user][:lat])
+      else
+        user.locations.create(longitude:-73.9857, latitude:40.7484)
+      end
+      redirect_to activities_path
+    else
       flash[:errors] = user.errors.full_messages
-  		redirect_to new_user_path
-  	end
+      redirect_to new_user_path
+    end
   end
 
   def edit

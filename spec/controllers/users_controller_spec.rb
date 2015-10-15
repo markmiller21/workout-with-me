@@ -28,18 +28,19 @@ RSpec.describe UsersController do
     context "valid attributes" do
       it "creates new user" do
         expect {
-          post :create, user: user_attr
+          post :create, user: {name: user_attr[:name],email: user_attr[:email],password: user_attr[:password],age: user_attr[:age],gender: user_attr[:gender], long: 1.1,lat: 2.2}
+
         }.to change(User,:count).by(1)
       end
 
       it "redirects to activities path" do
-        post :create, user: user_attr
+        post :create, user: {name: user_attr[:name],email: user_attr[:email],password: user_attr[:password],age: user_attr[:age],gender: user_attr[:gender], long: 1.1,lat: 2.2}
         expect(response).to redirect_to activities_path
       end
 
       it "creates a new location for user" do
         expect {
-          post :create, user: user_attr
+          post :create, user: {name: user_attr[:name],email: user_attr[:email],password: user_attr[:password],age: user_attr[:age],gender: user_attr[:gender], long: 1.1,lat: 2.2}
         }.to change(Location,:count).by(1)
       end
     end

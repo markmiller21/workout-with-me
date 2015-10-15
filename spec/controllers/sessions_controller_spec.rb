@@ -18,17 +18,18 @@ describe SessionsController do
 			# end
 
 			it "sets a session" do
-				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password],lat: 1.1,long:2.2}
+
 				expect(session).to have_key(:user_id)
 			end
 
 			it "sets session to the user_id" do
-				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password],lat:1.1,long:2.2 }
 				expect(session[:user_id]).to eq(@user.id)
 			end
 
 			it "expects a message flash" do
-				post :create, session: { email: user_attr[:email], password: user_attr[:password] }
+				post :create, session: { email: user_attr[:email], password: user_attr[:password],lat:1.1,long:2.2 }
 				expect(flash[:message]).to have_content "You've succesfully logged in"
 			end
 		end
