@@ -1,48 +1,118 @@
-jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 24, gender: "Female", description: "looking for someone to play tennis with me occasionally.  Would also like to try some olympics lifts :)", gender_preference: "no_preference")
-mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Looking for someone to lift with 6 nights a week.  I'd also like to play ball occasionally.")
-navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season")
+cody = User.create(email: "codywebber@gmail.com", name: "Cody Weber", password: "cody", age: 22, gender: "Male", description: "Looking for someone to lift with 6 times per week.  Like to lift before 9 each day", gender_preference: "no_preference")
+dian = User.create(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian", age: 30, gender: "Female", description: "Looking for a spin partner and someone to go to some yoga classes with me.  Up for any night", gender_preference: "no_preference")
+frank = User.create(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+grant = User.create(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
+julianna = User.create(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
+karl = User.create(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
+maggie = User.create(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
+mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Need a new lifting partner since I moved to NYC.  I'm down any night of the week.  I'd also like to play ball occasionally.", gender_preference: "no_preference")
+marymargaret = User.create(email: "marymargarettonner@gmail.com", name: "Marymargaret Tonner", password: "marymargaret", age: 21, gender: "Female", description: "need to start running more and lifting a few nights a week", gender_preference: "no_preference")
+navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season", gender_preference: "no_preference")
+nick = User.create(email: "nickferraro@gmail.com", name: "Nick Ferraro", password: "nick", age: 23, gender: "Male", description: "I hit the gym 4 nights a week and run every other. Would love a partner to push me (evalavation masks encouraged)", gender_preference: "no_preference")
+tommy = User.create(email: "tommyeastman@gmail.com", name: "Tommy Eastman", password: "tommy", age: 23, gender: "Male", description: "Need to get back into the gym.  Also want to get back into yoga.", gender_preference: "no_preference")
+zach = User.create(email: "zachweiss@gmail.com", name: "Zach Weiss", password: "zach", age: 19, gender: "Male", description: "If you're down for 5am lifts or 9pm runs give me shout", gender_preference: "no_preference")
 
-jenny.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-mark.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-navraj.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+cody.locations.create(latitude: 40.748817, longitude: -73.985428)
+dian.locations.create(latitude: 40.548812, longitude: -73.985421)
+frank.locations.create(latitude: 40.248817, longitude: -73.985422)
+grant.locations.create(latitude: 40.743817, longitude: -73.985423)
+jenny.locations.create(latitude: 40.749817, longitude: -73.985424)
+julianna.locations.create(latitude: 40.749817, longitude: -73.985425)
+karl.locations.create(latitude: 40.748817, longitude: -73.985426)
+maggie.locations.create(latitude: 40.742187, longitude: -73.985427)
+mark.locations.create(latitude: 40.741117, longitude: -73.9854288)
+marymargaret.locations.create(latitude: 40.478817, longitude: -73.985429)
+navraj.locations.create(latitude: 40.748777, longitude: -73.985418)
+nick.locations.create(latitude: 40.749117, longitude: -73.985420)
+tommy.locations.create(latitude: 41.748817, longitude: -73.985419)
+zach.locations.create(latitude: 39.748817, longitude: -73.985410)
 
-lifting = Activity.create(name: "Lifting", image: "https://pixabay.com/static/uploads/photo/2015/02/27/17/44/weights-652488_640.jpg")
-tennis = Activity.create(name: "Tennis", image: "https://pixabay.com/static/uploads/photo/2015/09/10/19/36/tennis-934841_640.jpg")
-basketball = Activity.create(name: "Basketball", image: "https://pixabay.com/static/uploads/photo/2013/05/02/21/23/uss-nimitz-108622_640.jpg")
-spin = Activity.create(name: "Spin", image: "http://heuserhealth.com/wp-content/uploads/2014/01/iStock_000012790937Medium.jpg")
-soccer = Activity.create(name: "Soccer", image: "https://pixabay.com/static/uploads/photo/2014/05/21/15/28/soccer-349821_640.jpg")
-running = Activity.create(name: "Running", image: "https://res.cloudinary.com/mapmyfitness/image/upload/f167687b598b4deb85a33a0af8d0083c")
+lifting = Activity.create(name: "Lifting")
+tennis = Activity.create(name: "Tennis")
+basketball = Activity.create(name: "Basketball")
+spin = Activity.create(name: "Spin")
+soccer = Activity.create(name: "Soccer")
+running = Activity.create(name: "Running")
+crossfit = Activity.create(name: "Crossfit")
+yoga = Activity.create(name: "Yoga")
+hiking = Activity.create(name: "Hiking")
+racquetball = Activity.create(name: "Racquetball")
+
+cody.activities << lifting
+cody.activities << basketball
+cody.activities << crossfit
+
+dian.activities << yoga
+dian.activities << spin
+dian.activities << tennis
+
+grant.activities << lifting
+grant.activities << crossfit
+grant.activities << basketball
+
+frank.activities << lifting
+frank.activities << basketball
+frank.activities << soccer
+frank.activities << racquetball
+
+jenny.activities << tennis
+jenny.activities << lifting
+jenny.activities << running
+
+julianna.activities << running
+julianna.activities << yoga
+
+karl.activities << lifting
+karl.activities << basketball
+karl.activities << crossfit
+
+maggie.activities << running
+maggie.activities << yoga
+maggie.activities << hiking
 
 mark.activities << lifting
-jenny.activities << lifting
-navraj.activities << lifting
-jenny.activities << tennis
 mark.activities << basketball
-navraj.activities << basketball
-jenny.activities << spin
 mark.activities << spin
+
+marymargaret.activities << lifting
+marymargaret.activities << spin
+marymargaret.activities << running
+
+navraj.activities << lifting
+navraj.activities << basketball
 navraj.activities << soccer
 
-for x in 0..100
-  if x % 2 == 1
-    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Male", description: Faker::Hacker.say_something_smart)
-    new_user.activities << lifting
-  else
-    new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Female", description: Faker::Hacker.say_something_smart)
-    new_user.activities << spin
-  end
-  new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-  if x % 7 == 0
-    new_user.activities << tennis
-    new_user.activities << running
-  end
-  if x % 4 == 0
-    new_user.activities << basketball
-  end
-  if x % 11 == 0
-    new_user.activities << soccer
-  end
-end
+nick.activities << lifting
+nick.activities << running
+
+tommy.activities << lifting
+tommy.activities << yoga
+
+zach.activities << running
+zach.activities << lifting
+
+
+# for x in 0..100
+#   if x % 2 == 1
+#     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Male", description: Faker::Hacker.say_something_smart)
+#     new_user.activities << lifting
+#   else
+#     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Female", description: Faker::Hacker.say_something_smart)
+#     new_user.activities << spin
+#   end
+#   new_user.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+#   if x % 7 == 0
+#     new_user.activities << tennis
+#     new_user.activities << running
+#   end
+#   if x % 4 == 0
+#     new_user.activities << basketball
+#   end
+#   if x % 11 == 0
+#     new_user.activities << soccer
+#   end
+# end
 
 Location.where(latitude: nil, longitude: nil).each do |location|
     location.destroy
