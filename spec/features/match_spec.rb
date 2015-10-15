@@ -49,7 +49,7 @@ RSpec.feature "Matches", :type => :feature do
     it 'shows the matches for a current user' do
       Match.create(initiator_id: @matched_user.id, responder_id: @user.id, accepted: 1)
       click_link "Matches"
-      expect(page).to have_content "Here are your matches " + @user.name
+      expect(page).to have_content "Here are your matches"
     end
 
     it 'list a match on the page' do
