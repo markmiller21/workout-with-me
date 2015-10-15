@@ -98,7 +98,11 @@ zach.activities << lifting
 # dian.avatar = File.open('/Users/myAccount/avatars/user.png')
 # grant.avatar = File.open('/Users/myAccount/avatars/user.png')
 # frank.avatar = File.open('/Users/myAccount/avatars/user.png')
+<<<<<<< Updated upstream
 
+=======
+# jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
+>>>>>>> Stashed changes
 # julianna.avatar = File.open('/Users/myAccount/avatars/user.png')
 # karl.avatar = File.open('/Users/myAccount/avatars/user.png')
 # maggie.avatar = File.open('/Users/myAccount/avatars/user.png')
