@@ -1,59 +1,70 @@
-cody = User.create(email: "codywebber@gmail.com", name: "Cody Weber", password: "cody", age: 22, gender: "Male", description: "Looking for someone to lift with 6 times per week.  Like to lift before 9 each day", gender_preference: "no_preference")
-# cody.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/cody.jpg')
-# cody.save
+cody = User.new(email: "codywebber@gmail.com", name: "Cody Weber", password: "cody", age: 22, gender: "Male", description: "Looking for someone to lift with 6 times per week.  Like to lift before 9 each day", gender_preference: "no_preference")
+cody.avatar = File.open(File.expand_path("../fixtures/pictures/cody.jpg", __FILE__))
+cody.save
 
-dian = User.create(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian", age: 30, gender: "Female", description: "Looking for a spin partner and someone to go to some yoga classes with me.  Up for any night", gender_preference: "no_preference")
-# dian.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/dian.jpg')
-# dian.save
-# File.open('fixtures/pictures/dian.jpg')
+dian = User.new(email: "dianpan@gmail.com", name: "Dian Pan", password: "dian", age: 30, gender: "Female", description: "Looking for a spin partner and someone to go to some yoga classes with me.  Up for any night", gender_preference: "no_preference")
+dian.avatar = File.open(File.expand_path("../fixtures/pictures/dian.jpg", __FILE__))
+dian.save
 
-frank = User.create(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
-# frank.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/frank.jpg')
-# frank.save
+frank = User.new(email: "frankimohel@gmail.com", name: "Frank Imohel", password: "frank", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+frank.avatar = File.open(File.expand_path("../fixtures/pictures/frank.jpg", __FILE__))
+frank.save
 
-grant = User.create(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
-# grant.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/grant.jpg')
-# grant.save
 
-jenny = User.create(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
-# jenny.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/jenny.jpg')
-# jenny.save
+grant = User.new(email: "grantbarnekow@gmail.com", name: "Grant Barnekow", password: "grant", age: 23, gender: "Male", description: "Need someone to go to the gym with occasionally at night.  Also down to play pickup soccer", gender_preference: "no_preference")
+grant.avatar = File.open(File.expand_path("../fixtures/pictures/grant.jpg", __FILE__))
+grant.save
 
-julianna = User.create(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
-# julianna.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/juilianna.jpg')
-# julianna.save
 
-karl = User.create(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
-# karl.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/karl.jpg')
-# karl.save
+jenny = User.new(email: "leejenny0403@gmail.com", name: "Jenny Lee", password: "jenny", age: 25, gender: "Female", description: "Want to get back into tennis, who wants to come with me?", gender_preference: "no_preference")
+jenny.avatar = File.open(File.expand_path("../fixtures/pictures/jenny.jpg", __FILE__))
+jenny.save
 
-maggie = User.create(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
-# maggie.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/maggie.jpg')
-# maggie.save
 
-mark = User.create(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Need a new lifting partner since I moved to NYC.  I'm down any night of the week.  I'd also like to play ball occasionally.", gender_preference: "no_preference")
-# mark.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/mark.jpg')
-# mark.save
+julianna = User.new(email: "juliannarusakiewicz@gmail.com", name: "Julianna Rusakiewicz", password: "julianna", age: 31, gender: "Female", description: "I just wanna run and stretch! Who wants to join?", gender_preference: "no_preference")
+julianna.avatar = File.open(File.expand_path("../fixtures/pictures/juilianna.jpg", __FILE__))
+julianna.save
 
-marymargaret = User.create(email: "marymargarettonner@gmail.com", name: "Marymargaret Tonner", password: "marymargaret", age: 21, gender: "Female", description: "need to start running more and lifting a few nights a week", gender_preference: "no_preference")
-# marymargaret.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/marymargaret.jpg')
-# marymargaret.save
 
-navraj = User.create(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season", gender_preference: "no_preference")
-# navraj.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/navraj.jpg')
-# navraj.save
+karl = User.new(email: "karlgrabbi@gmail.com", name: "Karl Grabbi", password: "karl", age: 23, gender: "Male", description: "I need to huge before spring break.  Chest and Bi's all day! LETSSS GOOOOO!!!!", gender_preference: "no_preference")
+karl.avatar = File.open(File.expand_path("../fixtures/pictures/karl.jpg", __FILE__))
+karl.save
 
-nick = User.create(email: "nickferraro@gmail.com", name: "Nick Ferraro", password: "nick", age: 23, gender: "Male", description: "I hit the gym 4 nights a week and run every other. Would love a partner to push me (evalavation masks encouraged)", gender_preference: "no_preference")
-# nick.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/nick.jpg')
-# nick.save
 
-tommy = User.create(email: "tommyeastman@gmail.com", name: "Tommy Eastman", password: "tommy", age: 23, gender: "Male", description: "Need to get back into the gym.  Also want to get back into yoga.", gender_preference: "no_preference")
-# tommy.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/tommy.jpg')
-# tommy.save
+maggie = User.new(email: "maggiegallagher@gmail.com", name: "Maggie Gallagher", password: "maggie", age: 24, gender: "Female", description: "Would love to have someone to go on runs a few night a week with me.  Also up good classes", gender_preference: "no_preference")
+maggie.avatar = File.open(File.expand_path("../fixtures/pictures/maggie.jpg", __FILE__))
+maggie.save
 
-zach = User.create(email: "zachweiss@gmail.com", name: "Zach Weiss", password: "zach", age: 19, gender: "Male", description: "If you're down for 5am lifts or 9pm runs give me shout", gender_preference: "no_preference")
-# zach.avatar = File.open('/Users/navrajnat/Desktop/fit-friender-pictures/zach.jpg')
-# zach.save
+
+mark = User.new(email: "mark.kilpatrick.miller@gmail.com", name: "Mark Miller", password: "mark", age: 24, gender: "Male", description: "Need a new lifting partner since I moved to NYC.  I'm down any night of the week.  I'd also like to play ball occasionally.", gender_preference: "no_preference")
+mark.avatar = File.open(File.expand_path("../fixtures/pictures/mark.jpg", __FILE__))
+mark.save
+
+
+marymargaret = User.new(email: "marymargarettonner@gmail.com", name: "Marymargaret Tonner", password: "marymargaret", age: 21, gender: "Female", description: "need to start running more and lifting a few nights a week", gender_preference: "no_preference")
+marymargaret.avatar = File.open(File.expand_path("../fixtures/pictures/marymargaret.jpg", __FILE__))
+marymargaret.save
+
+
+navraj = User.new(email: "nnat425@gmail.com", name: "Navraj Nat", password: "navraj", age: 22, gender: "Male", description: "Looking to get back into the gym.  I know the basics but am looking for someone trying to get toned for beach body season", gender_preference: "no_preference")
+navraj.avatar = File.open(File.expand_path("../fixtures/pictures/navraj.jpg", __FILE__))
+navraj.save
+
+
+nick = User.new(email: "nickferraro@gmail.com", name: "Nick Ferraro", password: "nick", age: 23, gender: "Male", description: "I hit the gym 4 nights a week and run every other. Would love a partner to push me (evalavation masks encouraged)", gender_preference: "no_preference")
+nick.avatar = File.open(File.expand_path("../fixtures/pictures/nick.jpg", __FILE__))
+nick.save
+
+
+tommy = User.new(email: "tommyeastman@gmail.com", name: "Tommy Eastman", password: "tommy", age: 23, gender: "Male", description: "Need to get back into the gym.  Also want to get back into yoga.", gender_preference: "no_preference")
+tommy.avatar = File.open(File.expand_path("../fixtures/pictures/tommy.jpg", __FILE__))
+tommy.save
+
+
+zach = User.new(email: "zachweiss@gmail.com", name: "Zach Weiss", password: "zach", age: 19, gender: "Male", description: "If you're down for 5am lifts or 9pm runs give me shout", gender_preference: "no_preference")
+zach.avatar = File.open(File.expand_path("../fixtures/pictures/zach.jpg", __FILE__))
+zach.save
+
 cody.locations.create(latitude: 40.748817, longitude: -73.985428)
 dian.locations.create(latitude: 40.548812, longitude: -73.985421)
 frank.locations.create(latitude: 40.248817, longitude: -73.985422)
