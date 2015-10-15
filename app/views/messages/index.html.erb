@@ -4,7 +4,17 @@
       <h1 id="chat_title"><%= @receiver.name %></h1>
       <div id='chat_pic' class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb)%></div>
       <p class="user_rating"><%="User Rating: " + @receiver.average_rating.to_s %></p>
-
+      <%= form_for @rating do |f| %>
+      <%= f.hidden_field :ratee_id, value: @receiver.id %>
+      <%= f.radio_button :rank, 1 %>
+      <%= f.radio_button :rank, 2 %>
+      <%= f.radio_button :rank, 3 %>
+      <%= f.radio_button :rank, 4 %>
+      <%= f.radio_button :rank, 5 %>
+      <div id='rate_button'><%= f.submit "Rate " + @receiver.name %></div>
+      <% end %>
+      <p class="error-message"><%= flash[:error] %></p>
+      <p class="alert-message"><%= flash[:message] %></p>
     </div>
   </div>
 </div>
@@ -12,13 +22,20 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="row">
-      <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+      <div class="large-2 columns small-3"></div>
       <div class="large-10 columns">
-
-        <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+        <ul id="chat">
+          <%= render @messages %>
+        </ul>
         <ul class="inline-list">
-          <li><a href="">Reply</a></li>
-          <li><a href="">Share</a></li>
+          <%= form_for [@match,Message.new], remote: true do |f| %>
+          <%= f.hidden_field :match_id, value:params[:match_id] %>
+          <%= f.hidden_field :receiver_id, value: @receiver.id %>
+          <%= f.hidden_field :sender_id, value: current_user.id %>
+          <%= f.text_field :content %>
+          <%= f.submit "Send" %>
+          <% end %>
+          <%= subscribe_to "/matches/#{@match.id}/messages" %>
         </ul>
       </div>
     </div>
