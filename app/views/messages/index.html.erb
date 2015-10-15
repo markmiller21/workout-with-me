@@ -1,34 +1,44 @@
-<h1 id="chat_title">Chat</h1>
-<div class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb)%></div>
-<p id='receiver_name'><%= @receiver.name %></p>
-<p class="user_rating">User Rating:
-  <% if @receiver.average_rating == nil %>
-    <p>This user has no ratings yet</p>
-  <% else %>
-    <%= @receiver.average_rating %>
-  <% end %>
-<%= form_for @rating do |f| %>
-  <%= f.hidden_field :ratee_id, value: @receiver.id %>
-  <%= f.radio_button :rank, 1 %>
-  <%= f.radio_button :rank, 2 %>
-  <%= f.radio_button :rank, 3 %>
-  <%= f.radio_button :rank, 4 %>
-  <%= f.radio_button :rank, 5 %>
-  <%= f.submit "Rate " + @receiver.name %>
-<% end %>
-<p class="error-message"><%= flash[:error] %></p>
-<p class="alert-message"><%= flash[:message] %></p>
-<ul id="chat">
-  <%= render @messages %>
-</ul>
+<div class="row">
+  <div class="large-12 columns">
+    <div id='chat_header' class="panel">
+      <h1 id="chat_title"><%= @receiver.name %></h1>
+      <div id='chat_pic' class="round-image-50"><%= image_tag @receiver.avatar.url(:thumb)%></div>
+      <p class="user_rating"><%="User Rating: " + @receiver.average_rating.to_s %></p>
+      <%= form_for @rating do |f| %>
+      <%= f.hidden_field :ratee_id, value: @receiver.id %>
+      <%= f.radio_button :rank, 1 %>
+      <%= f.radio_button :rank, 2 %>
+      <%= f.radio_button :rank, 3 %>
+      <%= f.radio_button :rank, 4 %>
+      <%= f.radio_button :rank, 5 %>
+      <div id='rate_button'><%= f.submit "Rate " + @receiver.name %></div>
+      <% end %>
+      <p class="error-message"><%= flash[:error] %></p>
+      <p class="alert-message"><%= flash[:message] %></p>
+    </div>
+  </div>
+</div>
+
+<div id='container_chat' class="row">
+  <div class="large-12 columns">
+    <div class="row">
+        <ul id="chat">
+          <%= render @messages %>
+        </ul>
+        <ul class="inline-list">
+          <%= form_for [@match,Message.new], remote: true do |f| %>
+          <%= f.hidden_field :match_id, value:params[:match_id] %>
+          <%= f.hidden_field :receiver_id, value: @receiver.id %>
+          <%= f.hidden_field :sender_id, value: current_user.id %>
+          <%= f.text_field :content %>
+          <%= f.submit "Send" %>
+          <% end %>
+          <%= subscribe_to "/matches/#{@match.id}/messages" %>
+        </ul>
+    </div>
+  </div>
+  <hr/>
+</div>
 
 
-<%= form_for [@match,Message.new], remote: true do |f| %>
-  <%= f.hidden_field :match_id, value:params[:match_id] %>
-  <%= f.hidden_field :receiver_id, value: @receiver.id %>
-  <%= f.hidden_field :sender_id, value: current_user.id %>
-  <%= f.text_field :content %>
-  <%= f.submit "Send" %>
-<% end %>
 
-<%= subscribe_to "/matches/#{@match.id}/messages" %>
