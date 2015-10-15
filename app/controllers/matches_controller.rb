@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
   def index
     @initiator_matches = current_user.initiator_matches.where(accepted: 1)
     @responder_matches = current_user.responder_matches.where(accepted: 1)
+
   end
 
   def initiate_match
