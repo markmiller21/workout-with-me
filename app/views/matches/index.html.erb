@@ -1,22 +1,21 @@
 <div class="large-12 columns">
   <div class="row">
-    <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+    <div class="large-6 large-offset-3 medium-8 small-12 columns">
       <h3 id='match_page_header'>Here are your matches</h3>
     </div>
   </div>
 <hr>
-  <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+  <div class="large-6 large-offset-3 medium-8 small-12 columns">
     <% @initiator_matches.each do |match| %>
 
     <div class="row">
-      <div class="large-2 medium-3 small-4 columns">
-        <div class="round-image-50-match-index">
-          <%= image_tag match.responder.avatar.url(:thumb)%>
+      <div class="large-10 medium-9 small-12 columns">
+        <div class="row">
+          <div class="large-2 medium-3 small-3 columns">
+            <div class="round-image-50-match-index">
+            <%= image_tag match.responder.avatar.url(:thumb)%>
         </div>
       </div>
-
-      <div class="large-10 medium-9 small-8 columns">
-        <div class="row">
           <div class="matches-index-activities-list">
             <strong><p class='matcher_name'><%= link_to match.responder.name, match_messages_path(match) %></p></strong>
             <% if match.messages.all.last %>
@@ -53,19 +52,18 @@
   </div>
 
 
- <div class="large-6 large-offset-3 medium-8 medium-offset-2 small-12 columns">
+ <div class="large-6 large-offset-3 medium-8 small-12 columns">
 
   <% @responder_matches.each do |match| %>
 
     <div class="row">
-      <div class="large-2 medium-3 small-4 columns">
-        <div class="round-image-50-match-index">
-          <%= image_tag match.initiator.avatar.url(:thumb)%>
+      <div class="large-10 medium-9 small-12 columns">
+        <div class="row">
+          <div class="large-2 medium-3 small-3 columns">
+            <div class="round-image-50-match-index">
+            <%= image_tag match.initiator.avatar.url(:thumb)%>
         </div>
       </div>
-
-      <div class="large-10 medium-9 small-8 columns">
-        <div class="row">
           <div class="matches-index-activities-list">
             <strong><p class='matcher_name'><%= link_to match.initiator.name, match_messages_path(match) %></p></strong>
             <% if match.messages.all.last %>
