@@ -92,7 +92,20 @@ tommy.activities << yoga
 zach.activities << running
 zach.activities << lifting
 
-
+# cody.avatar = File.open('/Users/myAccount/avatars/user.png')
+# dian.avatar = File.open('/Users/myAccount/avatars/user.png')
+# grant.avatar = File.open('/Users/myAccount/avatars/user.png')
+# frank.avatar = File.open('/Users/myAccount/avatars/user.png')
+jenny.avatar = File.open('/Users/jennylee/Desktop/P1040222.JPG')
+# julianna.avatar = File.open('/Users/myAccount/avatars/user.png')
+# karl.avatar = File.open('/Users/myAccount/avatars/user.png')
+# maggie.avatar = File.open('/Users/myAccount/avatars/user.png')
+# mark.avatar = File.open('/Users/myAccount/avatars/user.png')
+# marymargaret.avatar = File.open('/Users/myAccount/avatars/user.png')
+# navraj.avatar = File.open('/Users/myAccount/avatars/user.png')
+# nick.avatar = File.open('/Users/myAccount/avatars/user.png')
+# tommy.avatar = File.open('/Users/myAccount/avatars/user.png')
+# zach.avatar = File.open('/Users/myAccount/avatars/user.png')
 # for x in 0..100
 #   if x % 2 == 1
 #     new_user = User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Internet.password(8), age: Faker::Number.between(15, 45), gender: "Male", description: Faker::Hacker.say_something_smart)
