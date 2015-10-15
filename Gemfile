@@ -60,4 +60,5 @@ end
 
 group :production do
   gem 'thin'
+  gem 'rails_12factor'
 end
