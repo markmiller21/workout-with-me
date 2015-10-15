@@ -34,7 +34,8 @@ gem 'pry'
 
 gem 'foundation-rails'
 gem "paperclip", "~> 4.3"
-gem 'aws-sdk'
+# gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'coveralls', require: false
 
 gem 'validates_email_format_of'
