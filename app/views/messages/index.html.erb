@@ -32,7 +32,7 @@
           <%= f.hidden_field :sender_id, value: current_user.id %>
           <%= f.text_field :content %>
           <div id="activity_submit">
-            <%= f.submit "Send" %>
+            <%= f.submit "Send", :class => 'button' %>
           </div>
           <% end %>
           <%= subscribe_to "/matches/#{@match.id}/messages" %>
