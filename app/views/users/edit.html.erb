@@ -1,0 +1,73 @@
+<h1>Edit Your Profile</h1>
+<div class="large-8 large-centered columns">
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |msg| %>
+      <p class="error-message"><%= msg %></p>
+  <br>
+    <% end %>
+  <% end %>
+
+  <div class="index-box">
+    <div class="row">
+      <div class="large-12 columns">
+        <%= form_for @user, url: "/users/#{@user.id}", html: { multipart: true } do |f| %>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.label :Name %>
+            <%= f.text_field :name, placeholder: "Name" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.label :Email %>
+            <%= f.text_field :email, placeholder: "Email" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <div>
+            Male
+            <%= radio_button("user","gender","Male") %>
+            </div>
+            <div>
+            Female
+            <%= radio_button("user","gender","Female") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <p>Description: <%= @user.description %></p>
+            <%= f.text_area :description, placeholder: "Description" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+          <%= f.label :age %>
+          <%= f.select :age, (18..99) %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.label :avatar %>
+           <div class="round-image-50"><%= image_tag current_user.avatar.url(:thumb) %></div>
+            <%= f.file_field :avatar, placeholder: "Avatar" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+              <%= f.submit "Update", :class => "button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

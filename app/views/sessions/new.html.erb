@@ -1,0 +1,40 @@
+<div class="spacer"></div>
+<div class="large-6 large-centered columns">
+	<div class="index-box">
+		<div class="row">
+			<div class="large-12 columns">
+				<%= form_for :session, url: '/login', html: {id: "login"} do |f| %>
+
+				<div class="row">
+					<div id="location_session" class="large-12 columns">
+						<%= f.text_field :email, placeholder: "Email" %>
+					</div>
+				</div>
+
+				<div class="spacer"></div>
+
+				<div class="row">
+					<div class="large-12 columns">
+						<%= f.password_field :password, placeholder: "Password" %>
+						<p class="error-message"><%= flash[:login_fail] %></p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-12 columns">
+						<%= f.hidden_field :lat , id: 'lat', value: '' %>
+						<%= f.hidden_field :long, id:'long', value: '' %>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="large-12 columns">
+						<%= f.submit "Login", :class => "button" %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

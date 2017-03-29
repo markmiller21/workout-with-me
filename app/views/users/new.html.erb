@@ -1,0 +1,87 @@
+<div class="spacer"></div>
+<div class="large-8 large-centered columns">
+
+
+  <div class="index-box">
+
+    <% if flash[:errors] %>
+    <% flash[:errors].each do |msg| %>
+    <p class="error-message"><%= msg %></p>
+    <% end %>
+    <% end %>
+
+
+    <div class="row">
+      <div class="large-12 columns">
+        <%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
+
+        <div class="row">
+          <div id='location_click' class="large-12 columns">
+            <%= f.text_field :name, placeholder: "Name" %>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.text_field :email, placeholder: "Email" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <div>
+              Male
+              <%= radio_button("user","gender","Male") %>
+            </div>
+            <div>
+              Female
+              <%= radio_button("user","gender","Female") %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.text_field :description, placeholder: "Description" %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+          <%= f.select :age, (18..60) %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.file_field :avatar, placeholder: "Avatar" %>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="large-12 cloumns">
+            <%= f.hidden_field :lat , id: 'lat', value: '' %>
+            <%= f.hidden_field :long, id:'long', value: '' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <%= f.submit "Register", :class => "button" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
